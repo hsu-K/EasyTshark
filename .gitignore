@@ -1,0 +1,19 @@
+# Visual Studio 相關
+.vs/
+*.sdf
+*.VC.db
+*.user
+*.ipch
+
+# 編譯產物
+Debug/
+Release/
+x64/
+*.obj
+*.exe
+*.ilk
+*.pdb
+*.tlog
+*.lastbuildstate
+
+.db

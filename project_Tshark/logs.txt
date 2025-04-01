@@ -1,0 +1,14 @@
+arguments: C:\\Program_Code\\C++\\project_Tshark\\x64\\Debug\\project_Tshark.exe
+Current dir: C:\Program_Code\C++\project_Tshark\project_Tshark
+File verbosity level: 9
+date       time         ( uptime  ) [ thread name/id ]                   file:line     v| 
+2025-04-01 23:09:12.291 (   0.367s) [main thread     ]             loguru.cpp:841   INFO| Logging to 'logs.txt', mode: 'w', verbosity: 9
+2025-04-01 23:09:12.626 (   0.702s) [main thread     ]      TsharkManager.cpp:131   INFO| 分析完成，數據包總數: 100
+2025-04-01 23:09:30.178 (  18.255s) [        8AB52387]     project_Tshark.cpp:40    INFO| Request received for /api/getPakcetList
+2025-04-01 23:09:30.181 (  18.258s) [        8AB52387]     project_Tshark.cpp:41    INFO| Request send from 127.0.0.1
+2025-04-01 23:09:30.184 (  18.261s) [        8AB52387]          PacketSQL.hpp:50    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE src_ip='0' or dst_ip='0' AND protocol='TCP'
+2025-04-01 23:09:30.189 (  18.265s) [        8AB52387]     project_Tshark.cpp:46    INFO| Received response with status 200
+2025-04-01 23:09:39.872 (  27.949s) [        F8137FF9]     project_Tshark.cpp:40    INFO| Request received for /api/getPakcetList
+2025-04-01 23:09:39.875 (  27.951s) [        F8137FF9]     project_Tshark.cpp:41    INFO| Request send from 127.0.0.1
+2025-04-01 23:09:39.878 (  27.954s) [        F8137FF9]          PacketSQL.hpp:50    INFO| [BUILD SQL]: SELECT * FROM t_packets
+2025-04-01 23:09:39.904 (  27.980s) [        F8137FF9]     project_Tshark.cpp:46    INFO| Received response with status 200

@@ -1,0 +1,11 @@
+arguments: C:\\Program_Code\\C++\\project_Tshark\\x64\\Debug\\httplib_test.exe
+Current dir: C:\Program_Code\C++\project_Tshark\httplib_test
+File verbosity level: 9
+date       time         ( uptime  ) [ thread name/id ]                   file:line     v| 
+2025-04-01 17:07:52.516 (   0.376s) [main thread     ]             loguru.cpp:841   INFO| Logging to 'logs.txt', mode: 'w', verbosity: 9
+2025-04-01 17:08:00.811 (   8.671s) [         8636405]       httplib_test.cpp:105   INFO| Request received for /user_info
+2025-04-01 17:08:00.811 (   8.671s) [         8636405]       httplib_test.cpp:106   INFO| Request send from 127.0.0.1
+2025-04-01 17:08:00.812 (   8.672s) [         8636405]       httplib_test.cpp:111   INFO| Received response with status 401
+2025-04-01 17:08:17.073 (  24.933s) [        4D08F7E9]       httplib_test.cpp:105   INFO| Request received for /user_info
+2025-04-01 17:08:17.073 (  24.933s) [        4D08F7E9]       httplib_test.cpp:106   INFO| Request send from 127.0.0.1
+2025-04-01 17:08:17.074 (  24.934s) [        4D08F7E9]       httplib_test.cpp:111   INFO| Received response with status 200
