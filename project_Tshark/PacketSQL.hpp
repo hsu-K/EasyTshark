@@ -21,17 +21,22 @@ public:
 
 		if (!condition.ip.empty()) {
 			char buf[100] = { 0 };
-			snprintf(buf, sizeof(buf), "src_ip='%s' or dst_ip='%s'", condition.ip.c_str(), condition.ip.c_str());
+			snprintf(buf, sizeof(buf), "src_ip LIKE'%s' or dst_ip LIKE '%s'", condition.ip.c_str(), condition.ip.c_str());
 			conditionList.push_back(buf);
 		}
-		if (!condition.port != 0) {
+		if (condition.port != 0) {
 			char buf[100] = { 0 };
-			snprintf(buf, sizeof(buf), "src_ip='%d' or dst_ip='%d'", condition.port, condition.port);
+			snprintf(buf, sizeof(buf), "src_port='%d' or dst_port='%d'", condition.port, condition.port);
 			conditionList.push_back(buf);
 		}
 		if (!condition.proto.empty()) {
 			char buf[100] = { 0 };
 			snprintf(buf, sizeof(buf), "protocol='%s'", condition.proto.c_str());
+			conditionList.push_back(buf);
+		}
+		if (!condition.mac_addr.empty()) {
+			char buf[100] = { 0 };
+			snprintf(buf, sizeof(buf), "src_mac='%s' or dst_mac='%s'", condition.mac_addr.c_str(), condition.mac_addr.c_str());
 			conditionList.push_back(buf);
 		}
 

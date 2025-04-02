@@ -25,7 +25,12 @@
 
 using std::string;
 
-
+enum WORK_STATUS {
+	STATUS_IDLE = 0,
+	STATUS_ANALYSIS = 1,
+	STATUS_CAPTURING = 2,
+	STATUS_MONITORING = 3
+};
 
 class TsharkManager
 {
@@ -42,6 +47,7 @@ public:
 
 	bool getPacketHexData(uint32_t frameNumber, std::vector<unsigned char>& data);
 
+	// 取得所有網路卡資訊
 	vector<AdapterInfo> getNetworkAdapter();
 
 	bool startCapture(string adapterName);
@@ -61,10 +67,21 @@ public:
 
 	void queryPackets(QueryCondition& queryCondition, std::vector<std::shared_ptr<Packet>>& packets);
 
+	// 將數據包格式轉為舊的pcap格式
+	bool convertToPcap(const std::string inputFile, const  std::string& outputFile);
+
+	// 獲取當前狀態
+	WORK_STATUS getWorkStatus();
+
+	// 重製tsharkManager的所有狀態
+	void reset();
+
 private:
 	bool parseline(string line, shared_ptr<Packet> packet);
 
 private:
+	string workDir;
+
 	string tsharkPath;
 
 	string editcapPath;
@@ -105,6 +122,10 @@ private:
 	void storageThreadEntry();
 
 	void processPacket(std::shared_ptr<Packet> packet);
+
+	// 工作狀態
+	WORK_STATUS workStatus = STATUS_IDLE;
+	std::recursive_mutex workStatusLock;
 
 };
 

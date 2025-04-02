@@ -83,6 +83,9 @@
     <ClInclude Include="PacketSQL.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
+    <ClInclude Include="AdaptorController.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="third_library\ip2region\ip2region.xdb" />

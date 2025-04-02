@@ -4,6 +4,7 @@
 #include "TsharkError.hpp"
 #include <iostream>
 
+
 class BaseController
 {
 public:
@@ -70,6 +71,23 @@ protected:
 		res.set_content(buffer.GetString(), "application/json");
 	}
 
+	// 返回JSON內容
+	void sendJsonResponse(httplib::Response& res, rapidjson::Document& dataDoc) {
+		rapidjson::Document resDoc;
+		rapidjson::Document::AllocatorType& allocator = resDoc.GetAllocator();
+		resDoc.SetObject();
+		resDoc.AddMember("code", ERROR_SUCCESS, allocator);
+		resDoc.AddMember("msg", rapidjson::Value(TsharkError::getErrorMsg(ERROR_SUCCESS).c_str(), allocator), allocator);
+		resDoc.AddMember("data", dataDoc, allocator);
+
+		rapidjson::StringBuffer buffer;
+		rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+		resDoc.Accept(writer);
+
+		res.set_content(buffer.GetString(), "application/json");
+	
+	}
+
 	// 返回成功響應，但沒有數據
 	void sendSuccessResponse(httplib::Response& res) {
 		rapidjson::Document resDoc;
@@ -127,6 +145,9 @@ protected:
 			// 提取字段並賦值到QueryCondition中
 			if (doc.HasMember("ip") && doc["ip"].IsString()) {
 				queryCondition.ip = doc["ip"].GetString();
+				if (queryCondition.ip.back() == '*') {
+					queryCondition.ip.back() = '%';
+				}
 			}
 
 			if (doc.HasMember("port") && doc["port"].IsUint()) {
@@ -135,6 +156,10 @@ protected:
 
 			if (doc.HasMember("proto") && doc["proto"].IsString()) {
 				queryCondition.proto = doc["proto"].GetString();
+			}
+
+			if (doc.HasMember("mac_addr") && doc["mac_addr"].IsString()) {
+				queryCondition.mac_addr = doc["mac_addr"].GetString();
 			}
 
 		}

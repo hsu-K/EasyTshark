@@ -108,6 +108,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Program_Code\C++\project_Tshark\project_Tshark\third_library;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdapterMonitorInfo.h" />
+    <ClInclude Include="AdaptorController.hpp" />
     <ClInclude Include="BaseController.hpp" />
     <ClInclude Include="http_Backend.hpp" />
     <ClInclude Include="MiscUtil.hpp" />

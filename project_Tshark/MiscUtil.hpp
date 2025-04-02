@@ -3,6 +3,8 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <sys/stat.h>
+#include <shlobj.h>
 #include <rapidxml/rapidxml.hpp>
 #include <rapidjson/document.h>
 #include <rapidjson/writer.h>
@@ -11,6 +13,7 @@
 
 using namespace rapidxml;
 using namespace rapidjson;
+
 
 class MiscUtil {
 public:
@@ -98,6 +101,48 @@ public:
 		std::cout << std::endl;
 	}
 
+    static bool fileExists(const std::string& filePath) {
+		struct stat buffer;
+		// stat 成功返回 0，表示檔案存在
+		return (stat(filePath.c_str(), &buffer) == 0);
+    }
+
+	// 獲得數據儲存的資料夾
+	static std::string getDefaultDataDir() {
+		static std::string dir = "";
+		if (!dir.empty()) {
+			return dir;
+		}
+#ifdef _WIN32
+		char* buffer = nullptr;
+		size_t size = 0;
+		if (_dupenv_s(&buffer, &size, "APPDATA") == 0 && buffer != nullptr){
+			dir = std::string(buffer) + "\\easytshark\\";
+			free(buffer);
+		}
+		
+#else
+		dir = std::string(std::getenv("HOME")) + "/easytshark/";
+#endif 
+
+		CreateDirectoryA(dir.c_str(), NULL);
+		return dir;
+	}
+	
+	static std::string getPcapNameByCurrentTimestamp(bool isFullPath = true) {
+		// 獲取當前時間
+		std::time_t nowTime = std::time(nullptr);
+		// 轉換成tm格式
+		std::tm localTime;
+		localtime_s(&localTime , &nowTime);
+
+		// 格式化文件名
+		char buffer[64];
+		std::strftime(buffer, sizeof(buffer), "easytshark_%Y-%m-%d_%H-%M-%S.pcap", &localTime);
+
+		return isFullPath ? getDefaultDataDir() + std::string(buffer) : std::string(buffer);
+	}
+
 private:
 	// 轉換成JSON時需要遞迴來處理子節點
 	static void xml_to_json_recursive(Value& json, xml_node<>* node, Document::AllocatorType& allocator) {
@@ -138,5 +183,5 @@ private:
 		}
 	}
 
-	
+
 };

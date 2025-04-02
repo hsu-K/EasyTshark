@@ -11,6 +11,7 @@
 #include "TsharkManager.h"
 #include "QueryCondition.hpp"
 #include "PacketController.hpp"
+#include "AdaptorController.hpp"
 
 
 #ifdef _WIN32
@@ -129,8 +130,23 @@ int main(int argc, char* argv[])
     //tsharkManager.getPacketDetailInfo(frame_number, strrr);
     //MiscUtil::printLongString(strrr);
  
-    g_ptrTsharkManager = std::make_shared<TsharkManager>("");
-    g_ptrTsharkManager->analysisFile(packet_file);
+    g_ptrTsharkManager = std::make_shared<TsharkManager>("C:\\Program_Code\\C++\\project_Tshark\\project_Tshark");
+
+    //g_ptrTsharkManager->startCapture("\\Device\\NPF_{AFB90727-75CB-4D83-B303-E9734ACB117B}");
+    //string input;
+    //while (true) {
+    //    cout << MiscUtil::UTF8ToANSIString("請輸入q停止抓包");
+    //    cin >> input;
+    //    if (input == "q") {
+    //        g_ptrTsharkManager->stopCapture();
+    //        break;
+    //    }
+    //}
+
+    //g_ptrTsharkManager->printAllPackets();
+
+    // 離線分析
+    //g_ptrTsharkManager->analysisFile(packet_file);
     
     //g_ptrTsharkManager->startCapture("\\Device\\NPF_{AFB90727-75CB-4D83-B303-E9734ACB117B}");
     //string input;
@@ -151,8 +167,9 @@ int main(int argc, char* argv[])
     PacketController packetController(svr, g_ptrTsharkManager);
     packetController.registerRoute();
 
-    //svr.Get("/hello", hello);
-    //svr.Post("/packet_query", query_packet);
+    AdaptorController adaptorController(svr, g_ptrTsharkManager);
+    adaptorController.registerRoute();
+
 
     svr.listen("127.0.0.1", 8080);
 

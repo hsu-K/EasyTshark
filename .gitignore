@@ -16,4 +16,5 @@ x64/
 *.tlog
 *.lastbuildstate
 
-.db
+*.db
+*.pcap

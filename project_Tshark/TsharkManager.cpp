@@ -45,18 +45,31 @@ string printHumanReadableTime(double timestamp) {
 
 TsharkManager::TsharkManager(string workDir)
 {
+    this->workDir = workDir;
     IP2RegionUtil::init("third_library\\ip2region\\ip2region.xdb");
     tsharkPath = "C:/Reverse_tools/Wireshark/tshark";
     editcapPath = "C:/Reverse_tools/Wireshark/editcap";
-    storage = std::make_shared<TsharkDatabase>("packet.db");
+    // 初始化儲存數據庫
+    std::string dbFullPath = this->workDir + "\\mytshark.db";
+    storage = std::make_shared<TsharkDatabase>(dbFullPath);
 }
 
 TsharkManager::~TsharkManager()
 {
+    
 }
 
 bool TsharkManager::analysisFile(string filePath, size_t& packetNum)
 {
+    reset();
+
+    // 統一轉換成標準的pcap格式
+    currentFilePath = MiscUtil::getPcapNameByCurrentTimestamp();
+    if (!convertToPcap(filePath, currentFilePath)) {
+        LOG_F(ERROR, "convert to pcap failed");
+        return false;
+    }
+
     std::vector<string> tsharkArgs = {
         tsharkPath,
         "-r", filePath,
@@ -135,10 +148,7 @@ bool TsharkManager::analysisFile(string filePath, size_t& packetNum)
 
     _pclose(pipe);
 
-    // 紀錄當前分析的文件路徑
-    currentFilePath = filePath;
-
-    return false;
+    return true;
 }
 
 bool TsharkManager::analysisFile(string filePath)
@@ -340,6 +350,8 @@ bool TsharkManager::parseline(string line, shared_ptr<Packet> packet)
 
 bool TsharkManager::startCapture(string adapterName)
 {
+    reset();
+
     LOG_F(INFO, MiscUtil::UTF8ToANSIString("即將開始抓包，網路卡：%s").c_str(), adapterName.c_str());
 
     stopFlag = false;
@@ -349,7 +361,10 @@ bool TsharkManager::startCapture(string adapterName)
 
     // 利用智能指針來管理線程，將captureWorkThreadEntry作為入口函數進行執行
     captureWorkThread = std::make_shared<std::thread>(&TsharkManager::captureWorkThreadEntry, this, "\"" + adapterName + "\"");
-    return false;
+    
+    // 設置工作狀態
+    workStatus = STATUS_CAPTURING;
+    return true;
 }
 
 bool TsharkManager::stopCapture()
@@ -366,13 +381,14 @@ bool TsharkManager::stopCapture()
     storageThread->join();
     storageThread.reset();
 
-
+    workStatus = STATUS_IDLE;
     return true;
 }
 
 void TsharkManager::captureWorkThreadEntry(string adapterName)
 {
-    string captureFile = "capture.pcap";
+    string captureFile = MiscUtil::getPcapNameByCurrentTimestamp();
+    //string captureFile = "capture.pcap";
     std::vector<string> tsharkArgs = {
             tsharkPath,
             "-i", adapterName.c_str(),
@@ -560,6 +576,8 @@ void TsharkManager::processPacket(std::shared_ptr<Packet> packet)
 // 開始監控網卡流量，為每個網路卡開一個線程監控
 void TsharkManager::startMonitorAdaptersFlowTrend()
 {
+    reset();
+
     std::unique_lock<std::recursive_mutex> lock(adapterFlowTrendMapLock);
 
     adapterFlowTrendMonitorStartTime = static_cast<long>(time(nullptr));
@@ -582,6 +600,9 @@ void TsharkManager::startMonitorAdaptersFlowTrend()
         }
 
     }
+
+    // 設置工作狀態
+    workStatus = STATUS_MONITORING;
 
 }
 
@@ -606,6 +627,7 @@ void TsharkManager::stopMonitorAdaptersFlowTrend()
     }
 
     adapterFlowTrendMonitorMap.clear();
+    workStatus = STATUS_IDLE;
 }
 
 // 取得網路卡的流量，並存在flowTrendData回傳
@@ -692,4 +714,64 @@ void TsharkManager::queryPackets(QueryCondition& queryCondition, std::vector<std
 {
     // 函數轉發
     storage->queryPackets(queryCondition, packets);
+}
+
+bool TsharkManager::convertToPcap(const std::string inputFile, const std::string& outputFile)
+{
+    // 構建editcap命令，將pcapng轉換為pcap格式
+    std::string command = editcapPath + " -F pcap " + inputFile + " " + outputFile;
+    if (!ProcessUtil::Exec(command)) {
+        LOG_F(ERROR, "Failed to convert to pcap format, command: %s", command.c_str());
+        return false;
+    }
+
+    LOG_F(INFO, "Successfully converted %s to %s in pcap format", inputFile.c_str(), outputFile.c_str());
+    return true;
+}
+
+WORK_STATUS TsharkManager::getWorkStatus()
+{
+    // 把workStatusLock這個鎖在lock的生命週期內鎖住，用於保障線程安全
+    std::unique_lock<std::recursive_mutex> lock(workStatusLock);
+    return workStatus;
+}
+
+void TsharkManager::reset()
+{
+    LOG_F(INFO, "reset called");
+
+    // 如果還在抓包或分析流量，就將其停止
+    if (workStatus == STATUS_CAPTURING) {
+        stopCapture();
+    }
+    else if (workStatus == STATUS_MONITORING) {
+        stopMonitorAdaptersFlowTrend();
+    }
+
+    workStatus = STATUS_IDLE;
+    captureTsharkPid = 0;
+    stopFlag = true;
+
+    allPackets.clear();
+    packetsTobeStore.clear();
+
+    if (captureWorkThread) {
+        captureWorkThread->join();
+        captureWorkThread.reset();
+    }
+    if (storageThread) {
+        storageThread->join();
+        storageThread.reset();
+    }
+
+    // 刪除之前的數據，從新開始
+    remove(currentFilePath.c_str());
+    currentFilePath = "";
+
+    // 重製數據庫
+    storage.reset(); // 稀構舊的對象
+    std::string dbFullPath = this->workDir + "\\mytshark.db";
+    remove(dbFullPath.c_str());
+    storage = std::make_shared<TsharkDatabase>(dbFullPath);
+
 }
