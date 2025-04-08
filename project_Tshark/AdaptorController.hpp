@@ -57,17 +57,17 @@ public:
 
     void startCapture(const httplib::Request& req, httplib::Response& res) {
         try {
-            // ¥ı½T»{°Ñ¼Æ¤£¬°ªÅ
+            // å…ˆç¢ºèªåƒæ•¸ä¸ç‚ºç©º
             if (req.body.empty()) {
                 return sendErrorResponse(res, ERROR_PARAMETER_WRONG);
             }
 
-            // ÀË¬d²{¦bªºª¬ºA¬O§_¥i¥H§ì¥]
+            // æª¢æŸ¥ç¾åœ¨çš„ç‹€æ…‹æ˜¯å¦å¯ä»¥æŠ“åŒ…
             if (__tsharkManager->getWorkStatus() != STATUS_IDLE) {
                 return sendErrorResponse(res, ERROR_STATUS_WRONG);
             }
 
-            // ¨Ï¥ÎRapidJSON¸ÑªRºô¸ô¥dªº¦WºÙ
+            // ä½¿ç”¨RapidJSONè§£æç¶²è·¯å¡çš„åç¨±
             rapidjson::Document doc;
             if (doc.Parse(req.body.c_str()).HasParseError()) {
                 return sendErrorResponse(res, ERROR_PARAMETER_WRONG);
@@ -81,7 +81,7 @@ public:
                 return sendErrorResponse(res, ERROR_PARAMETER_WRONG);
             }
 
-            // ¶}©l§ì¥]
+            // é–‹å§‹æŠ“åŒ…
             if (__tsharkManager->startCapture(adapterName)) {
                 
                 sendSuccessResponse(res);
@@ -99,7 +99,7 @@ public:
 
     void stopCapture(const httplib::Request& req, httplib::Response& res) {
         try {
-            // §PÂ_¬O§_¦b§ì¥]¡A¬Oªº¸Ü´NÃö³¬
+            // åˆ¤æ–·æ˜¯å¦åœ¨æŠ“åŒ…ï¼Œæ˜¯çš„è©±å°±é—œé–‰
             if (__tsharkManager->getWorkStatus() == STATUS_CAPTURING) {
                 __tsharkManager->stopCapture();
                 sendSuccessResponse(res);
@@ -115,7 +115,7 @@ public:
 
     void startMonitorAdaptersFlowTrend(const httplib::Request& req, httplib::Response& res) {
         try {
-            // ¥ı½T»{·í«eª¬ºA
+            // å…ˆç¢ºèªç•¶å‰ç‹€æ…‹
             if (__tsharkManager->getWorkStatus() == STATUS_IDLE) {
                 __tsharkManager->startMonitorAdaptersFlowTrend();
                 sendSuccessResponse(res);
@@ -134,7 +134,7 @@ public:
 
     void stopMonitorAdaptersFlowTrend(const httplib::Request& req, httplib::Response& res) {
         try {
-            // ¥ı½T»{·í«eª¬ºA
+            // å…ˆç¢ºèªç•¶å‰ç‹€æ…‹
             if (__tsharkManager->getWorkStatus() == STATUS_MONITORING) {
                 __tsharkManager->stopMonitorAdaptersFlowTrend();
                 sendSuccessResponse(res);
@@ -153,16 +153,16 @@ public:
             std::map<std::string, std::map<long, long>> flowTrendData;
             __tsharkManager->getAdapterFlowTrendData(flowTrendData);
 
-            // ±NflowTrendDataÂà´«¬°jsonªº§Î¦¡
+            // å°‡flowTrendDataè½‰æ›ç‚ºjsonçš„å½¢å¼
             rapidjson::Document resDoc;
             rapidjson::Document::AllocatorType& allocator = resDoc.GetAllocator();
             resDoc.SetObject();
 
-            // ²K¥[code ©M msg
+            // æ·»åŠ code å’Œ msg
             resDoc.AddMember("code", ERROR_SUCCESS, allocator);
             resDoc.AddMember("msg", rapidjson::Value(TsharkError::getErrorMsg(ERROR_SUCCESS).c_str(), allocator), allocator);
 
-            // ºc«Ødata
+            // æ§‹å»ºdata
             rapidjson::Value dataObject(rapidjson::kObjectType);
             for (const auto& adapterItem : flowTrendData) {
                 rapidjson::Value adapterDataList(rapidjson::kArrayType);
@@ -178,7 +178,7 @@ public:
 
             resDoc.AddMember("data", dataObject, allocator);
 
-            // §Ç¦C¤Æ¬°JSON¦r²Å¦ê
+            // åºåˆ—åŒ–ç‚ºJSONå­—ç¬¦ä¸²
             rapidjson::StringBuffer buffer;
             rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
             resDoc.Accept(writer);
@@ -193,17 +193,17 @@ public:
 
     void getAdaptersList(const httplib::Request& req, httplib::Response& res) {
         try {
-            // ¥ı½T»{·í«eª¬ºA
+            // å…ˆç¢ºèªç•¶å‰ç‹€æ…‹
             std::vector<AdapterInfo> adapterList = __tsharkManager->getNetworkAdapter();
             rapidjson::Document resDoc;
             rapidjson::Document::AllocatorType& allocator = resDoc.GetAllocator();
             resDoc.SetObject();
 
-            // ²K¥[code ©M msg
+            // æ·»åŠ code å’Œ msg
             resDoc.AddMember("code", ERROR_SUCCESS, allocator);
             resDoc.AddMember("msg", rapidjson::Value(TsharkError::getErrorMsg(ERROR_SUCCESS).c_str(), allocator), allocator);
 
-            // ºc«Ødata
+            // æ§‹å»ºdata
             rapidjson::Value adapterData(rapidjson::kArrayType);
             for (const auto& adapterItem : adapterList) {
                 rapidjson::Value adapterObj(rapidjson::kObjectType);
@@ -214,7 +214,7 @@ public:
             }
             resDoc.AddMember("data", adapterData, allocator);
 
-            // §Ç¦C¤Æ¬°JSON¦r²Å¦ê
+            // åºåˆ—åŒ–ç‚ºJSONå­—ç¬¦ä¸²
             rapidjson::StringBuffer buffer;
             rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
             resDoc.Accept(writer);

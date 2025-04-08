@@ -84,6 +84,8 @@ bool TsharkManager::analysisFile(string filePath, size_t& packetNum)
         "-e", "ipv6.src",
         "-e", "ip.dst",
         "-e", "ipv6.dst",
+        "-e", "ip.proto",
+        "-e", "ipv6.nxt",
         "-e", "tcp.srcport",
         "-e", "udp.srcport",
         "-e", "tcp.dstport",
@@ -316,14 +318,16 @@ bool TsharkManager::parseline(string line, shared_ptr<Packet> packet)
     // 7: ipv6.src
     // 8: ip.dst
     // 9: ipv6.dst
-    // 10: tcp.srcport
-    // 11: udp.srcport
-    // 12: tcp.dstport
-    // 13: udp.dstport
-    // 14: _ws.col.Protocol
-    // 15: _ws.col.Info
+    // 10: ip.proto
+	// 11: ipv6.nxt
+    // 12: tcp.srcport
+    // 13: udp.srcport
+    // 14: tcp.dstport
+    // 15: udp.dstport
+    // 16: _ws.col.Protocol
+    // 17: _ws.col.Info
 
-    if (fields.size() >= 16) {
+    if (fields.size() >= 18) {
         packet->frame_number = std::stoi(fields[0]);
         packet->time = std::stod(fields[1]);
         packet->len = std::stoi(fields[2]);
@@ -333,14 +337,20 @@ bool TsharkManager::parseline(string line, shared_ptr<Packet> packet)
         packet->src_ip = fields[6].empty() ? fields[7] : fields[6];
         packet->dst_ip = fields[8].empty() ? fields[9] : fields[8];
         if (!fields[10].empty() || !fields[11].empty()) {
-            packet->src_port = std::stoi(fields[10].empty() ? fields[11] : fields[10]);
+            uint8_t transProtoNumber = std::stoi(fields[10].empty() ? fields[11] : fields[10]);
+            if (ipProtoMap.find(transProtoNumber) != ipProtoMap.end()) {
+				packet->trans_proto = ipProtoMap[transProtoNumber];
+            }
         }
 
         if (!fields[12].empty() || !fields[13].empty()) {
-            packet->dst_port = std::stoi(fields[12].empty() ? fields[13] : fields[12]);
+            packet->src_port = std::stoi(fields[12].empty() ? fields[13] : fields[12]);
         }
-        packet->protocol = fields[14];
-        packet->info = fields[15];
+        if (!fields[14].empty() || !fields[15].empty()) {
+            packet->dst_port = std::stoi(fields[14].empty() ? fields[15] : fields[14]);
+        }
+        packet->protocol = fields[16];
+        packet->info = fields[17];
         return true;
     }
     else {
@@ -405,12 +415,14 @@ void TsharkManager::captureWorkThreadEntry(string adapterName)
             "-e", "ipv6.src",
             "-e", "ip.dst",
             "-e", "ipv6.dst",
+            "-e", "ip.proto",
+            "-e", "ipv6.nxt",
             "-e", "tcp.srcport",
             "-e", "udp.srcport",
             "-e", "tcp.dstport",
             "-e", "udp.dstport",
             "-e", "_ws.col.Protocol",
-            "-e", "_ws.col.Info"
+            "-e", "_ws.col.Info",
     };
 
     string command;
@@ -571,6 +583,56 @@ void TsharkManager::processPacket(std::shared_ptr<Packet> packet)
     storeLock.lock();
     packetsTobeStore.push_back(packet);
     storeLock.unlock();
+
+    // 只處理TCP和UDP協議
+    if (packet->trans_proto == "TCP" || packet->trans_proto == "UDP") {
+        // 創建五元組
+        FiveTuple tuple{ packet->src_ip, packet->dst_ip, packet->src_port, packet->dst_port, packet->trans_proto };
+
+        std::shared_ptr<Session> session;
+        if (sessionMap.find(tuple) == sessionMap.end()) {
+			// 創建新的session，因為沒有找到對應的五元組
+            session = std::make_shared<Session>();
+            session->session_id = sessionMap.size() + 1;
+			session->ip1 = packet->src_ip;
+			session->ip2 = packet->dst_ip;
+			session->ip1_location = packet->src_location;
+			session->ip2_location = packet->dst_location;
+			session->ip1_port = packet->src_port;
+			session->ip2_port = packet->dst_port;
+            session->start_time = packet->time;
+			session->end_time = packet->time;
+            session->trans_proto = packet->trans_proto;
+            if (packet->protocol != "TCP" && packet->protocol != "UDP") {
+				session->app_proto = packet->protocol;
+            }
+
+            sessionMap.insert(std::make_pair<>(tuple, session));
+        }
+        else {
+            // 已經有對應的五元組，就更新seesion
+            session = sessionMap[tuple];
+			session->end_time = packet->time;
+            if (packet->protocol != "TCP" && packet->protocol != "UDP") {
+                session->app_proto = packet->protocol;
+            }
+        }
+
+        session->packet_count++;
+		session->total_bytes += packet->len;
+		packet->belong_session_id = session->session_id;
+
+        // 統計雙方交互的數據
+		if (session->ip1 == packet->src_ip) {
+			session->ip1_send_packets_count++;
+			session->ip1_send_bytes_count += packet->len;
+		}
+		else if (session->ip2 == packet->src_ip) {
+			session->ip2_send_packets_count++;
+			session->ip2_send_bytes_count += packet->len;
+		}
+    
+    }
 }
 
 // 開始監控網卡流量，為每個網路卡開一個線程監控
@@ -774,4 +836,19 @@ void TsharkManager::reset()
     remove(dbFullPath.c_str());
     storage = std::make_shared<TsharkDatabase>(dbFullPath);
 
+}
+
+void TsharkManager::printAllSessions()
+{
+    for (auto& item : sessionMap) {
+        rapidjson::Document doc(kObjectType);
+		item.second->toJsonObj(doc, doc.GetAllocator());
+
+		// 序列化JSON字符串
+		rapidjson::StringBuffer buffer;
+		rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+		doc.Accept(writer);
+        MiscUtil::printLongString(buffer.GetString());
+		//std::cout << buffer.GetString() << std::endl;
+    }
 }

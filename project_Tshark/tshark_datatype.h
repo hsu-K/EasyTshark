@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "rapidjson/document.h"
+#include "BaseDataObject.hpp"
 using namespace std;
 
 
@@ -21,7 +22,7 @@ struct PacketHeader {
     uint32_t len;
 };
 
-class Packet {
+class Packet : public BaseDataObject{
 public:
     int frame_number = 0;
     double time = 0;
@@ -35,11 +36,13 @@ public:
     string dst_ip;
     uint16_t dst_port = 0;
     string dst_location;
-    string protocol;
+	string trans_proto; // 傳輸協定
+	string protocol;    // 這只會顯示最上層的協定，不一定會是傳輸層的
     string info;
     uint32_t file_offset = 0;
+	uint32_t belong_session_id = 0; // 這個封包所屬的session id
 
-    void toJsonObj(rapidjson::Value& obj, rapidjson::Document::AllocatorType& allocator) const {
+    virtual void toJsonObj(rapidjson::Value& obj, rapidjson::Document::AllocatorType& allocator) const {
         //rapidjson::Value pktObj(rapidjson::kObjectType);
         obj.AddMember("frame_number", frame_number, allocator);
         obj.AddMember("timestamp", time, allocator);
@@ -51,6 +54,7 @@ public:
         obj.AddMember("dst_ip", rapidjson::Value(dst_ip.c_str(), allocator), allocator);
         obj.AddMember("dst_location", rapidjson::Value(dst_location.c_str(), allocator), allocator);
         obj.AddMember("dst_port", dst_port, allocator);
+        obj.AddMember("trans_proto", rapidjson::Value(trans_proto.c_str(), allocator), allocator);
         obj.AddMember("len", len, allocator);
         obj.AddMember("cap_len", cap_len, allocator);
         obj.AddMember("protocol", rapidjson::Value(protocol.c_str(), allocator), allocator);

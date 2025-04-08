@@ -145,12 +145,14 @@
     <ClInclude Include="AdapterMonitorInfo.h" />
     <ClInclude Include="AdaptorController.hpp" />
     <ClInclude Include="BaseController.hpp" />
+    <ClInclude Include="BaseDataObject.hpp" />
     <ClInclude Include="http_Backend.hpp" />
     <ClInclude Include="MiscUtil.hpp" />
     <ClInclude Include="PacketController.hpp" />
     <ClInclude Include="PacketSQL.hpp" />
     <ClInclude Include="ProcessUtil.hpp" />
     <ClInclude Include="QueryCondition.hpp" />
+    <ClInclude Include="Session.hpp" />
     <ClInclude Include="TsharkDatabase.hpp" />
     <ClInclude Include="Translator.hpp" />
     <ClInclude Include="TsharkError.hpp" />

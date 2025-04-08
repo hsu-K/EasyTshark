@@ -79,44 +79,6 @@ int main(int argc, char* argv[])
 
     //tsharkManager.printAllPackets();
 
-
-    /*
-    tsharkManager.startMonitorAdaptersFlowTrend();
-
-    // 睡眠十秒鐘，等待網卡數據
-    std::this_thread::sleep_for(std::chrono::seconds(10));
-
-    std::map<std::string, std::map<long, long>> trendData;
-    tsharkManager.getAdapterFlowTrendData(trendData);
-
-    tsharkManager.stopMonitorAdaptersFlowTrend();
-    rapidjson::Document resDoc;
-    rapidjson::Document::AllocatorType& allocator = resDoc.GetAllocator();
-    resDoc.SetObject();
-    rapidjson::Value dataObject(rapidjson::kObjectType);
-    for (const auto& adapterItem : trendData) {
-        rapidjson::Value adapterDataList(rapidjson::kArrayType);
-        for (const auto& timeItem : adapterItem.second) {
-            rapidjson::Value timeObj(rapidjson::kObjectType);
-            timeObj.AddMember("time", (unsigned int)timeItem.first, allocator);
-            timeObj.AddMember("bytes", (unsigned int)timeItem.second, allocator);
-            adapterDataList.PushBack(timeObj, allocator);
-        }
-
-        dataObject.AddMember(rapidjson::StringRef(adapterItem.first.c_str()), adapterDataList, allocator);
-    }
-    resDoc.AddMember("data", dataObject, allocator);
-
-    // 序列化為JSON字符串
-    rapidjson::StringBuffer buffer;
-    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
-    resDoc.Accept(writer);
-
-    LOG_F(INFO, UTF8ToANSIString("網卡流量監控數據：%s").c_str(), buffer.GetString());
-
-    */
-
-
     // 讀取單個封包的詳細資料
     //string filePath;
     //cout << MiscUtil::UTF8ToANSIString("請輸入要讀取的檔案：");
@@ -159,6 +121,7 @@ int main(int argc, char* argv[])
     //    }
     //}
 
+    
     httplib::Server svr;
     
     svr.set_pre_routing_handler(before_request);
@@ -172,6 +135,10 @@ int main(int argc, char* argv[])
 
 
     svr.listen("127.0.0.1", 8080);
+    
+ //   g_ptrTsharkManager->analysisFile(packet_file);
+ //   g_ptrTsharkManager->printAllSessions();
+	//system("pause");
 
     return 0;
 }

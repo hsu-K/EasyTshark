@@ -86,6 +86,12 @@
     <ClInclude Include="AdaptorController.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
+    <ClInclude Include="BaseDataObject.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Session.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="third_library\ip2region\ip2region.xdb" />

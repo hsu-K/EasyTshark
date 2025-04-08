@@ -10,6 +10,7 @@
 #include "Translator.hpp"
 #include "TsharkDatabase.hpp"
 #include "QueryCondition.hpp"
+#include "Session.hpp"
 
 #include <cstdio>
 #include <cstdlib>
@@ -30,6 +31,55 @@ enum WORK_STATUS {
 	STATUS_ANALYSIS = 1,
 	STATUS_CAPTURING = 2,
 	STATUS_MONITORING = 3
+};
+
+static std::map<uint8_t, std::string> ipProtoMap = {
+	{1, "ICMP"},
+	{2, "IGMP"},
+	{6, "TCP"},
+	{17, "UDP"},
+	{47, "GRE"},
+	{50, "ESP"},
+	{51, "AH"},
+	{88, "EIGRP"},
+	{89, "OSPF"},
+	{132, "SCTP"}
+};
+
+
+class FiveTuple {
+public:
+	std::string src_ip;
+	std::string dst_ip;
+	uint16_t src_port;
+	uint16_t dst_port;
+	std::string trans_protol;
+
+	bool operator==(const FiveTuple& other) const {
+		return ((src_ip == other.src_ip && dst_ip == other.dst_ip && src_port == other.src_port && dst_port == other.dst_port) 
+			|| (src_ip == other.dst_ip && dst_ip == other.src_ip && src_port == other.dst_port && dst_port == other.src_port))
+			&& trans_protol == other.trans_protol;
+	}
+	
+};
+
+// 自定義的hash函數
+class FiveTupleHash {
+public:
+	std::size_t operator()(const FiveTuple& tuple) const {
+		std::hash<std::string> hashFn;
+		std::size_t h1 = hashFn(tuple.src_ip);
+		std::size_t h2 = hashFn(tuple.dst_ip);
+		std::size_t h3 = std::hash<uint16_t>()(tuple.src_port);
+		std::size_t h4 = std::hash<uint16_t>()(tuple.dst_port);
+
+		// 確保不論是正向還是反向都能得到相同的hash值
+		std::size_t directHash = h1 ^ (h2 << 1) ^ (h3 << 2) ^ (h4 << 3);
+		std::size_t reverseHash = h2 ^ (h1 << 1) ^ (h4 << 2) ^ (h3 << 3);
+
+		return directHash ^ reverseHash;
+	}
+
 };
 
 class TsharkManager
@@ -75,6 +125,8 @@ public:
 
 	// 重製tsharkManager的所有狀態
 	void reset();
+
+	void printAllSessions();
 
 private:
 	bool parseline(string line, shared_ptr<Packet> packet);
@@ -126,6 +178,8 @@ private:
 	// 工作狀態
 	WORK_STATUS workStatus = STATUS_IDLE;
 	std::recursive_mutex workStatusLock;
+
+	std::unordered_map<FiveTuple, std::shared_ptr<Session>, FiveTupleHash> sessionMap;
 
 };
 

@@ -145,6 +145,41 @@ public:
         sqlite3_finalize(stmt);
         return true;
     }
+
+    // 創建Session的表
+    void createSessionTable() {
+        std::string createTableSQL = R"(
+			CREATE TABLE IF NOT EXISTS t_sessions (
+				session_id INTEGER PIRMARY KEY,
+                ip1 TEXT,
+                ip1_port INTEGER,
+                ip1_location TEXT,
+                ip2 TEXT,
+                ip2_port INTEGER,
+                ip2_location TEXT,
+                trans_proto TEXT,
+                app_proto TEXT,
+                start_time REAL,
+                end_time REAL,
+                ip1_send_packets_count INTEGER,
+                ip1_send_bytes_count INTEGER,
+                ip2_send_packets_count INTEGER,
+                ip2_send_bytes_count INTEGER,
+                packet_count INTEGER,
+                total_bytes INTEGER
+			);
+        )";
+        if (sqlite3_exec(db, createTableSQL.c_str(), nullptr, nullptr, nullptr) != SQLITE_OK) {
+            throw std::runtime_error("Fail to create table t_sessions");
+        }
+
+        // 清空表數據
+		std::string clearTableSQL = "DELETE FROM t_sessions;";
+        if (sqlite3_exec(db, clearTableSQL.c_str(), nullptr, nullptr, nullptr) != SQLITE_OK) {
+            throw std::runtime_error("Fail to clear table t_sessions");
+        }
+    }
+
 private:
     sqlite3* db = nullptr;
 };
