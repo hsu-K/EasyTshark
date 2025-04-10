@@ -8,5 +8,6 @@ public:
 	uint16_t port = 0;
 	std::string proto;
 	std::string mac_addr;
+	uint32_t session_id = 0;
 };
 

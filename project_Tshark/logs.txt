@@ -2,10 +2,34 @@ arguments: C:\\Program_Code\\C++\\project_Tshark\\x64\\Debug\\project_Tshark.exe
 Current dir: C:\Program_Code\C++\project_Tshark\project_Tshark
 File verbosity level: 9
 date       time         ( uptime  ) [ thread name/id ]                   file:line     v| 
-2025-04-09 00:37:46.775 (   0.177s) [main thread     ]             loguru.cpp:841   INFO| Logging to 'logs.txt', mode: 'w', verbosity: 9
-2025-04-09 00:40:22.682 ( 156.083s) [        50BF6C56]     project_Tshark.cpp:41    INFO| Request received for /api/analysisFile
-2025-04-09 00:40:22.685 ( 156.087s) [        50BF6C56]     project_Tshark.cpp:42    INFO| Request send from 127.0.0.1
-2025-04-09 00:40:22.689 ( 156.090s) [        50BF6C56]      TsharkManager.cpp:803   INFO| reset called
-2025-04-09 00:40:22.734 ( 156.135s) [        50BF6C56]      TsharkManager.cpp:790   INFO| Successfully converted C:\Program_Code\C++\project_Tshark\project_Tshark\capture.pcap to C:\Users\user\AppData\Roaming\easytshark\easytshark_2025-04-09_00-40-22.pcap in pcap format
-2025-04-09 00:40:22.965 ( 156.367s) [        50BF6C56]      TsharkManager.cpp:146   INFO| だ猂ЧΘ计沮羆计: 100
-2025-04-09 00:40:22.968 ( 156.370s) [        50BF6C56]     project_Tshark.cpp:47    INFO| Received response with status 200
+2025-04-11 01:22:08.893 (   0.506s) [main thread     ]             loguru.cpp:841   INFO| Logging to 'logs.txt', mode: 'w', verbosity: 9
+2025-04-11 01:22:16.082 (   7.696s) [        98946A69]     project_Tshark.cpp:38    INFO| Request received for /api/analysisFile
+2025-04-11 01:22:16.086 (   7.699s) [        98946A69]      TsharkManager.cpp:814   INFO| reset called
+2025-04-11 01:22:16.143 (   7.757s) [        98946A69]      TsharkManager.cpp:801   INFO| Successfully converted C:\Program_Code\C++\project_Tshark\project_Tshark\capture.pcap to C:\Users\user\AppData\Roaming\easytshark\easytshark_2025-04-11_01-22-16.pcap in pcap format
+2025-04-11 01:22:16.389 (   8.003s) [        98946A69]      TsharkManager.cpp:146   INFO| だ猂ЧΘ计沮羆计: 100
+2025-04-11 01:22:16.392 (   8.005s) [        98946A69]     project_Tshark.cpp:51    INFO| Received response with status 200
+2025-04-11 01:22:27.898 (  19.511s) [        EB44B0FD]     project_Tshark.cpp:38    INFO| Request received for /api/getPakcetList
+2025-04-11 01:22:27.902 (  19.516s) [        EB44B0FD]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 3 OFFSET 3;
+2025-04-11 01:22:27.907 (  19.520s) [        EB44B0FD]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 3 OFFSET 3;
+2025-04-11 01:22:27.910 (  19.524s) [        EB44B0FD]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
+2025-04-11 01:22:27.915 (  19.529s) [        EB44B0FD]     project_Tshark.cpp:51    INFO| Received response with status 200
+2025-04-11 01:22:34.693 (  26.307s) [        E4EE3892]     project_Tshark.cpp:38    INFO| Request received for /api/getSessionList
+2025-04-11 01:22:34.697 (  26.310s) [        E4EE3892]           querySQL.hpp:117   INFO| [BUILD SQL]: SELECT * FROM t_sessions LIMIT 100 OFFSET 0;
+2025-04-11 01:22:34.701 (  26.315s) [        E4EE3892]           querySQL.hpp:117   INFO| [BUILD SQL]: SELECT * FROM t_sessions LIMIT 100 OFFSET 0;
+2025-04-11 01:22:34.704 (  26.318s) [        E4EE3892]           querySQL.hpp:129   INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_sessions ) t_temp
+2025-04-11 01:22:34.709 (  26.322s) [        E4EE3892]     project_Tshark.cpp:51    INFO| Received response with status 200
+2025-04-11 01:22:48.196 (  39.810s) [        A8C2704F]     project_Tshark.cpp:38    INFO| Request received for /api/getSessionList
+2025-04-11 01:22:48.199 (  39.813s) [        A8C2704F]           querySQL.hpp:117   INFO| [BUILD SQL]: SELECT * FROM t_sessions LIMIT 3 OFFSET 3;
+2025-04-11 01:22:48.203 (  39.816s) [        A8C2704F]           querySQL.hpp:117   INFO| [BUILD SQL]: SELECT * FROM t_sessions LIMIT 3 OFFSET 3;
+2025-04-11 01:22:48.208 (  39.821s) [        A8C2704F]           querySQL.hpp:129   INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_sessions ) t_temp
+2025-04-11 01:22:48.212 (  39.825s) [        A8C2704F]     project_Tshark.cpp:51    INFO| Received response with status 200
+2025-04-11 01:23:00.355 (  51.969s) [        7EA52190]     project_Tshark.cpp:38    INFO| Request received for /api/getSessionList
+2025-04-11 01:23:00.359 (  51.972s) [        7EA52190]           querySQL.hpp:117   INFO| [BUILD SQL]: SELECT * FROM t_sessions LIMIT 10 OFFSET 0;
+2025-04-11 01:23:00.363 (  51.976s) [        7EA52190]           querySQL.hpp:117   INFO| [BUILD SQL]: SELECT * FROM t_sessions LIMIT 10 OFFSET 0;
+2025-04-11 01:23:00.366 (  51.979s) [        7EA52190]           querySQL.hpp:129   INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_sessions ) t_temp
+2025-04-11 01:23:00.371 (  51.984s) [        7EA52190]     project_Tshark.cpp:51    INFO| Received response with status 200
+2025-04-11 01:23:29.702 (  81.315s) [        34624FA4]     project_Tshark.cpp:38    INFO| Request received for /api/getPakcetList
+2025-04-11 01:23:29.705 (  81.319s) [        34624FA4]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 100 OFFSET 0;
+2025-04-11 01:23:29.713 (  81.326s) [        34624FA4]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 100 OFFSET 0;
+2025-04-11 01:23:29.718 (  81.331s) [        34624FA4]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
+2025-04-11 01:23:29.729 (  81.342s) [        34624FA4]     project_Tshark.cpp:51    INFO| Received response with status 200

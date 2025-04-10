@@ -559,6 +559,12 @@ void TsharkManager::storageThreadEntry()
             storage->storePackets(packetsTobeStore);
             packetsTobeStore.clear();
         }
+
+        if (!sessionSetTobeStore.empty()) {
+            storage->storeAndUpdateSessions(sessionSetTobeStore);
+			sessionSetTobeStore.clear();
+        }
+
         storeLock.unlock();
     };
 
@@ -578,6 +584,7 @@ void TsharkManager::processPacket(std::shared_ptr<Packet> packet)
 {
     // 將分析的數據包保存起來
     allPackets.insert(std::make_pair<>(packet->frame_number, packet));
+
 
     // 接著放入packetsTobeStore等待進入數據庫
     storeLock.lock();
@@ -631,6 +638,10 @@ void TsharkManager::processPacket(std::shared_ptr<Packet> packet)
 			session->ip2_send_packets_count++;
 			session->ip2_send_bytes_count += packet->len;
 		}
+
+		storeLock.lock();
+		sessionSetTobeStore.insert(session);
+        storeLock.unlock();
     
     }
 }
@@ -772,10 +783,10 @@ bool TsharkManager::getPacketDetailInfo(uint32_t frameNumber, std::string& resul
     return true;
 }
 
-void TsharkManager::queryPackets(QueryCondition& queryCondition, std::vector<std::shared_ptr<Packet>>& packets)
+void TsharkManager::queryPackets(QueryCondition& queryCondition, std::vector<std::shared_ptr<Packet>>& packets, int& total)
 {
     // 函數轉發
-    storage->queryPackets(queryCondition, packets);
+    storage->queryPackets(queryCondition, packets, total);
 }
 
 bool TsharkManager::convertToPcap(const std::string inputFile, const std::string& outputFile)
@@ -851,4 +862,9 @@ void TsharkManager::printAllSessions()
         MiscUtil::printLongString(buffer.GetString());
 		//std::cout << buffer.GetString() << std::endl;
     }
+}
+
+void TsharkManager::querySessions(QueryCondition& queryCondition, std::vector<std::shared_ptr<Session>>& sessionList, int& total)
+{
+	storage->querySessions(queryCondition, sessionList, total);
 }

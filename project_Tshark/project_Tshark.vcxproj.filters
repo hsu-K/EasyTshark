@@ -39,6 +39,9 @@
     <ClCompile Include="third_library\sqlite3\sqlite3.c">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="Page.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tshark_datatype.h">
@@ -80,7 +83,7 @@
     <ClInclude Include="BaseController.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="PacketSQL.hpp">
+    <ClInclude Include="querySQL.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="AdaptorController.hpp">
@@ -90,6 +93,12 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="Session.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionController.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Page.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>

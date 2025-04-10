@@ -37,9 +37,10 @@ public:
 			// 調用tsharkManger的方法獲取數據
 			std::vector<std::shared_ptr<Packet>> packetList;
 			// queryPackets查詢資料庫
-			__tsharkManager->queryPackets(queryCondition, packetList);
+			int total;
+			__tsharkManager->queryPackets(queryCondition, packetList, total);
 			// 以JSON格式回傳查詢到的數據包
-			sendDataList(res, packetList);
+			sendDataList(res, packetList, total);
 		}
 		catch (const std::exception&) {
 			sendErrorResponse(res, ERROR_INTERNAL_WRONG);

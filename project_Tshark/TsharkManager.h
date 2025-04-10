@@ -21,6 +21,7 @@
 #include <fstream>
 #include <thread>
 #include <unordered_map>
+#include <unordered_set>
 #include <mutex>
 
 
@@ -115,7 +116,7 @@ public:
 	// 取得單個封包的詳細資訊
 	bool getPacketDetailInfo(uint32_t frameNumber, std::string& result);
 
-	void queryPackets(QueryCondition& queryCondition, std::vector<std::shared_ptr<Packet>>& packets);
+	void queryPackets(QueryCondition& queryCondition, std::vector<std::shared_ptr<Packet>>& packets, int& total);
 
 	// 將數據包格式轉為舊的pcap格式
 	bool convertToPcap(const std::string inputFile, const  std::string& outputFile);
@@ -127,6 +128,8 @@ public:
 	void reset();
 
 	void printAllSessions();
+
+	void querySessions(QueryCondition& queryCondition, std::vector<std::shared_ptr<Session>>& sessionList, int& total);
 
 private:
 	bool parseline(string line, shared_ptr<Packet> packet);
@@ -180,6 +183,9 @@ private:
 	std::recursive_mutex workStatusLock;
 
 	std::unordered_map<FiveTuple, std::shared_ptr<Session>, FiveTupleHash> sessionMap;
+
+	// 待存進數據庫的Session
+	std::unordered_set<std::shared_ptr<Session>> sessionSetTobeStore;
 
 };
 

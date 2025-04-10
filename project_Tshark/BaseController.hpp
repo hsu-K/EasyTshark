@@ -44,13 +44,14 @@ public:
 protected:
 	// 使用模板的形式返回數據列表
 	template<typename Data>
-	void sendDataList(httplib::Response& res, std::vector<std::shared_ptr<Data>>& dataList) {
+	void sendDataList(httplib::Response& res, std::vector<std::shared_ptr<Data>>& dataList, int total) {
 		rapidjson::Document resDoc;
 		rapidjson::Document::AllocatorType& allocator = resDoc.GetAllocator();
 		resDoc.SetObject();
 
 		resDoc.AddMember("code", ERROR_SUCCESS, allocator);
 		resDoc.AddMember("msg", rapidjson::Value(TsharkError::getErrorMsg(ERROR_SUCCESS).c_str(), allocator), allocator);
+		resDoc.AddMember("total", total, allocator);
 
 		// 構建data陣列
 		rapidjson::Value dataArray(rapidjson::kArrayType);

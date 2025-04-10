@@ -12,6 +12,9 @@
 #include "QueryCondition.hpp"
 #include "PacketController.hpp"
 #include "AdaptorController.hpp"
+#include "SessionController.hpp"
+#include "querySQL.hpp"
+#include "Page.hpp"
 
 
 #ifdef _WIN32
@@ -31,15 +34,16 @@ using namespace std;
 
 std::shared_ptr<TsharkManager> g_ptrTsharkManager;
 
-void hello(const httplib::Request& req, httplib::Response& res) {
-    std::string name = req.get_param_value("name");
-    std::string hello = "hello, " + name;
-    res.set_content(hello, "text/plain");
-}
-
 httplib::Server::HandlerResponse before_request(const httplib::Request& req, httplib::Response& res) {
     LOG_F(INFO, "Request received for %s", req.path.c_str());
-    LOG_F(INFO, "Request send from %s", req.local_addr.c_str());
+
+    // 提取分頁參數
+    PageAndOrder* pageAndOrder = PageHelper::getPageAndOrder();
+    pageAndOrder->pageNum = BaseController::getIntParam(req, "pageNum", 1);
+    pageAndOrder->pageSize = BaseController::getIntParam(req, "pageSize", 100);
+    pageAndOrder->orderBy = BaseController::getStringParam(req, "orderBy", "");
+    pageAndOrder->descOrAsc = BaseController::getStringParam(req, "descOrAsc", "asc");
+
     return httplib::Server::HandlerResponse::Unhandled;
 }
 
@@ -127,12 +131,14 @@ int main(int argc, char* argv[])
     svr.set_pre_routing_handler(before_request);
     svr.set_post_routing_handler(after_response);
 
-    PacketController packetController(svr, g_ptrTsharkManager);
-    packetController.registerRoute();
+    std::vector<std::shared_ptr<BaseController>> controllerList;
+    controllerList.push_back(std::make_shared<PacketController>(svr, g_ptrTsharkManager));
+    controllerList.push_back(std::make_shared<AdaptorController>(svr, g_ptrTsharkManager));
+    controllerList.push_back(std::make_shared<SessionController>(svr, g_ptrTsharkManager));
 
-    AdaptorController adaptorController(svr, g_ptrTsharkManager);
-    adaptorController.registerRoute();
-
+    for (auto controller : controllerList) {
+        controller->registerRoute();
+    }
 
     svr.listen("127.0.0.1", 8080);
     

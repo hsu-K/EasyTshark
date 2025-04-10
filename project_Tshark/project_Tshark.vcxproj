@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClCompile Include="AdapterMonitorInfo.cpp" />
     <ClCompile Include="ip2region_util.cpp" />
+    <ClCompile Include="Page.cpp" />
     <ClCompile Include="project_Tshark.cpp" />
     <ClCompile Include="third_library\ip2region\xdb_bench.cc" />
     <ClCompile Include="third_library\ip2region\xdb_search.cc" />
@@ -149,10 +150,12 @@
     <ClInclude Include="http_Backend.hpp" />
     <ClInclude Include="MiscUtil.hpp" />
     <ClInclude Include="PacketController.hpp" />
-    <ClInclude Include="PacketSQL.hpp" />
+    <ClInclude Include="Page.hpp" />
+    <ClInclude Include="querySQL.hpp" />
     <ClInclude Include="ProcessUtil.hpp" />
     <ClInclude Include="QueryCondition.hpp" />
     <ClInclude Include="Session.hpp" />
+    <ClInclude Include="SessionController.hpp" />
     <ClInclude Include="TsharkDatabase.hpp" />
     <ClInclude Include="Translator.hpp" />
     <ClInclude Include="TsharkError.hpp" />
