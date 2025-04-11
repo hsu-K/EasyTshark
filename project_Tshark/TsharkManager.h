@@ -89,6 +89,7 @@ public:
 
 };
 
+
 class TsharkManager
 {
 public:
@@ -140,6 +141,8 @@ public:
 	bool getIPStatsList(QueryCondition& queryCondition, std::vector<std::shared_ptr<IPStatsInfo>>& ipStatsList, int& total);
 
 	bool getProtoStatsList(QueryCondition& queryCondition, std::vector<std::shared_ptr<ProtoStatsInfo>>& protoStatsList, int& total);
+
+	DataStreamCountInfo getSessionDataStream(uint32_t sessionId, std::vector<DataStreamItem>& dataStreamList);
 
 private:
 	bool parseline(string line, shared_ptr<Packet> packet);
@@ -197,5 +200,6 @@ private:
 	// 待存進數據庫的Session
 	std::unordered_set<std::shared_ptr<Session>> sessionSetTobeStore;
 
+	std::unordered_map<uint32_t, std::shared_ptr<Session>> sessionIdMap;
 };
 

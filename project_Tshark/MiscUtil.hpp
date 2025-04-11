@@ -187,6 +187,15 @@ public:
 		return result;
 	}
 
+	static std::string trimEnd(const std::string& input) {
+		// 由後面往前找，找到不是\r 或 \n的
+		size_t end = input.find_last_not_of("\r\n");
+		if (end == std::string::npos) {
+			return "";
+		}
+		return input.substr(0, end + 1);
+	}
+
 private:
 	// 轉換成JSON時需要遞迴來處理子節點
 	static void xml_to_json_recursive(Value& json, xml_node<>* node, Document::AllocatorType& allocator) {

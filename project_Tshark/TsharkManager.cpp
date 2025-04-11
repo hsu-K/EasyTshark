@@ -46,8 +46,7 @@ TsharkManager::TsharkManager(string workDir)
 }
 
 TsharkManager::~TsharkManager()
-{
-    
+{  
 }
 
 bool TsharkManager::analysisFile(string filePath, size_t& packetNum)
@@ -606,6 +605,7 @@ void TsharkManager::processPacket(std::shared_ptr<Packet> packet)
             }
 
             sessionMap.insert(std::make_pair<>(tuple, session));
+            sessionIdMap.insert(std::make_pair<>(session->session_id, session));
         }
         else {
             // 已經有對應的五元組，就更新seesion
@@ -818,6 +818,7 @@ void TsharkManager::reset()
 
     allPackets.clear();
     packetsTobeStore.clear();
+    sessionSetTobeStore.clear();
 
     if (captureWorkThread) {
         captureWorkThread->join();
@@ -868,4 +869,82 @@ bool TsharkManager::getIPStatsList(QueryCondition& queryCondition, std::vector<s
 bool TsharkManager::getProtoStatsList(QueryCondition& queryCondition, std::vector<std::shared_ptr<ProtoStatsInfo>>& protoStatsList, int& total)
 {
     return storage->queryProtoStats(queryCondition, protoStatsList, total);
+}
+
+DataStreamCountInfo TsharkManager::getSessionDataStream(uint32_t sessionId, std::vector<DataStreamItem>& dataStreamList)
+{
+
+    DataStreamCountInfo countInfo;
+    if (sessionIdMap.find(sessionId) == sessionIdMap.end()) {
+        LOG_F(ERROR, "session %d not found", sessionId);
+        return countInfo;
+    }
+
+    std::shared_ptr<Session> session = sessionIdMap[sessionId];
+    std::string transProto = session->trans_proto;
+
+    //把協議名稱轉換成小寫
+    std::transform(transProto.begin(), transProto.end(), transProto.begin(), ::tolower);
+
+    // 四元組
+    std::string fourTuple;
+    if (session->ip1.find(":") != std::string::npos) {
+        // IPv6的格式需要增加[]包起來
+        fourTuple = "[" + session->ip1 + "]:" + std::to_string(session->ip1_port) + ",[" + session->ip2 + "]:" + std::to_string(session->ip2_port);
+    }
+    else {
+        fourTuple = session->ip1 + ":" + std::to_string(session->ip1_port) + "," + session->ip2 + ":" + std::to_string(session->ip2_port);
+    }
+
+    // 準備tshark的命令
+    std::string tsharkCmd = tsharkPath + " -r" + currentFilePath + " -q -z follow," + transProto + ",raw," + fourTuple;
+    std::unique_ptr<FILE, decltype(&_pclose)> pipe(ProcessUtil::PopenEx(tsharkCmd.c_str()), _pclose);
+    if (!pipe) {
+        throw std::runtime_error("Failed to run tshark command.");
+    }
+
+    uint32_t maxItems = 500;
+    std::vector<char> buffer(65535);
+    bool dataStart = false;
+    while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
+        std::string line(buffer.data());
+        DataStreamItem item;
+
+        line = MiscUtil::trimEnd(line);
+        if (line.find("Node 0: ") == 0) {
+            countInfo.node0 = line.substr(strlen("Node 0: "));
+            continue;
+        }
+        if (line.find("Node 1: ") == 0) {
+            countInfo.node1 = line.substr(strlen("Node 1: "));
+            dataStart = true;
+            continue;
+        }
+
+        if (!dataStart || line.find("=====") != std::string::npos) {
+            continue;
+        }
+
+        if (line[0] == '\t') {
+            item.hexData = line.substr(1);
+            item.srcNode = countInfo.node1;
+            item.dstNode = countInfo.node0;
+            countInfo.node1PacketCount++;
+            countInfo.node1BytesCount += (item.hexData.length() / 2);
+        }
+        else {
+            item.hexData = line;
+            item.srcNode = countInfo.node0;
+            item.dstNode = countInfo.node1;
+            countInfo.node0PacketCount++;
+            countInfo.node0BytesCount += (item.hexData.length() / 2);
+        }
+
+        countInfo.totalPacketCount++;
+        if (dataStreamList.size() < maxItems) {
+            dataStreamList.push_back(item);
+        }
+    }
+
+    return countInfo;
 }
