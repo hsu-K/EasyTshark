@@ -23,7 +23,13 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <mutex>
-
+#include <ctime>
+#include <chrono>
+#include <iomanip>
+#include <set>
+#include "loguru/loguru.hpp"
+#include <io.h>
+#include <fcntl.h>
 
 using std::string;
 
@@ -130,6 +136,9 @@ public:
 	void printAllSessions();
 
 	void querySessions(QueryCondition& queryCondition, std::vector<std::shared_ptr<Session>>& sessionList, int& total);
+
+	bool getIPStatsList(QueryCondition& queryCondition, std::vector<std::shared_ptr<IPStatsInfo>>& ipStatsList, int& total);
+
 
 private:
 	bool parseline(string line, shared_ptr<Packet> packet);

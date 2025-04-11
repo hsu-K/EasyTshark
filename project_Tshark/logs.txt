@@ -2,34 +2,155 @@ arguments: C:\\Program_Code\\C++\\project_Tshark\\x64\\Debug\\project_Tshark.exe
 Current dir: C:\Program_Code\C++\project_Tshark\project_Tshark
 File verbosity level: 9
 date       time         ( uptime  ) [ thread name/id ]                   file:line     v| 
-2025-04-11 01:22:08.893 (   0.506s) [main thread     ]             loguru.cpp:841   INFO| Logging to 'logs.txt', mode: 'w', verbosity: 9
-2025-04-11 01:22:16.082 (   7.696s) [        98946A69]     project_Tshark.cpp:38    INFO| Request received for /api/analysisFile
-2025-04-11 01:22:16.086 (   7.699s) [        98946A69]      TsharkManager.cpp:814   INFO| reset called
-2025-04-11 01:22:16.143 (   7.757s) [        98946A69]      TsharkManager.cpp:801   INFO| Successfully converted C:\Program_Code\C++\project_Tshark\project_Tshark\capture.pcap to C:\Users\user\AppData\Roaming\easytshark\easytshark_2025-04-11_01-22-16.pcap in pcap format
-2025-04-11 01:22:16.389 (   8.003s) [        98946A69]      TsharkManager.cpp:146   INFO| だ猂ЧΘ计沮羆计: 100
-2025-04-11 01:22:16.392 (   8.005s) [        98946A69]     project_Tshark.cpp:51    INFO| Received response with status 200
-2025-04-11 01:22:27.898 (  19.511s) [        EB44B0FD]     project_Tshark.cpp:38    INFO| Request received for /api/getPakcetList
-2025-04-11 01:22:27.902 (  19.516s) [        EB44B0FD]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 3 OFFSET 3;
-2025-04-11 01:22:27.907 (  19.520s) [        EB44B0FD]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 3 OFFSET 3;
-2025-04-11 01:22:27.910 (  19.524s) [        EB44B0FD]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-11 01:22:27.915 (  19.529s) [        EB44B0FD]     project_Tshark.cpp:51    INFO| Received response with status 200
-2025-04-11 01:22:34.693 (  26.307s) [        E4EE3892]     project_Tshark.cpp:38    INFO| Request received for /api/getSessionList
-2025-04-11 01:22:34.697 (  26.310s) [        E4EE3892]           querySQL.hpp:117   INFO| [BUILD SQL]: SELECT * FROM t_sessions LIMIT 100 OFFSET 0;
-2025-04-11 01:22:34.701 (  26.315s) [        E4EE3892]           querySQL.hpp:117   INFO| [BUILD SQL]: SELECT * FROM t_sessions LIMIT 100 OFFSET 0;
-2025-04-11 01:22:34.704 (  26.318s) [        E4EE3892]           querySQL.hpp:129   INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_sessions ) t_temp
-2025-04-11 01:22:34.709 (  26.322s) [        E4EE3892]     project_Tshark.cpp:51    INFO| Received response with status 200
-2025-04-11 01:22:48.196 (  39.810s) [        A8C2704F]     project_Tshark.cpp:38    INFO| Request received for /api/getSessionList
-2025-04-11 01:22:48.199 (  39.813s) [        A8C2704F]           querySQL.hpp:117   INFO| [BUILD SQL]: SELECT * FROM t_sessions LIMIT 3 OFFSET 3;
-2025-04-11 01:22:48.203 (  39.816s) [        A8C2704F]           querySQL.hpp:117   INFO| [BUILD SQL]: SELECT * FROM t_sessions LIMIT 3 OFFSET 3;
-2025-04-11 01:22:48.208 (  39.821s) [        A8C2704F]           querySQL.hpp:129   INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_sessions ) t_temp
-2025-04-11 01:22:48.212 (  39.825s) [        A8C2704F]     project_Tshark.cpp:51    INFO| Received response with status 200
-2025-04-11 01:23:00.355 (  51.969s) [        7EA52190]     project_Tshark.cpp:38    INFO| Request received for /api/getSessionList
-2025-04-11 01:23:00.359 (  51.972s) [        7EA52190]           querySQL.hpp:117   INFO| [BUILD SQL]: SELECT * FROM t_sessions LIMIT 10 OFFSET 0;
-2025-04-11 01:23:00.363 (  51.976s) [        7EA52190]           querySQL.hpp:117   INFO| [BUILD SQL]: SELECT * FROM t_sessions LIMIT 10 OFFSET 0;
-2025-04-11 01:23:00.366 (  51.979s) [        7EA52190]           querySQL.hpp:129   INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_sessions ) t_temp
-2025-04-11 01:23:00.371 (  51.984s) [        7EA52190]     project_Tshark.cpp:51    INFO| Received response with status 200
-2025-04-11 01:23:29.702 (  81.315s) [        34624FA4]     project_Tshark.cpp:38    INFO| Request received for /api/getPakcetList
-2025-04-11 01:23:29.705 (  81.319s) [        34624FA4]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 100 OFFSET 0;
-2025-04-11 01:23:29.713 (  81.326s) [        34624FA4]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 100 OFFSET 0;
-2025-04-11 01:23:29.718 (  81.331s) [        34624FA4]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-11 01:23:29.729 (  81.342s) [        34624FA4]     project_Tshark.cpp:51    INFO| Received response with status 200
+2025-04-11 18:46:34.353 (   0.786s) [main thread     ]             loguru.cpp:841   INFO| Logging to 'logs.txt', mode: 'w', verbosity: 9
+2025-04-11 18:46:38.349 (   4.782s) [        9CADA784]     project_Tshark.cpp:39    INFO| Request received for /api/analysisFile
+2025-04-11 18:46:38.352 (   4.785s) [        9CADA784]      TsharkManager.cpp:805   INFO| reset called
+2025-04-11 18:46:38.401 (   4.834s) [        9CADA784]      TsharkManager.cpp:792   INFO| Successfully converted C:\Program_Code\C++\project_Tshark\project_Tshark\capture.pcap to C:\Users\user\AppData\Roaming\easytshark\easytshark_2025-04-11_18-46-38.pcap in pcap format
+2025-04-11 18:46:38.631 (   5.064s) [        9CADA784]      TsharkManager.cpp:137   INFO| だ猂ЧΘ计沮羆计: 100
+2025-04-11 18:46:38.634 (   5.066s) [        9CADA784]     project_Tshark.cpp:52    INFO| Received response with status 200
+2025-04-11 18:46:42.133 (   8.565s) [        9CADA784]     project_Tshark.cpp:39    INFO| Request received for /api/getIPStatsList
+2025-04-11 18:46:42.137 (   8.570s) [        9CADA784]           querySQL.hpp:193   INFO| [BUILD SQL]: SELECT
+			ip,
+			location,
+			MIN(start_time) AS earliest_time,
+			MAX(end_time) AS latest_time,
+			GROUP_CONCAT(DISTINCT port) AS ports,
+			GROUP_CONCAT(DISTINCT trans_proto) AS trans_protos,
+			GROUP_CONCAT(DISTINCT app_proto) AS app_protos,
+			SUM(sent_packets) AS total_sent_packets,
+			SUM(sent_bytes) AS total_sent_bytes,
+			SUM(recv_packets) AS total_recv_packets,
+			SUM(recv_bytes) AS total_recv_bytes,
+			SUM(tcp_sessions) AS tcp_session_count,
+			SUM(udp_sessions) AS udp_session_count
+			FROM(
+				SELECT
+				ip1 AS ip,
+				ip1_location AS location,
+				start_time,
+				end_time,
+				ip1_port AS port,
+				trans_proto,
+				app_proto,
+				ip1_send_packets_count AS sent_packets,
+				ip1_send_bytes_count AS sent_bytes,
+				ip2_send_packets_count AS recv_packets,
+				ip2_send_bytes_count AS recv_bytes,
+				CASE WHEN trans_proto LIKE '%TCP%' THEN 1 ELSE 0 END AS tcp_sessions,
+				CASE WHEN trans_proto LIKE '%UDP%' THEN 1 ELSE 0 END AS udp_sessions
+				FROM t_sessions
+				UNION ALL
+				SELECT
+				ip2 AS ip,
+				ip2_location AS location,
+				start_time,
+				end_time,
+				ip2_port AS port,
+				trans_proto,
+				app_proto,
+				ip2_send_packets_count AS sent_packets,
+				ip2_send_bytes_count AS sent_bytes,
+				ip1_send_packets_count AS recv_packets,
+				ip1_send_bytes_count AS recv_bytes,
+				CASE WHEN trans_proto LIKE '%TCP%' THEN 1 ELSE 0 END AS tcp_sessions,
+				CASE WHEN trans_proto LIKE '%UDP%' THEN 1 ELSE 0 END AS udp_sessions
+				FROM t_sessions
+			) t
+			GROUP BY ip LIMIT 100 OFFSET 0;
+2025-04-11 18:46:42.172 (   8.604s) [        9CADA784]           querySQL.hpp:193   INFO| [BUILD SQL]: SELECT
+			ip,
+			location,
+			MIN(start_time) AS earliest_time,
+			MAX(end_time) AS latest_time,
+			GROUP_CONCAT(DISTINCT port) AS ports,
+			GROUP_CONCAT(DISTINCT trans_proto) AS trans_protos,
+			GROUP_CONCAT(DISTINCT app_proto) AS app_protos,
+			SUM(sent_packets) AS total_sent_packets,
+			SUM(sent_bytes) AS total_sent_bytes,
+			SUM(recv_packets) AS total_recv_packets,
+			SUM(recv_bytes) AS total_recv_bytes,
+			SUM(tcp_sessions) AS tcp_session_count,
+			SUM(udp_sessions) AS udp_session_count
+			FROM(
+				SELECT
+				ip1 AS ip,
+				ip1_location AS location,
+				start_time,
+				end_time,
+				ip1_port AS port,
+				trans_proto,
+				app_proto,
+				ip1_send_packets_count AS sent_packets,
+				ip1_send_bytes_count AS sent_bytes,
+				ip2_send_packets_count AS recv_packets,
+				ip2_send_bytes_count AS recv_bytes,
+				CASE WHEN trans_proto LIKE '%TCP%' THEN 1 ELSE 0 END AS tcp_sessions,
+				CASE WHEN trans_proto LIKE '%UDP%' THEN 1 ELSE 0 END AS udp_sessions
+				FROM t_sessions
+				UNION ALL
+				SELECT
+				ip2 AS ip,
+				ip2_location AS location,
+				start_time,
+				end_time,
+				ip2_port AS port,
+				trans_proto,
+				app_proto,
+				ip2_send_packets_count AS sent_packets,
+				ip2_send_bytes_count AS sent_bytes,
+				ip1_send_packets_count AS recv_packets,
+				ip1_send_bytes_count AS recv_bytes,
+				CASE WHEN trans_proto LIKE '%TCP%' THEN 1 ELSE 0 END AS tcp_sessions,
+				CASE WHEN trans_proto LIKE '%UDP%' THEN 1 ELSE 0 END AS udp_sessions
+				FROM t_sessions
+			) t
+			GROUP BY ip LIMIT 100 OFFSET 0;
+2025-04-11 18:46:42.207 (   8.640s) [        9CADA784]           querySQL.hpp:205   INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT
+			ip,
+			location,
+			MIN(start_time) AS earliest_time,
+			MAX(end_time) AS latest_time,
+			GROUP_CONCAT(DISTINCT port) AS ports,
+			GROUP_CONCAT(DISTINCT trans_proto) AS trans_protos,
+			GROUP_CONCAT(DISTINCT app_proto) AS app_protos,
+			SUM(sent_packets) AS total_sent_packets,
+			SUM(sent_bytes) AS total_sent_bytes,
+			SUM(recv_packets) AS total_recv_packets,
+			SUM(recv_bytes) AS total_recv_bytes,
+			SUM(tcp_sessions) AS tcp_session_count,
+			SUM(udp_sessions) AS udp_session_count
+			FROM(
+				SELECT
+				ip1 AS ip,
+				ip1_location AS location,
+				start_time,
+				end_time,
+				ip1_port AS port,
+				trans_proto,
+				app_proto,
+				ip1_send_packets_count AS sent_packets,
+				ip1_send_bytes_count AS sent_bytes,
+				ip2_send_packets_count AS recv_packets,
+				ip2_send_bytes_count AS recv_bytes,
+				CASE WHEN trans_proto LIKE '%TCP%' THEN 1 ELSE 0 END AS tcp_sessions,
+				CASE WHEN trans_proto LIKE '%UDP%' THEN 1 ELSE 0 END AS udp_sessions
+				FROM t_sessions
+				UNION ALL
+				SELECT
+				ip2 AS ip,
+				ip2_location AS location,
+				start_time,
+				end_time,
+				ip2_port AS port,
+				trans_proto,
+				app_proto,
+				ip2_send_packets_count AS sent_packets,
+				ip2_send_bytes_count AS sent_bytes,
+				ip1_send_packets_count AS recv_packets,
+				ip1_send_bytes_count AS recv_bytes,
+				CASE WHEN trans_proto LIKE '%TCP%' THEN 1 ELSE 0 END AS tcp_sessions,
+				CASE WHEN trans_proto LIKE '%UDP%' THEN 1 ELSE 0 END AS udp_sessions
+				FROM t_sessions
+			) t
+			GROUP BY ip ) t_temp
+2025-04-11 18:46:42.244 (   8.677s) [        9CADA784]     project_Tshark.cpp:52    INFO| Received response with status 200

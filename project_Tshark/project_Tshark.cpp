@@ -13,6 +13,7 @@
 #include "PacketController.hpp"
 #include "AdaptorController.hpp"
 #include "SessionController.hpp"
+#include "StatsController.hpp"
 #include "querySQL.hpp"
 #include "Page.hpp"
 
@@ -135,6 +136,7 @@ int main(int argc, char* argv[])
     controllerList.push_back(std::make_shared<PacketController>(svr, g_ptrTsharkManager));
     controllerList.push_back(std::make_shared<AdaptorController>(svr, g_ptrTsharkManager));
     controllerList.push_back(std::make_shared<SessionController>(svr, g_ptrTsharkManager));
+    controllerList.push_back(std::make_shared<StatsController>(svr, g_ptrTsharkManager));
 
     for (auto controller : controllerList) {
         controller->registerRoute();

@@ -1,9 +1,10 @@
 #pragma once
 #include <iostream>
+#include <set>
 #include "rapidjson/document.h"
 #include "BaseDataObject.hpp"
+#include "MiscUtil.hpp"
 using namespace std;
-
 
 struct PcapHeader {
     uint32_t magic_number;
@@ -68,4 +69,87 @@ struct AdapterInfo {
     int id;     // 前面的編號
     string name;// 中間的名稱
     string remark;// 括號裡的名稱
+};
+
+struct Session : public BaseDataObject
+{
+public:
+    uint32_t session_id;
+    std::string ip1;
+    uint16_t ip1_port;
+    std::string ip1_location;
+    std::string ip2;
+    uint16_t ip2_port;
+    std::string ip2_location;
+    std::string trans_proto; // 傳輸層協定
+    std::string app_proto;  // 應用層協定
+    double start_time;
+    double end_time;
+    uint32_t ip1_send_packets_count;   // ip1發送的數據包數
+    uint32_t ip1_send_bytes_count;     // ip1發送的Bytes數
+    uint32_t ip2_send_packets_count;
+    uint32_t ip2_send_bytes_count;
+    uint32_t packet_count;           // 數據包總數
+    uint32_t total_bytes;            // 總字節數
+
+    virtual void toJsonObj(rapidjson::Value& obj, rapidjson::Document::AllocatorType& allocator) const {
+        obj.AddMember("session_id", session_id, allocator);
+        obj.AddMember("ip1", rapidjson::Value(ip1.c_str(), allocator), allocator);
+        obj.AddMember("ip1_port", ip1_port, allocator);
+        //obj.AddMember("ip1_location", rapidjson::Value(ip1_location.c_str(), allocator), allocator);
+        obj.AddMember("ip2", rapidjson::Value(ip2.c_str(), allocator), allocator);
+        obj.AddMember("ip2_port", ip2_port, allocator);
+        //obj.AddMember("ip2_location", rapidjson::Value(ip2_location.c_str(), allocator), allocator);
+        obj.AddMember("trans_proto", rapidjson::Value(trans_proto.c_str(), allocator), allocator);
+        obj.AddMember("app_proto", rapidjson::Value(app_proto.c_str(), allocator), allocator);
+        obj.AddMember("start_time", start_time, allocator);
+        obj.AddMember("end_time", end_time, allocator);
+        obj.AddMember("ip1_send_packets_count", ip1_send_packets_count, allocator);
+        obj.AddMember("ip1_send_bytes_count", ip1_send_bytes_count, allocator);
+        obj.AddMember("ip2_send_packets_count", ip2_send_packets_count, allocator);
+        obj.AddMember("ip2_send_bytes_count", ip2_send_bytes_count, allocator);
+        obj.AddMember("packet_count", packet_count, allocator);
+        obj.AddMember("total_bytes", total_bytes, allocator);
+    }
+};
+
+// 存跟IP有相關的資訊
+struct IPStatsInfo : public BaseDataObject {
+    std::string ip;
+    std::string location;
+    double earliest_time = 0.0;
+    double latest_time = 0.0;
+    std::set<int> ports;
+    std::set<std::string> protocols;
+
+    // 統計用的數據
+    int total_sent_packets = 0;
+    int total_recv_packets = 0;
+    int total_sent_bytes = 0;
+    int total_recv_bytes = 0;
+    int tcp_session_count = 0;
+    int udp_session_count = 0;
+
+    virtual void toJsonObj(rapidjson::Value& obj, rapidjson::Document::AllocatorType& allocator) const {
+        obj.AddMember("ip", rapidjson::Value(ip.c_str(), allocator), allocator);
+        //obj.AddMember("location", rapidjson::Value(location.c_str(), allocator), allocator);
+        std::string s_protocols = MiscUtil::convertSetToString(protocols, ',');
+        obj.AddMember("proto", rapidjson::Value(s_protocols.c_str(), allocator), allocator);
+
+        rapidjson::Value portsValue;
+        portsValue.SetArray();
+        for (auto port : ports) {
+            portsValue.PushBack(rapidjson::Value(port), allocator);
+        }
+        obj.AddMember("ports", portsValue, allocator);
+    
+        obj.AddMember("earliest_time", earliest_time, allocator);
+        obj.AddMember("latest_time", latest_time, allocator);
+        obj.AddMember("total_sent_packets", total_sent_packets, allocator);
+        obj.AddMember("total_recv_packets", total_recv_packets, allocator);
+        obj.AddMember("total_sent_bytes", total_sent_bytes, allocator);
+        obj.AddMember("total_recv_bytes", total_recv_bytes, allocator);
+        obj.AddMember("tcp_session_count", tcp_session_count, allocator);
+        obj.AddMember("udp_session_count", udp_session_count, allocator);
+    }
 };

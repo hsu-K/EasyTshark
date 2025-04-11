@@ -1,15 +1,6 @@
 #include "TsharkManager.h"
-#include <ctime>
-#include <chrono>
-#include <iomanip>
-#include <set>
-#include "loguru/loguru.hpp"
-#include <io.h>
-#include <fcntl.h>
 
-#include "ProcessUtil.hpp"
-#include "MiscUtil.hpp"
-#include "Translator.hpp"
+
 
 #ifdef _WIN32
 #include <windows.h>
@@ -867,4 +858,9 @@ void TsharkManager::printAllSessions()
 void TsharkManager::querySessions(QueryCondition& queryCondition, std::vector<std::shared_ptr<Session>>& sessionList, int& total)
 {
 	storage->querySessions(queryCondition, sessionList, total);
+}
+
+bool TsharkManager::getIPStatsList(QueryCondition& queryCondition, std::vector<std::shared_ptr<IPStatsInfo>>& ipStatsList, int& total)
+{
+    return storage->queryIPStats(queryCondition, ipStatsList, total);
 }

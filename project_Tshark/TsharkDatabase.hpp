@@ -305,6 +305,56 @@ public:
         return true;
     }
 
+    bool queryIPStats(QueryCondition& queryCondition, std::vector<std::shared_ptr<IPStatsInfo>>& ipStatsList, int& total) {
+        sqlite3_stmt* stmt = nullptr, * countStmt = nullptr;
+        std::string sql = StatsSQL::buildIPStatsQuerySQL(queryCondition);
+
+        if (sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr) != SQLITE_OK) {
+            std::cout << "Failed to prepare statement: " << sqlite3_errmsg(db) << std::endl;
+            return false;
+        }
+
+        while (sqlite3_step(stmt) == SQLITE_ROW) {
+            std::shared_ptr<IPStatsInfo> ipStatsInfo = std::make_shared<IPStatsInfo>();
+            ipStatsInfo->ip = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
+            ipStatsInfo->location = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1));
+            ipStatsInfo->earliest_time = sqlite3_column_double(stmt, 2);
+            ipStatsInfo->latest_time = sqlite3_column_double(stmt, 3);
+
+            // 處理port
+            std::string portsStr(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 4)));
+            auto portVecsStr = MiscUtil::splitString(portsStr, ',');
+            ipStatsInfo->ports = MiscUtil::toIntSet(portVecsStr);
+        
+            std::string transProtosStr(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 5)));
+            std::string appProtosStr(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 6)));
+            ipStatsInfo->protocols = MiscUtil::splitString(transProtosStr + "," + appProtosStr, ',');
+
+            ipStatsInfo->total_sent_packets = sqlite3_column_int(stmt, 7);
+            ipStatsInfo->total_sent_bytes = sqlite3_column_int(stmt, 8);
+            ipStatsInfo->total_recv_packets = sqlite3_column_int(stmt, 9);
+            ipStatsInfo->total_recv_bytes = sqlite3_column_int(stmt, 10);
+            ipStatsInfo->tcp_session_count = sqlite3_column_int(stmt, 11);
+            ipStatsInfo->udp_session_count = sqlite3_column_int(stmt, 12);
+
+            ipStatsList.push_back(ipStatsInfo);
+        }
+
+        sqlite3_finalize(stmt);
+
+        // 接著查詢總數
+        sql = StatsSQL::buildIPStatsQuerySQL_Count(queryCondition);
+        if (sqlite3_prepare_v2(db, sql.c_str(), -1, &countStmt, nullptr) != SQLITE_OK) {
+            LOG_F(ERROR, "Failed to prepare statement: %s", sql.c_str());
+            return false;
+        }
+        if (sqlite3_step(countStmt) == SQLITE_ROW) {
+            total = sqlite3_column_int(countStmt, 0);
+        }
+        sqlite3_finalize(countStmt);
+        return true;
+    }
+
 private:
     sqlite3* db = nullptr;
 };

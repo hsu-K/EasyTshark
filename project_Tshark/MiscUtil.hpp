@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <set>
 #include <sys/stat.h>
 #include <shlobj.h>
 #include <rapidxml/rapidxml.hpp>
@@ -20,19 +21,19 @@ public:
 
 #ifdef _WIN32
 #include <windows.h>
-	static string UTF8ToANSIString(const string& utf8Str) {
+	static std::string UTF8ToANSIString(const std::string& utf8Str) {
 		int utf8Length = static_cast<int>(utf8Str.length());
 
 		// 將UTF-8轉換為寬字節(UTF-16)
 		int wideLength = MultiByteToWideChar(CP_UTF8, 0, utf8Str.c_str(), utf8Length, nullptr, 0);
 
-		wstring wideStr(wideLength, L'\0');
+		std::wstring wideStr(wideLength, L'\0');
 		MultiByteToWideChar(CP_UTF8, 0, utf8Str.c_str(), utf8Length, &wideStr[0], wideLength);
 
 		// 將UTF-16轉換為ANSI
 		int ansiLength = WideCharToMultiByte(CP_ACP, 0, wideStr.c_str(), wideLength, nullptr, 0, nullptr, nullptr);
 
-		string ansiStr(ansiLength, '\0');
+		std::string ansiStr(ansiLength, '\0');
 		WideCharToMultiByte(CP_ACP, 0, wideStr.c_str(), wideLength, &ansiStr[0], ansiLength, nullptr, nullptr);
 
 		return ansiStr;
@@ -143,6 +144,49 @@ public:
 		return isFullPath ? getDefaultDataDir() + std::string(buffer) : std::string(buffer);
 	}
 
+	// 將Set轉換成string，並用特定字符隔開
+	static std::string convertSetToString(std::set<std::string> set_strings, const char spc) {
+		std::stringstream ss;
+		for (auto it = set_strings.begin(); it != set_strings.end(); it ++ ) {
+			if (it != set_strings.begin()) {
+				ss << spc;
+			}
+			ss << *it;
+		}
+		return ss.str();
+	}
+
+	// 將字串分割後存進Set
+	static std::set<std::string> splitString(const std::string& input, const char spc) {
+		std::set<std::string> result;
+		std::stringstream ss(input);
+		std::string item;
+		while (std::getline(ss, item, spc)) {
+			result.insert(item);
+		}
+
+		return result;
+	}
+
+	static std::set<int> toIntSet(const std::set<std::string>& inputVec) {
+		std::set<int> result;
+		for (const auto& str : inputVec) {
+			try {
+				// 使用 std::stoi 將字串轉換為整數
+				result.insert(std::stoi(str));
+			}
+			catch (const std::invalid_argument& e) {
+				// 如果字串無法轉換為整數，則跳過或記錄錯誤
+				std::cerr << "Invalid argument: " << str << " cannot be converted to int." << std::endl;
+			}
+			catch (const std::out_of_range& e) {
+				// 如果數值超出範圍，則跳過或記錄錯誤
+				std::cerr << "Out of range: " << str << " is too large for int." << std::endl;
+			}
+		}
+		return result;
+	}
+
 private:
 	// 轉換成JSON時需要遞迴來處理子節點
 	static void xml_to_json_recursive(Value& json, xml_node<>* node, Document::AllocatorType& allocator) {
@@ -182,6 +226,4 @@ private:
 			array->PushBack(child_json, allocator);
 		}
 	}
-
-
 };

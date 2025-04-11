@@ -156,6 +156,7 @@
     <ClInclude Include="QueryCondition.hpp" />
     <ClInclude Include="Session.hpp" />
     <ClInclude Include="SessionController.hpp" />
+    <ClInclude Include="StatsController.hpp" />
     <ClInclude Include="TsharkDatabase.hpp" />
     <ClInclude Include="Translator.hpp" />
     <ClInclude Include="TsharkError.hpp" />
