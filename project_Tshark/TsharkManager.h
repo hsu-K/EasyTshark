@@ -139,6 +139,7 @@ public:
 
 	bool getIPStatsList(QueryCondition& queryCondition, std::vector<std::shared_ptr<IPStatsInfo>>& ipStatsList, int& total);
 
+	bool getProtoStatsList(QueryCondition& queryCondition, std::vector<std::shared_ptr<ProtoStatsInfo>>& protoStatsList, int& total);
 
 private:
 	bool parseline(string line, shared_ptr<Packet> packet);

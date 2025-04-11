@@ -50,10 +50,10 @@ public:
         obj.AddMember("src_mac", rapidjson::Value(src_mac.c_str(), allocator), allocator);
         obj.AddMember("dst_mac", rapidjson::Value(dst_mac.c_str(), allocator), allocator);
         obj.AddMember("src_ip", rapidjson::Value(src_ip.c_str(), allocator), allocator);
-        obj.AddMember("src_location", rapidjson::Value(src_location.c_str(), allocator), allocator);
+        //obj.AddMember("src_location", rapidjson::Value(src_location.c_str(), allocator), allocator);
         obj.AddMember("src_port", src_port, allocator);
         obj.AddMember("dst_ip", rapidjson::Value(dst_ip.c_str(), allocator), allocator);
-        obj.AddMember("dst_location", rapidjson::Value(dst_location.c_str(), allocator), allocator);
+        //obj.AddMember("dst_location", rapidjson::Value(dst_location.c_str(), allocator), allocator);
         obj.AddMember("dst_port", dst_port, allocator);
         obj.AddMember("trans_proto", rapidjson::Value(trans_proto.c_str(), allocator), allocator);
         obj.AddMember("len", len, allocator);
@@ -63,7 +63,6 @@ public:
         obj.AddMember("file_offset", file_offset, allocator);
     }
 };
-
 
 struct AdapterInfo {
     int id;     // 前面的編號
@@ -151,5 +150,22 @@ struct IPStatsInfo : public BaseDataObject {
         obj.AddMember("total_recv_bytes", total_recv_bytes, allocator);
         obj.AddMember("tcp_session_count", tcp_session_count, allocator);
         obj.AddMember("udp_session_count", udp_session_count, allocator);
+    }
+};
+
+// 協議統計訊息
+struct ProtoStatsInfo : public BaseDataObject {
+    std::string proto;
+    int total_packet = 0;
+    int total_bytes = 0;
+    int session_count = 0;
+    std::string proto_description;
+    
+    virtual void toJsonObj(rapidjson::Value& obj, rapidjson::Document::AllocatorType& allocator) const {
+        obj.AddMember("proto", rapidjson::Value(proto.c_str(), allocator), allocator);
+        obj.AddMember("total_packet", total_packet, allocator);
+        obj.AddMember("total_bytes", total_bytes, allocator);
+        obj.AddMember("session_count", session_count, allocator);
+        obj.AddMember("proto_description", rapidjson::Value(proto_description.c_str(), allocator), allocator);
     }
 };

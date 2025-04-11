@@ -8,6 +8,8 @@
 #include "Session.hpp"
 #include <iostream>
 #include <unordered_set>
+#include <map>
+
 
 class TsharkDatabase
 {
@@ -70,7 +72,7 @@ public:
             throw std::runtime_error("Failed to prepare insert statement");
         }
 
-        // sqlite3�j�w
+        // sqlite3綁定
         bool hasError = false;
         for (const auto& packet : packets) {
             sqlite3_bind_int(stmt, 1, packet->frame_number);
@@ -110,7 +112,7 @@ public:
         return !hasError;
     }
 
-    // �M���Ʈw���ƾ�
+    // 尋找資料庫的數據
     bool queryPackets(QueryCondition& queryCondition, std::vector<std::shared_ptr<Packet>>& packetList, int& total) {
         sqlite3_stmt* stmt = nullptr, * countStmt = nullptr;
         std::string sql = PacketSQL::buildPacketQuerySQL(queryCondition);
@@ -131,7 +133,7 @@ public:
             packet->time = sqlite3_column_double(stmt, 1);
             packet->cap_len = sqlite3_column_int(stmt, 2);
             packet->len = sqlite3_column_int(stmt, 3);
-            // �ϥ�reinterpret_cast�ӱNunsigned char* �j���ഫ�� const char*
+            // 使用reinterpret_cast來將unsigned char* 強制轉換為 const char*
             packet->src_mac = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 4));
             packet->dst_mac = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 5));
             packet->src_ip = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 6));
@@ -147,7 +149,7 @@ public:
         }
         sqlite3_finalize(stmt);
 
-        // ���۬d���`��
+        // 接著查詢總數
         sql = PacketSQL::buildPacketQuerySQL_Count(queryCondition);
         if (sqlite3_prepare_v2(db, sql.c_str(), -1, &countStmt, nullptr) != SQLITE_OK) {
             LOG_F(ERROR, "Failed to prepare statement: %s", sql.c_str());
@@ -161,7 +163,7 @@ public:
         return true;
     }
 
-    // �Ы�Session����
+    // 創建Session的表
     void createSessionTable() {
         std::string createTableSQL = R"(
 			CREATE TABLE IF NOT EXISTS t_sessions (
@@ -188,16 +190,16 @@ public:
             throw std::runtime_error("Fail to create table t_sessions");
         }
 
-        // �M�Ū��ƾ�
+        // 清空表數據
         std::string clearTableSQL = "DELETE FROM t_sessions;";
         if (sqlite3_exec(db, clearTableSQL.c_str(), nullptr, nullptr, nullptr) != SQLITE_OK) {
             throw std::runtime_error("Fail to clear table t_sessions");
         }
     }
 
-    // �x�sSession�ƾ�
+    // 儲存Session數據
     void storeAndUpdateSessions(std::unordered_set<std::shared_ptr<Session>>& sessions) {
-        // �}�Ҩư�
+        // 開啟事務
         sqlite3_exec(db, "BEGIN TRANSACTION", nullptr, nullptr, nullptr);
 
         // SQL UPSERT
@@ -251,10 +253,10 @@ public:
             sqlite3_reset(stmt);
         }
 
-        // �����ư�
+        // 結束事務
         sqlite3_exec(db, "COMMIT", nullptr, nullptr, nullptr);
 
-        // ����y�y
+        // 釋放語句
 		sqlite3_finalize(stmt);
     }
 
@@ -292,7 +294,7 @@ public:
 
 		sqlite3_finalize(stmt);
 
-        // ���۬d���`��
+        // 接著查詢總數
         sql = SessionSQL::buildSessionQuerySQL_Count(queryCondition);
         if (sqlite3_prepare_v2(db, sql.c_str(), -1, &countStmt, nullptr) != SQLITE_OK) {
             LOG_F(ERROR, "Failed to prepare statement: %s", sql.c_str());
@@ -321,7 +323,7 @@ public:
             ipStatsInfo->earliest_time = sqlite3_column_double(stmt, 2);
             ipStatsInfo->latest_time = sqlite3_column_double(stmt, 3);
 
-            // �B�zport
+            // 處理port
             std::string portsStr(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 4)));
             auto portVecsStr = MiscUtil::splitString(portsStr, ',');
             ipStatsInfo->ports = MiscUtil::toIntSet(portVecsStr);
@@ -342,8 +344,44 @@ public:
 
         sqlite3_finalize(stmt);
 
-        // ���۬d���`��
+        // 接著查詢總數
         sql = StatsSQL::buildIPStatsQuerySQL_Count(queryCondition);
+        if (sqlite3_prepare_v2(db, sql.c_str(), -1, &countStmt, nullptr) != SQLITE_OK) {
+            LOG_F(ERROR, "Failed to prepare statement: %s", sql.c_str());
+            return false;
+        }
+        if (sqlite3_step(countStmt) == SQLITE_ROW) {
+            total = sqlite3_column_int(countStmt, 0);
+        }
+        sqlite3_finalize(countStmt);
+        return true;
+    }
+
+    bool queryProtoStats(QueryCondition& queryCondition, std::vector<std::shared_ptr<ProtoStatsInfo>>& protoStatsList, int& total) {
+        sqlite3_stmt* stmt = nullptr, * countStmt = nullptr;
+        std::string sql = StatsSQL::buildProtoStatsQuerySQL(queryCondition);
+
+        if (sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr) != SQLITE_OK) {
+            std::cout << "Failed to prepare statement: " << sqlite3_errmsg(db) << std::endl;
+            return false;
+        }
+
+        while (sqlite3_step(stmt) == SQLITE_ROW) {
+            std::shared_ptr<ProtoStatsInfo> protoStatsInfo = std::make_shared<ProtoStatsInfo>();
+            protoStatsInfo->proto = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
+            protoStatsInfo->total_packet = sqlite3_column_int(stmt, 1);
+            protoStatsInfo->total_bytes = sqlite3_column_int(stmt, 2);
+            protoStatsInfo->session_count = sqlite3_column_int(stmt, 3);
+            //protoStatsInfo->proto_description = "";
+            protoStatsInfo->proto_description = protocolMap[protoStatsInfo->proto];
+            
+            protoStatsList.push_back(protoStatsInfo);
+        }
+
+        sqlite3_finalize(stmt);
+
+        // 接著查詢總數
+        sql = StatsSQL::buildProtoStatsQuerySQL_Count(queryCondition);
         if (sqlite3_prepare_v2(db, sql.c_str(), -1, &countStmt, nullptr) != SQLITE_OK) {
             LOG_F(ERROR, "Failed to prepare statement: %s", sql.c_str());
             return false;
@@ -357,5 +395,61 @@ public:
 
 private:
     sqlite3* db = nullptr;
+
+    std::map<std::string, std::string> protocolMap = {
+        {"TCP", "傳輸控制協定，建構在IP之上，提供可靠、有序、無錯誤的資料傳輸，並具備流量與壅塞控制能力。"},
+        {"UDP", "使用者資料包協定，無連線導向，傳輸速度快但不保證可靠性，適用於即時應用與少量資料傳輸。"},
+        {"HTTP", "超文本傳輸協定，常用於瀏覽器與伺服器之間的網頁資料傳輸，採請求-回應模式進行通訊。"},
+        {"HTTPS", "加密版HTTP，透過TLS或SSL建立安全通道，保護傳輸資料的完整性與機密性，廣泛用於網站登入與支付。"},
+        {"DNS", "網域名稱系統協定，用於將網域名稱解析為IP位址，支援正向與反向解析，維護網際網路主機命名體系。"},
+        {"TLS", "傳輸層安全協定，為應用層資料提供加密與完整性驗證，通常用於HTTPS等情境以確保通訊安全。"},
+        {"SSL", "安全通訊端層協定，TLS的前身，曾廣泛用於加密資料傳輸，現多被TLS取代但在部分場景中仍可見。"},
+        {"ARP", "位址解析協定，用於在區域網路中透過IP位址取得對應的MAC位址，在乙太網環境下尤其重要。"},
+        {"ICMP", "網際網路控制訊息協定，傳輸錯誤與控制資訊，例如ping與traceroute等診斷工具依賴其回應功能。"},
+        {"DHCP", "動態主機設定協定，用於自動分配IP位址、閘道器、DNS等網路設定資訊，大幅簡化網路管理。"},
+        {"FTP", "檔案傳輸協定，使用TCP作為底層協定，可於用戶端與伺服器間進行檔案的上傳與下載操作。"},
+        {"SSH", "安全殼層協定，為遠端登入與其他網路服務提供安全加密通道，常用於取代Telnet進行安全操作。"},
+        {"Telnet", "早期的遠端登入協定，缺乏加密，通訊內容為明文傳輸，已逐漸被SSH等更安全協定取代。"},
+        {"SMTP", "簡易郵件傳輸協定，用於在郵件伺服器之間或郵件用戶端與伺服器之間傳送電子郵件。"},
+        {"POP", "郵局協定，使用者從郵件伺服器擷取郵件後通常會將其本地化，常見版本為POP3，使用簡單且效率高。"},
+        {"IMAP", "網際網路郵件存取協定，支援在伺服器端管理郵件，用戶端可與伺服器保持同步並操作多個資料夾。"},
+        {"LDAP", "輕量型目錄存取協定，主要用於查詢與修改目錄服務資訊，常見於企業級用戶/權限管理系統。"},
+        {"NTP", "網路時間協定，透過UDP實作的時間同步服務，確保各網路設備間時間一致性。"},
+        {"SNMP", "簡易網路管理協定，用於集中監控與管理網路設備，常收集設備CPU、記憶體、介面流量等資訊。"},
+        {"RIP", "路由資訊協定，距離向量路由協定之一，使用跳數作為度量值，適用於小規模網路環境。"},
+        {"OSPF", "開放最短路徑優先協定，鏈路狀態路由協定之一，支援大型網路與區域劃分，收斂速度快。"},
+        {"BGP", "邊界閘道協定，用於跨自治系統（AS）間的路由資訊交換，是網際網路的核心路由協定。"},
+        {"PPTP", "點對點隧道協定，基於PPP封裝的資料隧道技術之一，常用於VPN連線但安全性較弱。"},
+        {"L2TP", "第二層隧道協定，與IPSec結合使用時可提供更安全的VPN隧道，廣泛應用於遠端存取場景。"},
+        {"GRE", "通用路由封裝協定，用於不同網路間封裝各類第三層協定，常見於隧道與VPN場景。"},
+        {"IPsec", "IP安全協定套件，透過加密與認證保障IP層資料的機密性與完整性，多用於VPN部署與安全通訊。"},
+        {"SCTP", "串流控制傳輸協定，面向訊息傳輸，支援多宿主與多串流，常用於電信及即時訊號傳輸場景。"},
+        {"RTSP", "即時串流協定，適合控制多媒體串流傳輸，常與RTP/RTCP搭配使用，實現點播與直播功能。"},
+        {"RTP", "即時傳輸協定，用於在網路上傳輸音影音訊流，搭配RTCP進行品質控制，常見於會議系統。"},
+        {"RTCP", "即時傳輸控制協定，與RTP協作用於監控傳輸品質、統計QoS等，為串流媒體提供回饋機制。"},
+        {"TFTP", "簡易檔案傳輸協定，基於UDP，通常用於網路設備間傳輸設定檔或PXE開機時下載映像檔。"},
+        {"Gopher", "一種早期的文件檢索與發布協定，使用分層選單結構存取資訊，在WWW普及後逐漸式微。"},
+        {"TLSv1", "TLS協定的早期版本，提供資料加密與完整性驗證，兼顧相容性與安全性。"},
+        {"TLSv1.2", "TLS協定的常用版本，提供資料加密與完整性驗證，兼顧相容性與安全性。"},
+        {"TLSv1.3", "TLS協定的最新主流版本，引入零RTT握手與更安全的加密套件，提升網路通訊效率與安全性。"},
+        {"QUIC", "Google提出的基於UDP的傳輸協定，整合TLS加密，提升HTTP/3等應用在弱網路環境下的效能。"},
+        {"RADIUS", "遠端用戶撥號認證服務，採UDP封裝，集中管理網路用戶的認證、授權與計費資訊。"},
+        {"Diameter", "RADIUS的升級版，提供更豐富的訊息與擴充特性，常用於電信業者的計費、認證與策略控制。"},
+        {"NetBIOS", "網路基本輸出入系統，為區域網路內電腦提供名稱解析與會話服務，常見於Windows網路。"},
+        {"SMB", "伺服器訊息區塊協定，用於在Windows網路中共享檔案、印表機與其他資源，也稱CIFS。"},
+        {"CIFS", "通用網際網路檔案系統，SMB協定的早期版本，主要用於遠端檔案存取與資源共享。"},
+        {"Kerberos", "網路身份驗證協定，使用對稱金鑰與票證機制，為用戶端與伺服器間的通訊提供安全驗證。"},
+        {"Syslog", "系統日誌協定，以UDP或TCP傳輸方式，將設備或系統的日誌訊息集中發送至日誌伺服器記錄。"},
+        {"MQTT", "訊息佇列遙測傳輸協定，基於發佈/訂閱模型，適用於物聯網等低頻寬、高延遲或不穩定網路環境。"},
+        {"CoAP", "受限應用協定，專為資源受限的物聯網設備設計，基於UDP並採用REST風格互動方式。"},
+        {"AMQP", "進階訊息佇列協定，提供訊息中介功能，支援可靠訊息傳遞與靈活的路由機制。"},
+        {"SOAP", "簡單物件存取協定，以XML格式封裝的遠端呼叫協定，曾被廣泛用於Web服務。"},
+        {"WSDL", "Web服務描述語言，用於描述SOAP Web服務的介面、訊息格式與存取位址，基於XML定義。"},
+        {"XML-RPC", "基於HTTP與XML的遠端程序呼叫協定，使用簡單的請求-回應模型，為早期Web服務通訊方式之一。"},
+        {"JSON-RPC", "輕量級遠端程序呼叫協定，使用JSON格式封裝資料，基於HTTP或其他傳輸層實現跨平台呼叫。"},
+        {"WebSocket", "全雙工通訊協定，基於HTTP握手，可於瀏覽器與伺服器間建立持續的雙向訊息通道。"},
+        {"SPDY", "由Google提出的實驗性協定，優化HTTP傳輸效率，透過多路複用與壓縮降低網路延遲。"}
+
+    };
 };
 

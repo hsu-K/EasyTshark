@@ -864,3 +864,8 @@ bool TsharkManager::getIPStatsList(QueryCondition& queryCondition, std::vector<s
 {
     return storage->queryIPStats(queryCondition, ipStatsList, total);
 }
+
+bool TsharkManager::getProtoStatsList(QueryCondition& queryCondition, std::vector<std::shared_ptr<ProtoStatsInfo>>& protoStatsList, int& total)
+{
+    return storage->queryProtoStats(queryCondition, protoStatsList, total);
+}
