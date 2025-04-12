@@ -19,7 +19,8 @@ public:
 		if (value.IsObject()) {
 			if (value.HasMember("showname") && value["showname"].IsString()) {
 				std::string showname = value["showname"].GetString();
-				value["showname"].SetString(MiscUtil::UTF8ToANSIString(showname).c_str(), allocator);
+				//value["showname"].SetString(MiscUtil::UTF8ToANSIString(showname).c_str(), allocator);
+				value["showname"].SetString(showname.c_str(), allocator);
 				// 遍歷translationMap 查找靜態部分替換
 				for (const auto& pair : translationMap) {
 					const std::string& key = pair.first;
@@ -28,14 +29,17 @@ public:
 					// 檢查字段A中是否包含translationMap中的Key
 					if (showname.find(key) == 0) {
 						showname.replace(0, key.length(), translate);
-						value["showname"].SetString(MiscUtil::UTF8ToANSIString(showname).c_str(), allocator);
+						///value["showname"].SetString(MiscUtil::UTF8ToANSIString(showname).c_str(), allocator);
+						value["showname"].SetString(showname.c_str(), allocator);
 						break;
 					}
 				}
 			}
 			if (value.HasMember("show") && value["show"].IsString()) {
 				std::string showname = value["show"].GetString();
-				value["show"].SetString(MiscUtil::UTF8ToANSIString(showname).c_str(), allocator);
+				//value["show"].SetString(MiscUtil::UTF8ToANSIString(showname).c_str(), allocator);
+				value["show"].SetString(showname.c_str(), allocator);
+				
 				// 遍歷translationMap 查找靜態部分替換
 				for (const auto& pair : translationMap) {
 					const std::string& key = pair.first;
@@ -44,7 +48,8 @@ public:
 					// 檢查字段A中是否包含translationMap中的Key
 					if (showname.find(key) == 0) {
 						showname.replace(0, key.length(), translate);
-						value["show"].SetString(MiscUtil::UTF8ToANSIString(showname).c_str(), allocator);
+						//value["show"].SetString(MiscUtil::UTF8ToANSIString(showname).c_str(), allocator);
+						value["show"].SetString(showname.c_str(), allocator);
 						break;
 					}
 				}

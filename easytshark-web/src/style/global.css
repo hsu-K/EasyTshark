@@ -1,0 +1,71 @@
+#nav-bar button {
+  margin-right: 20px;
+}
+
+.layout-basic-demo .arco-layout-header,
+.layout-basic-demo .arco-layout-footer,
+.layout-basic-demo .arco-layout-sider,
+.layout-basic-demo .arco-layout-sider-children,
+.layout-basic-demo .arco-layout-content {
+  /* color: var(--color-green-6); */
+  text-align: left;
+  font-stretch: condensed;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+}
+
+.layout-basic-demo .arco-layout-header,
+.layout-basic-demo .arco-layout-footer {
+  height: 64px;
+  background-color: white;
+  /* text-align: left; */
+}
+
+.layout-basic-demo .arco-layout-sider {
+  width: 206px;
+  background-color: azure;
+  /* background-color: var(--color-primary-light-3); */
+}
+
+.layout-basic-demo .arco-layout-content {
+  /* background-color: rgb(var(--arcoblue-6)); */
+  background-color: azure;
+  color: rgb(5, 64, 5);
+}
+
+.sidebar-menu {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  height: 100%;
+  /* background-color: var(--color-neutral-2); */
+}
+
+.sidebar-menu .arco-menu-inner {
+  overflow-y: auto;
+}
+
+.table-demo-resizable-column .react-resizable {
+  position: relative;
+  background-clip: padding-box;
+}
+
+.table-demo-resizable-column .react-resizable-handle {
+  position: absolute;
+  width: 5px;
+  height: 30px;
+  top: 6px;
+  right: 5px;
+  cursor: col-resize;
+  z-index: 1;
+  border-right: 1px solid var(--color-border-2);
+  background: none;
+}
+
+.arco-table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

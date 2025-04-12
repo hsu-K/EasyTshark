@@ -15,12 +15,18 @@ public:
     }
 
 	virtual void registerRoute() {
-		__server.Post("/api/getPakcetList", [this](const httplib::Request& req, httplib::Response& res) {
+		__server.Post("/api/getPacketList", [this](const httplib::Request& req, httplib::Response& res) {
 			getPacketList(req, res);
 		});
+
 		__server.Post("/api/analysisFile", [this](const httplib::Request& req, httplib::Response& res) {
 			analysisFile(req, res);
 		});
+
+		__server.Post("/api/getPacketDetail", [this](const httplib::Request& req, httplib::Response& res) {
+			getPacketDetail(req, res);
+			});
+
 	}
 
 	// 獲取數據包列表
@@ -83,6 +89,31 @@ public:
 			sendErrorResponse(res, ERROR_INTERNAL_WRONG);
 		}
 	}
+
+	void getPacketDetail(const httplib::Request& req, httplib::Response& res) {
+		try {
+			if (req.body.empty()) {
+				return sendErrorResponse(res, ERROR_PARAMETER_WRONG);
+			}
+
+			rapidjson::Document doc;
+			if (doc.Parse(req.body.c_str()).HasParseError()) {
+				return sendErrorResponse(res, ERROR_PARAMETER_WRONG);
+			}
+
+			uint32_t frameNumber = doc["frameNumber"].GetInt();
+
+			rapidjson::Document dataDoc;
+			__tsharkManager->getPacketDetailInfo(frameNumber, dataDoc);
+
+			sendJsonResponse(res, dataDoc);
+
+		}
+		catch (const std::exception&) {
+			sendErrorResponse(res, ERROR_PARAMETER_WRONG);
+		}
+	}
+
 
 };
 

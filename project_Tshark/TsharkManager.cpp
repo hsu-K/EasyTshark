@@ -117,14 +117,16 @@ bool TsharkManager::analysisFile(string filePath, size_t& packetNum)
 
         file_offset = file_offset + sizeof(PacketHeader) + packet->cap_len;
         
-#ifdef _WIN32
-        //packet->src_location = IP2RegionUtil::getIpLocation(packet->src_ip);
-        packet->src_location = MiscUtil::UTF8ToANSIString(IP2RegionUtil::getIpLocation(packet->src_ip));
-        packet->dst_location = MiscUtil::UTF8ToANSIString(IP2RegionUtil::getIpLocation(packet->dst_ip));
-#else
         packet->src_location = IP2RegionUtil::getIpLocation(packet->src_ip);
         packet->dst_location = IP2RegionUtil::getIpLocation(packet->dst_ip);
-#endif
+//#ifdef _WIN32
+//        //packet->src_location = IP2RegionUtil::getIpLocation(packet->src_ip);
+//        packet->src_location = MiscUtil::UTF8ToANSIString(IP2RegionUtil::getIpLocation(packet->src_ip));
+//        packet->dst_location = MiscUtil::UTF8ToANSIString(IP2RegionUtil::getIpLocation(packet->dst_ip));
+//#else
+//        packet->src_location = IP2RegionUtil::getIpLocation(packet->src_ip);
+//        packet->dst_location = IP2RegionUtil::getIpLocation(packet->dst_ip);
+//#endif
         
 
         // 將分析的數據包保存起來
@@ -279,7 +281,7 @@ vector<AdapterInfo> TsharkManager::getNetworkAdapter()
 bool TsharkManager::parseline(string line, shared_ptr<Packet> packet)
 {
 #ifdef _WIN32
-    line = MiscUtil::UTF8ToANSIString(line);
+    //line = MiscUtil::UTF8ToANSIString(line);
 #endif
 
     if (line.back() == '\n') {
@@ -750,6 +752,9 @@ bool TsharkManager::getPacketDetailInfo(uint32_t frameNumber, std::string& resul
         memset(buffer, 0, sizeof(buffer));
     }
 
+    // remove 移除臨時檔案
+    remove(tmpFilePath.c_str());
+
     // 將xml內容轉換為JSON
     rapidjson::Document detailJson;
     if (!MiscUtil::xml2JSON(tsharkResult, detailJson)) {
@@ -757,6 +762,7 @@ bool TsharkManager::getPacketDetailInfo(uint32_t frameNumber, std::string& resul
         return false;
     }
 
+    // 字段翻譯
     Translator translator;
     translator.translateShowNameFields(detailJson["pdml"]["packet"][0]["proto"], detailJson.GetAllocator());
 
@@ -769,9 +775,81 @@ bool TsharkManager::getPacketDetailInfo(uint32_t frameNumber, std::string& resul
     result = stringBuffer.GetString();
 
 
+    return true;
+}
+
+bool TsharkManager::getPacketDetailInfo(uint32_t frameNumber, rapidjson::Document& detailJson)
+{
+    std::string tmpFilePath = MiscUtil::getRandomString(10) + ".pcap";
+    // 使用editccap來將特定的pcap取出
+    std::string splitCmd = editcapPath + " -r " + currentFilePath + " " + tmpFilePath + " " + std::to_string(frameNumber) + "-" + std::to_string(frameNumber);
+    if (!ProcessUtil::Exec(splitCmd)) {
+        LOG_F(ERROR, "Error in executing command: %s", splitCmd.c_str());
+        remove(tmpFilePath.c_str());
+        return false;
+    }
+
+    // 透過tshark獲取指定數據包的詳細資料，輸出格式為XML
+    std::string cmd = tsharkPath + " -r " + tmpFilePath + " -T pdml";
+    std::unique_ptr<FILE, decltype(&_pclose)> pipe(ProcessUtil::PopenEx(cmd), _pclose);
+    if (!pipe) {
+        std::cout << "Failed to run tshark command." << std::endl;
+        remove(tmpFilePath.c_str());
+        return false;
+    }
+
+    // 讀取tshark輸出
+    char buffer[8192] = { 0 };
+    std::string tsharkResult;
+    // 對於較大的輸出，使用完全緩衝模式能提高效率
+    setvbuf(pipe.get(), NULL, _IOFBF, sizeof(buffer));
+    int count = 0;
+    while (fgets(buffer, sizeof(buffer) - 1, pipe.get()) != nullptr) {
+        tsharkResult += buffer;
+        memset(buffer, 0, sizeof(buffer));
+    }
+
     // remove 移除臨時檔案
     remove(tmpFilePath.c_str());
-    return true;
+
+    // 將xml內容轉換為JSON
+    if (!MiscUtil::xml2JSON(tsharkResult, detailJson)) {
+        LOG_F(ERROR, MiscUtil::UTF8ToANSIString("XML轉JSON失敗").c_str());
+        return false;
+    }
+
+    // 字段翻譯
+    Translator translator;
+    translator.translateShowNameFields(detailJson["pdml"]["packet"][0]["proto"], detailJson.GetAllocator());
+
+    // 將原始十六進制數據插進去
+    if (detailJson.HasMember("pdml") && detailJson["pdml"].HasMember("packet")) {
+        std::string packetHex;
+        std::vector<unsigned char> packetData;
+        if (getPacketHexData(frameNumber, packetData)) {
+            // 將原始數據轉換為16進制格式
+            std::ostringstream oss;
+            oss << std::hex << std::setfill('0');
+            for (unsigned char ch : packetData) {
+                oss << std::setw(2) << static_cast<int>(ch);
+            }
+            packetHex = oss.str();
+        }
+
+        detailJson["pdml"]["packet"][0].AddMember(
+            "hexdata",
+            rapidjson::Value().SetString(packetHex.c_str(), detailJson.GetAllocator()),
+            detailJson.GetAllocator()
+        );
+
+        // 去掉外層的鍵值
+        rapidjson::Value temp;
+        temp.CopyFrom(detailJson["pdml"]["packet"][0], detailJson.GetAllocator());
+        detailJson.SetObject();
+        detailJson.CopyFrom(temp, detailJson.GetAllocator());
+        return true;
+    }
+    return false;
 }
 
 void TsharkManager::queryPackets(QueryCondition& queryCondition, std::vector<std::shared_ptr<Packet>>& packets, int& total)

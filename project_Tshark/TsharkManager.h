@@ -123,6 +123,8 @@ public:
 	// 取得單個封包的詳細資訊
 	bool getPacketDetailInfo(uint32_t frameNumber, std::string& result);
 
+	bool getPacketDetailInfo(uint32_t frameNumber, rapidjson::Document& detailJson);
+
 	void queryPackets(QueryCondition& queryCondition, std::vector<std::shared_ptr<Packet>>& packets, int& total);
 
 	// 將數據包格式轉為舊的pcap格式
