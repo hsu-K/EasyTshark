@@ -69,3 +69,61 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.detail-pannel {
+  height: 30vh;
+  display: flex;
+  justify-content: space-between; /* 或者使用 space-around */
+  border-top: solid 1px #eee;
+
+  .proto-tree {
+    width: 50%;
+    height: calc(100%);
+    overflow-y: scroll;
+  }
+
+  .hex-data {
+    width: 50%;
+    overflow-y: scroll;
+    .offset {
+      display: flex;
+      overflow-y: auto;
+      font-size: 13px;
+      .selected {
+        background: rgba(82, 101, 255, 0.3);
+      }
+      span {
+        display: inline-block;
+        line-height: 22px;
+        width: 6.25%;
+        text-align: center;
+        cursor: context-menu;
+      }
+      .left {
+        width: 80px;
+        background: var(--color-fill-1);
+        min-height: 200px;
+        margin-top: 8px;
+        span {
+          display: block;
+          width: 100%;
+          text-align: center;
+          background:  var(--color-fill-1);
+          &:hover {
+            cursor: default;
+          }
+        }
+      }
+      .center {
+        padding: 8px 10px;
+        width: 63%;
+        word-break: normal;
+      }
+      .right {
+        width: 25%;
+        padding: 8px 20px;
+        word-break: normal;
+      }
+    }
+  }
+}
