@@ -163,6 +163,10 @@ protected:
 				queryCondition.mac_addr = doc["mac_addr"].GetString();
 			}
 
+			if (doc.HasMember("session_id") && doc["session_id"].IsNumber()) {
+				queryCondition.session_id = doc["session_id"].GetInt();
+			}
+
 		}
 		catch (std::exception&) {
 			std::cout << "parse parameter error" << std::endl;

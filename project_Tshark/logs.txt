@@ -2,531 +2,773 @@ arguments: C:\\Program_Code\\C++\\project_Tshark\\x64\\Debug\\project_Tshark.exe
 Current dir: C:\Program_Code\C++\project_Tshark\project_Tshark
 File verbosity level: 9
 date       time         ( uptime  ) [ thread name/id ]                   file:line     v| 
-2025-04-12 16:04:20.220 (   0.886s) [main thread     ]             loguru.cpp:841   INFO| Logging to 'logs.txt', mode: 'w', verbosity: 9
-2025-04-12 16:04:21.292 (   1.958s) [        B9AB50A7]     project_Tshark.cpp:39    INFO| Request received for /api/analysisFile
-2025-04-12 16:04:21.302 (   1.968s) [        B9AB50A7]      TsharkManager.cpp:883   INFO| reset called
-2025-04-12 16:04:21.372 (   2.038s) [        B9AB50A7]      TsharkManager.cpp:870   INFO| Successfully converted C:\Program_Code\C++\project_Tshark\project_Tshark\capture.pcap to C:\Users\user\AppData\Roaming\easytshark\easytshark_2025-04-12_16-04-21.pcap in pcap format
-2025-04-12 16:04:21.658 (   2.325s) [        B9AB50A7]      TsharkManager.cpp:138   INFO| だ猂ЧΘ计沮羆计: 100
-2025-04-12 16:04:21.661 (   2.327s) [        B9AB50A7]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:26.821 (   7.487s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:04:26.824 (   7.490s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:26.829 (   7.495s) [        2B5EB074]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:26.830 (   7.496s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:04:26.830 (   7.496s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:26.830 (   7.497s) [        5DDAB978]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:04:26.833 (   7.499s) [        2B5EB074]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:26.836 (   7.502s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:26.839 (   7.505s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:26.842 (   7.508s) [        5DDAB978]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:04:26.846 (   7.512s) [        2B5EB074]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:26.849 (   7.515s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:04:26.851 (   7.517s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:26.853 (   7.519s) [        5DDAB978]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:04:26.861 (   7.527s) [        EC796A73]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:04:26.867 (   7.533s) [        5DDAB978]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:04:26.871 (   7.537s) [        EC796A73]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:04:26.877 (   7.543s) [        5DDAB978]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:26.880 (   7.546s) [        EC796A73]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:04:26.888 (   7.554s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:27.114 (   7.780s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:27.114 (   7.780s) [        2B5EB074]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:37.019 (  17.685s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:37.022 (  17.688s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:37.026 (  17.692s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:37.224 (  17.890s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:37.905 (  18.571s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:38.099 (  18.765s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:38.585 (  19.251s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:38.781 (  19.447s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:39.435 (  20.101s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:39.632 (  20.298s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:40.839 (  21.505s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:41.035 (  21.701s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:41.293 (  21.959s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:41.495 (  22.161s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:41.738 (  22.404s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:41.933 (  22.599s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:42.743 (  23.409s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:42.746 (  23.412s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:42.754 (  23.420s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:43.064 (  23.730s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:45.301 (  25.967s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:45.500 (  26.166s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:46.375 (  27.041s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:46.576 (  27.242s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:47.673 (  28.339s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:47.863 (  28.529s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:48.882 (  29.548s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:48.886 (  29.552s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:48.892 (  29.558s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:49.090 (  29.756s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:49.812 (  30.478s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:50.007 (  30.673s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:50.860 (  31.526s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:51.062 (  31.728s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:04:51.695 (  32.361s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:04:51.897 (  32.564s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:05:37.688 (  78.354s) [         F94F4F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:05:37.907 (  78.573s) [         F94F4F9]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:06:32.257 ( 132.923s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:06:32.257 ( 132.923s) [        AA52624E]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:06:32.261 ( 132.927s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:06:32.265 ( 132.931s) [        AA52624E]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:06:32.271 ( 132.937s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:06:32.275 ( 132.941s) [        AA52624E]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:06:32.278 ( 132.944s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:06:32.287 ( 132.953s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:06:32.291 ( 132.957s) [        F6B3C09C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:06:32.297 ( 132.964s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:06:32.489 ( 133.155s) [        AA52624E]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:06:34.247 ( 134.913s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:06:34.247 ( 134.913s) [        AA52624E]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:06:34.255 ( 134.921s) [        AA52624E]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:06:34.261 ( 134.927s) [        AA52624E]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:06:34.266 ( 134.932s) [        AA52624E]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:06:34.271 ( 134.937s) [        AA52624E]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:06:34.450 ( 135.116s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:06.270 ( 166.936s) [        233A1C60]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:06.270 ( 166.936s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:06.273 ( 166.939s) [        233A1C60]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:06.278 ( 166.944s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:06.285 ( 166.951s) [        233A1C60]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:06.290 ( 166.956s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:06.293 ( 166.959s) [        233A1C60]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:06.303 ( 166.969s) [        233A1C60]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:06.307 ( 166.973s) [        233A1C60]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:07:06.312 ( 166.978s) [        233A1C60]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:06.507 ( 167.173s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:22.232 ( 182.898s) [        B9AB50A7]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:22.232 ( 182.898s) [        5DDAB978]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:22.232 ( 182.898s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:22.232 ( 182.898s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:22.236 ( 182.902s) [        B9AB50A7]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:22.239 ( 182.905s) [        5DDAB978]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:22.242 ( 182.908s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:22.246 ( 182.912s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:22.250 ( 182.916s) [        B9AB50A7]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:22.253 ( 182.919s) [        5DDAB978]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:22.256 ( 182.922s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:22.259 ( 182.925s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:22.260 ( 182.926s) [        B9AB50A7]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:22.267 ( 182.933s) [        EC796A73]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:22.273 ( 182.939s) [        B9AB50A7]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:22.278 ( 182.944s) [        EC796A73]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:22.282 ( 182.948s) [        B9AB50A7]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:07:22.286 ( 182.952s) [        EC796A73]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:07:22.290 ( 182.957s) [        B9AB50A7]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:22.295 ( 182.961s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:22.481 ( 183.147s) [        5DDAB978]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:22.481 ( 183.147s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:26.227 ( 186.893s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:26.228 ( 186.894s) [        5DDAB978]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:26.229 ( 186.895s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:26.229 ( 186.895s) [        B9AB50A7]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:26.231 ( 186.897s) [        6461CA6C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:26.238 ( 186.904s) [        EC796A73]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:26.246 ( 186.912s) [        6461CA6C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:26.250 ( 186.916s) [        EC796A73]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:26.253 ( 186.919s) [        6461CA6C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:07:26.259 ( 186.925s) [        EC796A73]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:07:26.265 ( 186.931s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:26.269 ( 186.935s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:26.464 ( 187.130s) [        B9AB50A7]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:26.465 ( 187.131s) [        5DDAB978]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:34.275 ( 194.941s) [        2B5EB074]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:34.275 ( 194.941s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:34.279 ( 194.945s) [        2B5EB074]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:34.282 ( 194.948s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:34.286 ( 194.952s) [        2B5EB074]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:34.289 ( 194.955s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:34.291 ( 194.957s) [        2B5EB074]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:34.298 ( 194.964s) [        2B5EB074]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:34.302 ( 194.968s) [        2B5EB074]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:07:34.307 ( 194.973s) [        2B5EB074]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:34.498 ( 195.164s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:44.270 ( 204.936s) [         F94F4F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:44.270 ( 204.936s) [        AA52624E]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:44.273 ( 204.939s) [         F94F4F9]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:44.277 ( 204.943s) [        AA52624E]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:44.284 ( 204.950s) [         F94F4F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:44.288 ( 204.954s) [        AA52624E]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:44.291 ( 204.957s) [         F94F4F9]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:44.299 ( 204.965s) [         F94F4F9]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:44.304 ( 204.970s) [         F94F4F9]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:07:44.310 ( 204.976s) [         F94F4F9]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:44.494 ( 205.160s) [        AA52624E]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:50.261 ( 210.927s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:50.261 ( 210.927s) [        233A1C60]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:50.265 ( 210.931s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:50.268 ( 210.934s) [        233A1C60]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:50.274 ( 210.940s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:50.276 ( 210.942s) [        233A1C60]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:50.278 ( 210.944s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:50.284 ( 210.950s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:50.288 ( 210.954s) [        F6B3C09C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:07:50.293 ( 210.959s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:50.484 ( 211.150s) [        233A1C60]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:58.256 ( 218.922s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:58.256 ( 218.922s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:58.260 ( 218.926s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:58.263 ( 218.929s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:58.268 ( 218.934s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:07:58.271 ( 218.937s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:07:58.272 ( 218.938s) [        ECAC007F]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:58.279 ( 218.945s) [        ECAC007F]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:07:58.282 ( 218.948s) [        ECAC007F]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:07:58.287 ( 218.953s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:07:58.467 ( 219.133s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:01.232 ( 221.898s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:08:01.232 ( 221.898s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:08:01.237 ( 221.903s) [        EC796A73]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:08:01.247 ( 221.913s) [        EC796A73]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:08:01.251 ( 221.917s) [        EC796A73]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:08:01.255 ( 221.922s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:01.444 ( 222.110s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:09.522 ( 230.188s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:08:09.526 ( 230.192s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:09.532 ( 230.198s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:08:09.535 ( 230.201s) [        6461CA6C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:08:09.540 ( 230.206s) [        6461CA6C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:08:09.545 ( 230.211s) [        6461CA6C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:08:09.550 ( 230.216s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:09.557 ( 230.223s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:08:09.558 ( 230.224s) [        5DDAB978]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:08:09.558 ( 230.224s) [        B9AB50A7]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:08:09.561 ( 230.227s) [        6461CA6C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:08:09.564 ( 230.230s) [        5DDAB978]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:09.567 ( 230.233s) [        B9AB50A7]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:09.571 ( 230.237s) [        6461CA6C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:08:09.582 ( 230.248s) [        6461CA6C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:08:09.583 ( 230.249s) [        B9AB50A7]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:08:09.585 ( 230.251s) [        5DDAB978]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:08:09.588 ( 230.254s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:09.840 ( 230.506s) [        5DDAB978]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:09.840 ( 230.506s) [        B9AB50A7]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:13.580 ( 234.246s) [        B9AB50A7]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:08:13.779 ( 234.446s) [        B9AB50A7]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:14.298 ( 234.964s) [        B9AB50A7]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:08:14.490 ( 235.156s) [        B9AB50A7]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:14.960 ( 235.626s) [        B9AB50A7]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:08:14.963 ( 235.629s) [        B9AB50A7]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:14.967 ( 235.633s) [        B9AB50A7]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:08:15.190 ( 235.856s) [        B9AB50A7]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:35.269 ( 255.935s) [        2B5EB074]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:08:35.269 ( 255.935s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:08:35.272 ( 255.938s) [        2B5EB074]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:35.274 ( 255.940s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:35.280 ( 255.946s) [        2B5EB074]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:08:35.282 ( 255.948s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:08:35.284 ( 255.950s) [        2B5EB074]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:08:35.291 ( 255.957s) [        2B5EB074]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:08:35.294 ( 255.961s) [        2B5EB074]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:08:35.300 ( 255.966s) [        2B5EB074]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:35.498 ( 256.164s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:42.263 ( 262.929s) [         F94F4F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:08:42.263 ( 262.929s) [        AA52624E]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:08:42.267 ( 262.933s) [         F94F4F9]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:42.271 ( 262.937s) [        AA52624E]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:42.277 ( 262.943s) [         F94F4F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:08:42.280 ( 262.946s) [        AA52624E]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:08:42.281 ( 262.947s) [         F94F4F9]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:08:42.288 ( 262.954s) [         F94F4F9]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:08:42.292 ( 262.958s) [         F94F4F9]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:08:42.297 ( 262.963s) [         F94F4F9]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:42.514 ( 263.181s) [        AA52624E]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:43.610 ( 264.276s) [        AA52624E]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:08:43.610 ( 264.276s) [         F94F4F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:08:43.614 ( 264.280s) [        AA52624E]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:08:43.622 ( 264.288s) [        AA52624E]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:08:43.626 ( 264.292s) [        AA52624E]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:08:43.632 ( 264.298s) [        AA52624E]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:08:43.838 ( 264.504s) [         F94F4F9]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:15.272 ( 295.938s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:09:15.273 ( 295.939s) [        233A1C60]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:09:15.276 ( 295.942s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:15.279 ( 295.945s) [        233A1C60]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:15.283 ( 295.949s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:09:15.286 ( 295.952s) [        233A1C60]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:09:15.287 ( 295.953s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:09:15.295 ( 295.961s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:09:15.299 ( 295.965s) [        F6B3C09C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:09:15.305 ( 295.971s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:15.494 ( 296.160s) [        233A1C60]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:21.297 ( 301.963s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:09:21.297 ( 301.963s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:09:21.303 ( 301.969s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:21.308 ( 301.974s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:21.316 ( 301.982s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:09:21.320 ( 301.986s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:09:21.322 ( 301.988s) [        EC796A73]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:09:21.332 ( 301.998s) [        EC796A73]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:09:21.337 ( 302.003s) [        EC796A73]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:09:21.342 ( 302.008s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:21.527 ( 302.193s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:23.252 ( 303.918s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:09:23.252 ( 303.918s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:09:23.256 ( 303.922s) [        ECAC007F]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:09:23.264 ( 303.930s) [        ECAC007F]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:09:23.269 ( 303.935s) [        ECAC007F]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:09:23.274 ( 303.940s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:23.474 ( 304.140s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:34.244 ( 314.910s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:09:34.244 ( 314.910s) [        5DDAB978]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:09:34.248 ( 314.914s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:34.253 ( 314.919s) [        5DDAB978]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:34.260 ( 314.926s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:09:34.264 ( 314.930s) [        5DDAB978]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:09:34.265 ( 314.931s) [        6461CA6C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:09:34.272 ( 314.938s) [        6461CA6C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:09:34.276 ( 314.942s) [        6461CA6C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:09:34.280 ( 314.946s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:34.470 ( 315.136s) [        5DDAB978]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:49.239 ( 329.905s) [        2B5EB074]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:09:49.239 ( 329.905s) [        B9AB50A7]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:09:49.242 ( 329.908s) [        2B5EB074]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:49.244 ( 329.910s) [        B9AB50A7]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:49.249 ( 329.915s) [        2B5EB074]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:09:49.252 ( 329.918s) [        B9AB50A7]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:09:49.255 ( 329.921s) [        B9AB50A7]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:09:49.259 ( 329.925s) [        B9AB50A7]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:09:49.262 ( 329.928s) [        B9AB50A7]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:09:49.265 ( 329.931s) [        B9AB50A7]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:09:49.454 ( 330.121s) [        2B5EB074]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:01.298 ( 341.964s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:10:01.298 ( 341.964s) [        AA52624E]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:10:01.303 ( 341.969s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:01.307 ( 341.973s) [        AA52624E]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:01.312 ( 341.978s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:10:01.315 ( 341.981s) [        AA52624E]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:10:01.317 ( 341.983s) [        772DD6CD]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:01.324 ( 341.990s) [        772DD6CD]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:01.329 ( 341.995s) [        772DD6CD]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:10:01.333 ( 341.999s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:01.527 ( 342.193s) [        AA52624E]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:03.280 ( 343.946s) [        AA52624E]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:10:03.280 ( 343.946s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:10:03.284 ( 343.950s) [        AA52624E]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:03.290 ( 343.956s) [        AA52624E]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:03.294 ( 343.960s) [        AA52624E]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:10:03.300 ( 343.966s) [        AA52624E]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:03.501 ( 344.167s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:11.261 ( 351.927s) [         F94F4F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:10:11.261 ( 351.927s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:10:11.264 ( 351.930s) [         F94F4F9]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:11.267 ( 351.933s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:11.273 ( 351.939s) [         F94F4F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:10:11.275 ( 351.941s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:10:11.277 ( 351.943s) [         F94F4F9]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:11.283 ( 351.949s) [         F94F4F9]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:11.287 ( 351.953s) [         F94F4F9]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:10:11.291 ( 351.958s) [         F94F4F9]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:11.482 ( 352.148s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:22.265 ( 362.931s) [        233A1C60]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:10:22.265 ( 362.931s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:10:22.269 ( 362.935s) [        233A1C60]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:22.272 ( 362.939s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:22.278 ( 362.944s) [        233A1C60]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:10:22.280 ( 362.946s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:10:22.282 ( 362.948s) [        233A1C60]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:22.289 ( 362.955s) [        233A1C60]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:22.292 ( 362.958s) [        233A1C60]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:10:22.298 ( 362.964s) [        233A1C60]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:22.484 ( 363.150s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:30.279 ( 370.945s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:10:30.279 ( 370.945s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:10:30.283 ( 370.949s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:30.286 ( 370.952s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:30.291 ( 370.957s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:10:30.293 ( 370.959s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:10:30.295 ( 370.961s) [        EC796A73]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:30.301 ( 370.967s) [        EC796A73]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:30.305 ( 370.971s) [        EC796A73]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:10:30.310 ( 370.976s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:30.501 ( 371.167s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:40.242 ( 380.908s) [        B9AB50A7]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:10:40.242 ( 380.908s) [        5DDAB978]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:10:40.245 ( 380.911s) [        B9AB50A7]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:40.248 ( 380.914s) [        5DDAB978]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:40.253 ( 380.919s) [        B9AB50A7]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:10:40.254 ( 380.920s) [        5DDAB978]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:10:40.259 ( 380.925s) [        5DDAB978]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:40.262 ( 380.928s) [        5DDAB978]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:40.264 ( 380.930s) [        5DDAB978]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:10:40.268 ( 380.934s) [        5DDAB978]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:40.464 ( 381.130s) [        B9AB50A7]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:49.251 ( 389.917s) [        2B5EB074]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:10:49.251 ( 389.917s) [        AA52624E]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:10:49.254 ( 389.920s) [        2B5EB074]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:49.257 ( 389.923s) [        AA52624E]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:49.262 ( 389.928s) [        2B5EB074]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:10:49.264 ( 389.930s) [        AA52624E]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:10:49.265 ( 389.931s) [        2B5EB074]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:49.272 ( 389.938s) [        2B5EB074]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:49.276 ( 389.942s) [        2B5EB074]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:10:49.281 ( 389.947s) [        2B5EB074]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:49.471 ( 390.137s) [        AA52624E]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:51.255 ( 391.921s) [        AA52624E]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:10:51.255 ( 391.921s) [        2B5EB074]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:10:51.263 ( 391.929s) [        AA52624E]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:51.276 ( 391.942s) [        AA52624E]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:10:51.281 ( 391.947s) [        AA52624E]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:10:51.286 ( 391.952s) [        AA52624E]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:10:51.591 ( 392.257s) [        2B5EB074]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:11:01.276 ( 401.942s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:11:01.276 ( 401.942s) [         F94F4F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:11:01.279 ( 401.945s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:11:01.282 ( 401.948s) [         F94F4F9]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:11:01.287 ( 401.953s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:11:01.290 ( 401.956s) [         F94F4F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:11:01.292 ( 401.958s) [        772DD6CD]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:11:01.298 ( 401.964s) [        772DD6CD]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:11:01.302 ( 401.968s) [        772DD6CD]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:11:01.307 ( 401.973s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:11:01.595 ( 402.261s) [         F94F4F9]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:11:30.275 ( 430.941s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:11:30.275 ( 430.941s) [        233A1C60]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:11:30.278 ( 430.944s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:11:30.281 ( 430.947s) [        233A1C60]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:11:30.287 ( 430.953s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:11:30.289 ( 430.955s) [        233A1C60]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:11:30.291 ( 430.957s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:11:30.298 ( 430.964s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:11:30.302 ( 430.968s) [        F6B3C09C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:11:30.308 ( 430.974s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:11:30.527 ( 431.193s) [        233A1C60]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:11:57.141 ( 457.807s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:11:57.145 ( 457.811s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:11:57.151 ( 457.817s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:11:57.155 ( 457.821s) [        ECAC007F]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:11:57.160 ( 457.827s) [        ECAC007F]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:11:57.165 ( 457.831s) [        ECAC007F]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:11:57.170 ( 457.836s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:11:57.175 ( 457.841s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:11:57.175 ( 457.841s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:11:57.177 ( 457.843s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:11:57.179 ( 457.845s) [        6461CA6C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:11:57.183 ( 457.849s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:11:57.186 ( 457.852s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:11:57.190 ( 457.856s) [        6461CA6C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:11:57.200 ( 457.866s) [        6461CA6C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:11:57.202 ( 457.868s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:11:57.202 ( 457.868s) [        EC796A73]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:11:57.205 ( 457.871s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:11:57.492 ( 458.158s) [        EC796A73]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:11:57.494 ( 458.160s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:12:29.424 ( 490.090s) [        5DDAB978]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:12:29.646 ( 490.312s) [        5DDAB978]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:12:51.201 ( 511.867s) [        B9AB50A7]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:12:51.526 ( 512.192s) [        B9AB50A7]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:13:11.330 ( 531.996s) [        AA52624E]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:13:11.532 ( 532.198s) [        AA52624E]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:13:34.564 ( 555.230s) [        2B5EB074]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:13:34.777 ( 555.443s) [        2B5EB074]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:13:46.240 ( 566.906s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:13:46.244 ( 566.910s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:13:46.248 ( 566.914s) [        772DD6CD]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:13:46.438 ( 567.104s) [        772DD6CD]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:14:39.083 ( 619.749s) [         F94F4F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:14:39.086 ( 619.752s) [         F94F4F9]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:14:39.090 ( 619.756s) [         F94F4F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:14:39.284 ( 619.950s) [         F94F4F9]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:15:55.516 ( 696.182s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:15:55.519 ( 696.185s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:15:55.525 ( 696.191s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:15:55.529 ( 696.195s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 30;
-2025-04-12 16:15:55.534 ( 696.200s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 30;
-2025-04-12 16:15:55.537 ( 696.203s) [        F6B3C09C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:15:55.541 ( 696.207s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:15:59.528 ( 700.194s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:15:59.532 ( 700.198s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:15:59.538 ( 700.204s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:15:59.541 ( 700.207s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 60;
-2025-04-12 16:15:59.545 ( 700.211s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 60;
-2025-04-12 16:15:59.548 ( 700.214s) [        F6B3C09C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:15:59.553 ( 700.219s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:00.764 ( 701.430s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:00.768 ( 701.434s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:00.773 ( 701.439s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:00.776 ( 701.442s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 30;
-2025-04-12 16:16:00.780 ( 701.446s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 30;
-2025-04-12 16:16:00.784 ( 701.450s) [        F6B3C09C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:16:00.788 ( 701.454s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:01.525 ( 702.191s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:01.529 ( 702.195s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:01.534 ( 702.200s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:01.537 ( 702.203s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:16:01.541 ( 702.207s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:16:01.544 ( 702.210s) [        F6B3C09C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:16:01.548 ( 702.214s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:02.889 ( 703.555s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:02.895 ( 703.561s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:02.902 ( 703.568s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:02.908 ( 703.574s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 90;
-2025-04-12 16:16:02.912 ( 703.578s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 90;
-2025-04-12 16:16:02.916 ( 703.582s) [        F6B3C09C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:16:02.921 ( 703.587s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:04.567 ( 705.233s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:04.569 ( 705.235s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:04.575 ( 705.241s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:04.578 ( 705.244s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 60;
-2025-04-12 16:16:04.582 ( 705.248s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 60;
-2025-04-12 16:16:04.586 ( 705.252s) [        F6B3C09C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:16:04.590 ( 705.256s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:05.719 ( 706.385s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:05.724 ( 706.390s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 30;
-2025-04-12 16:16:05.729 ( 706.395s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 30;
-2025-04-12 16:16:05.732 ( 706.399s) [        F6B3C09C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:16:05.737 ( 706.403s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:07.871 ( 708.537s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:07.876 ( 708.542s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:07.881 ( 708.547s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:07.884 ( 708.550s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:16:07.888 ( 708.554s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
-2025-04-12 16:16:07.891 ( 708.557s) [        F6B3C09C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:16:07.895 ( 708.561s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:09.534 ( 710.200s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:09.540 ( 710.206s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:09.548 ( 710.214s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:09.551 ( 710.217s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 30;
-2025-04-12 16:16:09.555 ( 710.221s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 30;
-2025-04-12 16:16:09.560 ( 710.226s) [        F6B3C09C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:16:09.567 ( 710.233s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:10.053 ( 710.719s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:10.058 ( 710.724s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:10.063 ( 710.729s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:10.066 ( 710.732s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 60;
-2025-04-12 16:16:10.070 ( 710.736s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 60;
-2025-04-12 16:16:10.072 ( 710.738s) [        F6B3C09C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:16:10.076 ( 710.742s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:10.417 ( 711.083s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:10.420 ( 711.086s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:10.426 ( 711.092s) [        F6B3C09C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:10.429 ( 711.095s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 90;
-2025-04-12 16:16:10.432 ( 711.099s) [        F6B3C09C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 90;
-2025-04-12 16:16:10.436 ( 711.102s) [        F6B3C09C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:16:10.440 ( 711.106s) [        F6B3C09C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:20.456 ( 721.122s) [        233A1C60]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:16:20.459 ( 721.125s) [        233A1C60]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:20.464 ( 721.130s) [        233A1C60]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:16:20.658 ( 721.324s) [        233A1C60]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:40.557 ( 741.223s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:16:40.560 ( 741.226s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:40.566 ( 741.232s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:16:40.762 ( 741.428s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:42.420 ( 743.086s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:42.424 ( 743.090s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:42.429 ( 743.095s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
-2025-04-12 16:16:42.432 ( 743.098s) [        6461CA6C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 60;
-2025-04-12 16:16:42.437 ( 743.103s) [        6461CA6C]           querySQL.hpp:59    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 60;
-2025-04-12 16:16:42.440 ( 743.106s) [        6461CA6C]           querySQL.hpp:71    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
-2025-04-12 16:16:42.445 ( 743.111s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:16:44.304 ( 744.970s) [        6461CA6C]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:16:44.498 ( 745.164s) [        6461CA6C]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:17:33.201 ( 793.867s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:17:33.204 ( 793.870s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:17:33.208 ( 793.874s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:17:33.520 ( 794.186s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:17:33.736 ( 794.402s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:17:33.928 ( 794.594s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
-2025-04-12 16:17:35.035 ( 795.701s) [        ECAC007F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
-2025-04-12 16:17:35.239 ( 795.905s) [        ECAC007F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:05:09.819 (   1.536s) [main thread     ]             loguru.cpp:841   INFO| Logging to 'logs.txt', mode: 'w', verbosity: 9
+2025-04-16 11:14:09.759 ( 541.476s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/analysisFile
+2025-04-16 11:14:09.762 ( 541.479s) [        1FA322AF]      TsharkManager.cpp:883   INFO| reset called
+2025-04-16 11:14:10.156 ( 541.873s) [        1FA322AF]      TsharkManager.cpp:870   INFO| Successfully converted C:\Program_Code\C++\project_Tshark\project_Tshark\capture.pcap to C:\Users\user\AppData\Roaming\easytshark\easytshark_2025-04-16_11-14-09.pcap in pcap format
+2025-04-16 11:14:10.990 ( 542.707s) [        1FA322AF]      TsharkManager.cpp:138   INFO| だ猂ЧΘ计沮羆计: 100
+2025-04-16 11:14:10.993 ( 542.710s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:14:17.212 ( 548.929s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:14:17.218 ( 548.935s) [        6CCCDBAA]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 100 OFFSET 0;
+2025-04-16 11:14:17.223 ( 548.940s) [        6CCCDBAA]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 100 OFFSET 0;
+2025-04-16 11:14:17.227 ( 548.944s) [        6CCCDBAA]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
+2025-04-16 11:14:17.233 ( 548.950s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:14:20.177 ( 551.894s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:14:20.431 ( 552.148s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:14:24.471 ( 556.188s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:14:24.672 ( 556.389s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:14:34.997 ( 566.714s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionList
+2025-04-16 11:14:35.001 ( 566.718s) [        E07822DF]           querySQL.hpp:124   INFO| [BUILD SQL]: SELECT * FROM t_sessions LIMIT 100 OFFSET 0;
+2025-04-16 11:14:35.005 ( 566.722s) [        E07822DF]           querySQL.hpp:124   INFO| [BUILD SQL]: SELECT * FROM t_sessions LIMIT 100 OFFSET 0;
+2025-04-16 11:14:35.009 ( 566.726s) [        E07822DF]           querySQL.hpp:136   INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_sessions ) t_temp
+2025-04-16 11:14:35.014 ( 566.731s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:34.451 ( 746.168s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:17:34.455 ( 746.172s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:34.463 ( 746.180s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:17:34.464 ( 746.181s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:17:34.464 ( 746.181s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:17:34.464 ( 746.181s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:17:34.467 ( 746.184s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:34.470 ( 746.187s) [        D0870C7B]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
+2025-04-16 11:17:34.472 ( 746.189s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:34.475 ( 746.192s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:34.480 ( 746.197s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:17:34.481 ( 746.198s) [        D0870C7B]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
+2025-04-16 11:17:34.485 ( 746.202s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:17:34.488 ( 746.205s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:17:34.492 ( 746.209s) [        D0870C7B]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
+2025-04-16 11:17:34.499 ( 746.216s) [        52304980]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
+2025-04-16 11:17:34.503 ( 746.220s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:34.507 ( 746.224s) [        52304980]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets LIMIT 30 OFFSET 0;
+2025-04-16 11:17:34.515 ( 746.232s) [        52304980]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets ) t_temp
+2025-04-16 11:17:34.520 ( 746.237s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:34.744 ( 746.461s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:34.746 ( 746.463s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:35.815 ( 747.532s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionList
+2025-04-16 11:17:35.818 ( 747.535s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionList
+2025-04-16 11:17:35.821 ( 747.538s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:35.824 ( 747.541s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:35.830 ( 747.547s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionList
+2025-04-16 11:17:35.832 ( 747.549s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionList
+2025-04-16 11:17:35.834 ( 747.551s) [        678BA1F9]           querySQL.hpp:124   INFO| [BUILD SQL]: SELECT * FROM t_sessions WHERE (app_proto like '%TCP%' or trans_proto like '%TCP%') LIMIT 30 OFFSET 0;
+2025-04-16 11:17:35.837 ( 747.554s) [        B4720D02]           querySQL.hpp:124   INFO| [BUILD SQL]: SELECT * FROM t_sessions WHERE (app_proto like '%TCP%' or trans_proto like '%TCP%') LIMIT 30 OFFSET 0;
+2025-04-16 11:17:35.841 ( 747.558s) [        678BA1F9]           querySQL.hpp:124   INFO| [BUILD SQL]: SELECT * FROM t_sessions WHERE (app_proto like '%TCP%' or trans_proto like '%TCP%') LIMIT 30 OFFSET 0;
+2025-04-16 11:17:35.844 ( 747.561s) [        B4720D02]           querySQL.hpp:124   INFO| [BUILD SQL]: SELECT * FROM t_sessions WHERE (app_proto like '%TCP%' or trans_proto like '%TCP%') LIMIT 30 OFFSET 0;
+2025-04-16 11:17:35.849 ( 747.566s) [        678BA1F9]           querySQL.hpp:136   INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_sessions WHERE (app_proto like '%TCP%' or trans_proto like '%TCP%') ) t_temp
+2025-04-16 11:17:35.852 ( 747.569s) [        B4720D02]           querySQL.hpp:136   INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_sessions WHERE (app_proto like '%TCP%' or trans_proto like '%TCP%') ) t_temp
+2025-04-16 11:17:35.857 ( 747.574s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:35.861 ( 747.578s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:37.932 ( 749.649s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:17:37.936 ( 749.653s) [        B4720D02]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:17:37.941 ( 749.658s) [        B4720D02]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:17:37.946 ( 749.663s) [        B4720D02]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:17:37.952 ( 749.669s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:37.954 ( 749.671s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:17:37.954 ( 749.671s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:17:37.955 ( 749.672s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:17:37.955 ( 749.672s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:17:37.962 ( 749.679s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:17:37.962 ( 749.679s) [        52304980]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:17:37.965 ( 749.682s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:37.974 ( 749.691s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:37.979 ( 749.696s) [        52304980]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:17:37.986 ( 749.703s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:17:37.990 ( 749.707s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:17:37.991 ( 749.708s) [        52304980]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:17:37.995 ( 749.712s) [        D0870C7B]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:17:37.999 ( 749.716s) [        5A87D987]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:17:38.005 ( 749.722s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:38.010 ( 749.727s) [        D0870C7B]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:17:38.016 ( 749.733s) [        5A87D987]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:17:38.031 ( 749.748s) [        D0870C7B]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:17:38.048 ( 749.765s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:38.038 ( 749.755s) [        5A87D987]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:17:38.114 ( 749.831s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:38.303 ( 750.020s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:38.304 ( 750.021s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:40.202 ( 751.919s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:17:40.202 ( 751.919s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:17:40.205 ( 751.922s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:40.209 ( 751.926s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:40.214 ( 751.931s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:17:40.217 ( 751.934s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:17:40.521 ( 752.238s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:40.521 ( 752.238s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:41.831 ( 753.548s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:17:42.037 ( 753.754s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:42.860 ( 754.577s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:17:43.074 ( 754.791s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:46.304 ( 758.021s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:17:46.308 ( 758.025s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:17:46.315 ( 758.032s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:17:46.516 ( 758.233s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:25:12.052 (1203.769s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:25:12.055 (1203.772s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:25:12.061 (1203.778s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:25:12.256 (1203.973s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:25:48.080 (1239.797s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:25:48.083 (1239.800s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:25:48.088 (1239.805s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:25:48.266 (1239.983s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:25:53.050 (1244.767s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:25:53.226 (1244.943s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:25:58.038 (1249.755s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:25:58.042 (1249.759s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:25:58.047 (1249.764s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:25:58.220 (1249.937s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:26:08.048 (1259.765s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:26:08.052 (1259.769s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:26:08.057 (1259.774s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:26:08.348 (1260.065s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:26:48.047 (1299.764s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:26:48.051 (1299.768s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:26:48.057 (1299.774s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:26:48.343 (1300.060s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:07.054 (1318.771s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:27:07.054 (1318.771s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:27:07.055 (1318.772s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:27:07.055 (1318.772s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:27:07.057 (1318.774s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:27:07.057 (1318.774s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:27:07.058 (1318.775s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:07.064 (1318.781s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:07.069 (1318.786s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:07.072 (1318.789s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:07.075 (1318.792s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:07.077 (1318.794s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:07.082 (1318.799s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:27:07.084 (1318.801s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:27:07.087 (1318.804s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:27:07.090 (1318.807s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:27:07.093 (1318.810s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:27:07.095 (1318.812s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:27:07.097 (1318.814s) [        E07822DF]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:27:07.102 (1318.819s) [        52304980]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:27:07.105 (1318.822s) [        D0870C7B]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:27:07.111 (1318.828s) [        678BA1F9]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:27:07.115 (1318.832s) [        E07822DF]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:27:07.120 (1318.837s) [        52304980]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:27:07.124 (1318.841s) [        D0870C7B]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:27:07.129 (1318.846s) [        678BA1F9]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:27:07.133 (1318.850s) [        E07822DF]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:27:07.137 (1318.854s) [        52304980]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:27:07.141 (1318.858s) [        D0870C7B]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:27:07.146 (1318.863s) [        678BA1F9]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:27:07.151 (1318.868s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:07.156 (1318.873s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:07.160 (1318.877s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:07.165 (1318.882s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:07.346 (1319.063s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:07.346 (1319.063s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:18.351 (1330.068s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:27:18.355 (1330.072s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:18.360 (1330.077s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:27:18.364 (1330.081s) [        FA8E10B2]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:27:18.370 (1330.087s) [        FA8E10B2]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:27:18.374 (1330.091s) [        FA8E10B2]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:27:18.380 (1330.097s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:18.391 (1330.108s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:27:18.392 (1330.109s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:27:18.394 (1330.111s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:27:18.394 (1330.111s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:27:18.394 (1330.111s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:27:18.395 (1330.112s) [        FA8E10B2]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:27:18.398 (1330.115s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:18.402 (1330.119s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:18.405 (1330.122s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:18.408 (1330.125s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:18.413 (1330.130s) [        FA8E10B2]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:27:18.419 (1330.136s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:27:18.421 (1330.138s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:27:18.426 (1330.143s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:27:18.428 (1330.145s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:27:18.429 (1330.146s) [        FA8E10B2]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:27:18.439 (1330.156s) [        D2479703]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:27:18.443 (1330.160s) [        6CCCDBAA]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:27:18.449 (1330.166s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:18.453 (1330.170s) [        D2479703]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:27:18.457 (1330.174s) [        6CCCDBAA]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:27:18.465 (1330.182s) [        D2479703]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:27:18.470 (1330.187s) [        6CCCDBAA]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:27:18.475 (1330.192s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:18.481 (1330.198s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:18.690 (1330.407s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:18.691 (1330.408s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:19.764 (1331.481s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:27:19.764 (1331.481s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:27:19.770 (1331.487s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:19.773 (1331.490s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:19.779 (1331.496s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:27:19.781 (1331.498s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:27:19.994 (1331.711s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:27:19.995 (1331.712s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:08.519 (1440.236s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:29:08.523 (1440.240s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:08.529 (1440.246s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:29:08.736 (1440.453s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:15.341 (1447.058s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:29:15.344 (1447.061s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:15.349 (1447.066s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:29:15.578 (1447.295s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:33.078 (1464.795s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:29:33.082 (1464.799s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:33.088 (1464.805s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:29:33.280 (1464.997s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:36.480 (1468.197s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:29:36.700 (1468.417s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:40.002 (1471.719s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:29:40.006 (1471.723s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:40.013 (1471.730s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:29:40.017 (1471.734s) [        52304980]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:29:40.022 (1471.739s) [        52304980]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:29:40.027 (1471.744s) [        52304980]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:29:40.031 (1471.748s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:40.074 (1471.791s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:29:40.075 (1471.792s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:29:40.075 (1471.792s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:29:40.075 (1471.792s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:29:40.075 (1471.792s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:29:40.078 (1471.795s) [        52304980]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:29:40.080 (1471.797s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:40.084 (1471.801s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:40.088 (1471.805s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:40.091 (1471.808s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:40.095 (1471.812s) [        52304980]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:29:40.102 (1471.819s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:29:40.106 (1471.823s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:29:40.110 (1471.827s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:29:40.112 (1471.829s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:29:40.113 (1471.830s) [        52304980]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:29:40.121 (1471.838s) [        B4720D02]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:29:40.130 (1471.847s) [        FA8E10B2]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:29:40.135 (1471.852s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:40.140 (1471.857s) [        B4720D02]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:29:40.145 (1471.862s) [        FA8E10B2]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:29:40.161 (1471.878s) [        B4720D02]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:29:40.172 (1471.889s) [        FA8E10B2]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:29:40.178 (1471.895s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:40.195 (1471.912s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:40.473 (1472.190s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:40.486 (1472.203s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:44.474 (1476.191s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:29:44.474 (1476.191s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:29:44.479 (1476.196s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:44.484 (1476.201s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:44.490 (1476.207s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:29:44.492 (1476.209s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:29:44.712 (1476.429s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:29:44.712 (1476.429s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:42.822 (1534.539s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:30:42.826 (1534.543s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:42.832 (1534.549s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:30:43.110 (1534.827s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:51.773 (1543.490s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:30:51.777 (1543.494s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:51.782 (1543.499s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:30:51.785 (1543.502s) [        6CCCDBAA]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:30:51.789 (1543.506s) [        6CCCDBAA]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:30:51.793 (1543.510s) [        6CCCDBAA]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:30:51.797 (1543.514s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:51.839 (1543.556s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:30:51.839 (1543.556s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:30:51.841 (1543.558s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:30:51.842 (1543.559s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:30:51.842 (1543.559s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:30:51.843 (1543.560s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:51.847 (1543.564s) [        5CA4027F]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:30:51.851 (1543.568s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:51.855 (1543.572s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:51.858 (1543.575s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:51.867 (1543.584s) [        5CA4027F]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:30:51.870 (1543.587s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:30:51.873 (1543.590s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:30:51.877 (1543.594s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:30:51.879 (1543.596s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:30:51.881 (1543.598s) [        5CA4027F]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:30:51.887 (1543.604s) [        1FA322AF]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:30:51.894 (1543.611s) [        E07822DF]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:30:51.901 (1543.618s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:51.905 (1543.622s) [        1FA322AF]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:30:51.910 (1543.627s) [        E07822DF]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:30:51.929 (1543.646s) [        1FA322AF]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:30:51.938 (1543.655s) [        E07822DF]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:30:51.949 (1543.666s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:51.954 (1543.671s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:52.198 (1543.915s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:52.273 (1543.990s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:53.302 (1545.019s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:30:53.302 (1545.019s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:30:53.309 (1545.026s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:53.314 (1545.031s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:53.321 (1545.038s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:30:53.324 (1545.041s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:30:53.541 (1545.258s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:30:53.541 (1545.258s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:03.096 (1554.813s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:31:03.106 (1554.823s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:03.121 (1554.838s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:31:03.322 (1555.039s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:04.308 (1556.025s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:31:04.501 (1556.218s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:07.001 (1558.718s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:31:07.197 (1558.914s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:08.280 (1559.997s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:31:08.284 (1560.001s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:08.290 (1560.007s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:31:08.548 (1560.265s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:26.209 (1577.926s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:31:26.213 (1577.930s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:26.219 (1577.936s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:31:26.223 (1577.940s) [        B4720D02]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:31:26.227 (1577.944s) [        B4720D02]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:31:26.231 (1577.948s) [        B4720D02]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:31:26.236 (1577.953s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:26.282 (1577.999s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:31:26.285 (1578.002s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:31:26.285 (1578.002s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:31:26.285 (1578.002s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:31:26.285 (1578.002s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:31:26.286 (1578.003s) [        B4720D02]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:31:26.290 (1578.007s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:26.294 (1578.011s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:26.298 (1578.015s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:26.301 (1578.018s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:26.307 (1578.024s) [        B4720D02]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:31:26.315 (1578.032s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:31:26.319 (1578.036s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:31:26.327 (1578.044s) [        B4720D02]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:31:26.327 (1578.044s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:31:26.331 (1578.048s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:31:26.335 (1578.052s) [        5A87D987]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:31:26.341 (1578.058s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:26.349 (1578.066s) [        678BA1F9]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:31:26.355 (1578.072s) [        5A87D987]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:31:26.366 (1578.083s) [        678BA1F9]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:31:26.377 (1578.094s) [        5A87D987]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:31:26.383 (1578.100s) [        678BA1F9]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:31:26.397 (1578.114s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:26.401 (1578.118s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:26.629 (1578.346s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:26.630 (1578.347s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:27.659 (1579.376s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:31:27.659 (1579.376s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:31:27.663 (1579.380s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:27.668 (1579.385s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:27.675 (1579.392s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:31:27.680 (1579.397s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:31:27.885 (1579.602s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:31:27.885 (1579.602s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:06.203 (1617.920s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:32:06.206 (1617.923s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:06.211 (1617.928s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:32:06.401 (1618.118s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:10.333 (1622.050s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:32:10.552 (1622.269s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:18.070 (1629.787s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:32:18.074 (1629.791s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:18.080 (1629.797s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:32:18.374 (1630.091s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:31.308 (1643.025s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:32:31.312 (1643.029s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:31.318 (1643.035s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:32:31.500 (1643.217s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:34.656 (1646.373s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:32:34.889 (1646.606s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:41.363 (1653.080s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:32:41.366 (1653.083s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:41.372 (1653.089s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:32:41.559 (1653.276s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:45.420 (1657.137s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:32:45.614 (1657.331s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:50.333 (1662.050s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:32:50.337 (1662.054s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:50.344 (1662.061s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:32:50.548 (1662.265s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:54.127 (1665.844s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:32:54.131 (1665.848s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:54.139 (1665.856s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:32:54.143 (1665.860s) [        D0870C7B]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:32:54.148 (1665.865s) [        D0870C7B]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:32:54.152 (1665.869s) [        D0870C7B]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:32:54.157 (1665.874s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:54.195 (1665.912s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:32:54.196 (1665.913s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:32:54.197 (1665.914s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:32:54.198 (1665.915s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:32:54.198 (1665.915s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:32:54.199 (1665.916s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:54.203 (1665.920s) [        6CCCDBAA]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:32:54.207 (1665.924s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:54.210 (1665.927s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:54.214 (1665.931s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:54.222 (1665.939s) [        6CCCDBAA]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:32:54.227 (1665.944s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:32:54.232 (1665.949s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:32:54.232 (1665.949s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:32:54.236 (1665.953s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:32:54.237 (1665.954s) [        6CCCDBAA]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:32:54.243 (1665.960s) [        B4720D02]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:32:54.251 (1665.968s) [        5A87D987]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:32:54.256 (1665.973s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:54.260 (1665.977s) [        B4720D02]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:32:54.266 (1665.983s) [        5A87D987]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:32:54.275 (1665.992s) [        B4720D02]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:32:54.284 (1666.001s) [        5A87D987]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:32:54.293 (1666.010s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:54.303 (1666.020s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:54.536 (1666.253s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:54.537 (1666.254s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:55.086 (1666.803s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:32:55.086 (1666.803s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:32:55.342 (1667.059s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:32:55.342 (1667.059s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:33:21.018 (1692.735s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:33:21.032 (1692.749s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:33:21.045 (1692.762s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:33:21.265 (1692.982s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:33:46.709 (1718.426s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:33:46.713 (1718.430s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:33:46.726 (1718.443s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:33:47.012 (1718.729s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:34:53.156 (1784.873s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:34:53.164 (1784.881s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:34:53.169 (1784.886s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:34:53.364 (1785.081s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:34:54.994 (1786.711s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:34:55.271 (1786.988s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:34:59.915 (1791.632s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:34:59.918 (1791.635s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:34:59.925 (1791.642s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:35:00.119 (1791.836s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:35:01.059 (1792.776s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:35:01.258 (1792.975s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:35:01.820 (1793.537s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:35:02.126 (1793.843s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:35:03.858 (1795.575s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:35:04.071 (1795.788s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:35:15.726 (1807.443s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:35:15.738 (1807.455s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:35:15.746 (1807.463s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:35:15.947 (1807.664s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:35:20.302 (1812.019s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:35:20.506 (1812.223s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:35:30.429 (1822.146s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:35:30.432 (1822.149s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:35:30.438 (1822.155s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:35:30.737 (1822.454s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:35:39.249 (1830.966s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:35:39.253 (1830.970s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:35:39.263 (1830.980s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:35:39.564 (1831.281s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:35:54.299 (1846.016s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:35:54.314 (1846.031s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:35:54.329 (1846.046s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:35:54.614 (1846.331s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:35:56.038 (1847.755s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:35:56.258 (1847.975s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:36:01.471 (1853.188s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:36:01.475 (1853.192s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:36:01.481 (1853.198s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:36:01.682 (1853.399s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:36:03.980 (1855.697s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:36:04.179 (1855.896s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:19.962 (1991.679s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:38:19.962 (1991.679s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:38:19.963 (1991.680s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:38:19.964 (1991.681s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:38:19.964 (1991.681s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:38:19.965 (1991.682s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:38:19.967 (1991.684s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:19.971 (1991.688s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:19.976 (1991.693s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:19.979 (1991.696s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:19.982 (1991.699s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:19.986 (1991.703s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:19.990 (1991.707s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:38:19.992 (1991.709s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:38:19.995 (1991.712s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:38:19.998 (1991.715s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:38:20.000 (1991.717s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:38:20.003 (1991.720s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:38:20.004 (1991.721s) [        5A87D987]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:38:20.009 (1991.726s) [        52304980]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:38:20.012 (1991.729s) [        678BA1F9]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:38:20.019 (1991.736s) [        D2479703]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:38:20.024 (1991.741s) [        5A87D987]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:38:20.029 (1991.746s) [        52304980]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:38:20.032 (1991.749s) [        678BA1F9]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:38:20.037 (1991.754s) [        D2479703]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:38:20.041 (1991.758s) [        5A87D987]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:38:20.045 (1991.762s) [        52304980]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:38:20.049 (1991.766s) [        678BA1F9]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:38:20.053 (1991.770s) [        D2479703]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:38:20.058 (1991.775s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:20.063 (1991.780s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:20.068 (1991.785s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:20.072 (1991.789s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:20.254 (1991.971s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:20.260 (1991.977s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:21.365 (1993.082s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:38:21.366 (1993.083s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:38:21.369 (1993.086s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:21.372 (1993.089s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:21.378 (1993.095s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:38:21.380 (1993.097s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:38:21.639 (1993.356s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:38:21.643 (1993.360s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:40:08.754 (2100.471s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:40:08.760 (2100.477s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:40:08.766 (2100.483s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:40:08.966 (2100.683s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:40:15.873 (2107.590s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:40:15.881 (2107.598s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:40:15.892 (2107.609s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:40:16.092 (2107.809s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:10.351 (2162.068s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:41:10.355 (2162.072s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:10.363 (2162.080s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:41:10.564 (2162.281s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:13.973 (2165.690s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:41:14.169 (2165.886s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:15.464 (2167.181s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:41:15.471 (2167.188s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:15.479 (2167.196s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:41:15.687 (2167.404s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:27.375 (2179.092s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:41:27.387 (2179.104s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:27.397 (2179.114s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:41:27.592 (2179.309s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:33.380 (2185.097s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:41:33.386 (2185.103s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:33.397 (2185.114s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:41:33.597 (2185.314s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:43.048 (2194.765s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:41:43.051 (2194.768s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:41:43.051 (2194.768s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:41:43.052 (2194.769s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:41:43.052 (2194.769s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:43.052 (2194.769s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:41:43.053 (2194.770s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:41:43.061 (2194.778s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:43.062 (2194.779s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:43.064 (2194.781s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:43.082 (2194.799s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:41:43.083 (2194.800s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:43.085 (2194.802s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:43.092 (2194.809s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:41:43.094 (2194.811s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:41:43.097 (2194.814s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:41:43.098 (2194.815s) [        52304980]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:41:43.103 (2194.820s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:41:43.105 (2194.822s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketList
+2025-04-16 11:41:43.109 (2194.826s) [        FA8E10B2]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:41:43.116 (2194.833s) [        52304980]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:41:43.119 (2194.836s) [        D2479703]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:41:43.123 (2194.840s) [        678BA1F9]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:41:43.130 (2194.847s) [        FA8E10B2]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 30 OFFSET 0;
+2025-04-16 11:41:43.133 (2194.850s) [        52304980]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:41:43.137 (2194.854s) [        D2479703]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:41:43.159 (2194.876s) [        D2479703]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:41:43.147 (2194.864s) [        FA8E10B2]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:41:43.155 (2194.872s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:43.143 (2194.860s) [        678BA1F9]           querySQL.hpp:66    INFO| [BUILD SQL]: SELECT * FROM t_packets WHERE belong_session_id=7 LIMIT 100 OFFSET 0;
+2025-04-16 11:41:43.165 (2194.882s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:43.171 (2194.888s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:43.184 (2194.901s) [        678BA1F9]           querySQL.hpp:78    INFO| [BUILD SQL]: SELECT COUNT(0) FROM (SELECT * FROM t_packets WHERE belong_session_id=7 ) t_temp
+2025-04-16 11:41:43.197 (2194.914s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:43.362 (2195.079s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:43.362 (2195.079s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:55.043 (2206.760s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:41:55.044 (2206.761s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:41:55.048 (2206.765s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:55.051 (2206.768s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:55.056 (2206.773s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:41:55.059 (2206.776s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:41:55.346 (2207.063s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:41:55.346 (2207.063s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:42:03.907 (2215.624s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:42:03.918 (2215.635s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:42:03.927 (2215.644s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:42:04.120 (2215.837s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:42:22.092 (2233.809s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:42:22.097 (2233.814s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:42:22.104 (2233.821s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:42:22.312 (2234.029s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:43:06.084 (2277.801s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:43:06.088 (2277.805s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:43:06.096 (2277.813s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:43:06.307 (2278.024s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:43:24.147 (2295.864s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:43:24.154 (2295.871s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:43:24.165 (2295.882s) [        52304980]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:43:24.368 (2296.085s) [        52304980]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:44:40.330 (2372.047s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:44:40.338 (2372.055s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:44:40.345 (2372.062s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:44:40.545 (2372.262s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:44:42.809 (2374.526s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:44:43.039 (2374.756s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:44:45.191 (2376.908s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:44:45.408 (2377.125s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:44:47.181 (2378.898s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:44:47.185 (2378.902s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:44:47.190 (2378.907s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:44:47.403 (2379.120s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:44:49.021 (2380.738s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:44:49.226 (2380.943s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:44:52.069 (2383.786s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:44:52.304 (2384.021s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:44:54.820 (2386.537s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:44:54.824 (2386.541s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:44:54.831 (2386.548s) [        D2479703]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:44:55.143 (2386.860s) [        D2479703]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:01.159 (2572.876s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:01.167 (2572.884s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:01.173 (2572.890s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:01.395 (2573.112s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:02.128 (2573.845s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:02.338 (2574.055s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:03.480 (2575.197s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:03.700 (2575.417s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:04.431 (2576.148s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:04.627 (2576.344s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:05.342 (2577.059s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:05.563 (2577.280s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:06.077 (2577.794s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:06.285 (2578.002s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:06.786 (2578.503s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:06.795 (2578.512s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:06.806 (2578.523s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:07.009 (2578.726s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:07.474 (2579.191s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:07.781 (2579.498s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:08.049 (2579.766s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:08.258 (2579.975s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:08.721 (2580.438s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:08.930 (2580.647s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:09.144 (2580.861s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:09.358 (2581.075s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:09.588 (2581.305s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:09.911 (2581.628s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:10.046 (2581.763s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:10.251 (2581.968s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:11.832 (2583.549s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:11.836 (2583.553s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:11.842 (2583.559s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:12.039 (2583.756s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:12.299 (2584.016s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:12.514 (2584.231s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:13.271 (2584.988s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:13.471 (2585.188s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:13.958 (2585.675s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:14.166 (2585.883s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:14.612 (2586.329s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:14.828 (2586.545s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:15.665 (2587.382s) [        FA8E10B2]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:15.863 (2587.580s) [        FA8E10B2]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:38.275 (2609.992s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:48:38.278 (2609.995s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:38.283 (2610.000s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:48:38.465 (2610.182s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:40.189 (2611.906s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:48:40.382 (2612.099s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:41.669 (2613.386s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:48:41.863 (2613.580s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:44.535 (2616.252s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:44.541 (2616.258s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:48:44.548 (2616.265s) [        678BA1F9]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:48:44.750 (2616.467s) [        678BA1F9]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:14.555 (2646.272s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:49:14.559 (2646.276s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:14.564 (2646.281s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:49:14.763 (2646.480s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:15.607 (2647.324s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:49:15.810 (2647.527s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:16.475 (2648.192s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:49:16.695 (2648.412s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:17.160 (2648.877s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:49:17.377 (2649.094s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:18.940 (2650.657s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:49:19.151 (2650.868s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:19.977 (2651.694s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:49:19.981 (2651.698s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:19.986 (2651.703s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:49:20.187 (2651.904s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:22.186 (2653.903s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:49:22.387 (2654.104s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:22.812 (2654.529s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:49:23.024 (2654.741s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:25.124 (2656.841s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:49:25.128 (2656.845s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:25.133 (2656.850s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:49:25.334 (2657.051s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:28.257 (2659.974s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:49:28.262 (2659.979s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:28.266 (2659.983s) [        5A87D987]     project_Tshark.cpp:39    INFO| Request received for /api/getSessionDataStream
+2025-04-16 11:49:28.456 (2660.173s) [        5A87D987]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:55.954 (2687.671s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:49:55.957 (2687.674s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:49:55.962 (2687.679s) [        D0870C7B]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:49:56.167 (2687.884s) [        D0870C7B]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:04.144 (2695.861s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:04.151 (2695.868s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:04.158 (2695.875s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:04.381 (2696.098s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:04.742 (2696.459s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:04.963 (2696.680s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:05.145 (2696.862s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:05.365 (2697.082s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:08.161 (2699.878s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:08.370 (2700.087s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:10.094 (2701.811s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:10.098 (2701.815s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:10.103 (2701.820s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:10.309 (2702.026s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:11.831 (2703.548s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:12.042 (2703.759s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:13.613 (2705.330s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:13.821 (2705.538s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:14.603 (2706.320s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:14.824 (2706.541s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:17.549 (2709.266s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:17.552 (2709.269s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:17.556 (2709.273s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:17.767 (2709.484s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:18.873 (2710.590s) [        5CA4027F]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:19.081 (2710.798s) [        5CA4027F]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:24.836 (2716.553s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:24.839 (2716.556s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:24.844 (2716.561s) [        E07822DF]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:25.045 (2716.762s) [        E07822DF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:38.077 (2729.794s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:38.085 (2729.802s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:38.091 (2729.808s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:38.295 (2730.012s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:40.227 (2731.944s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:40.428 (2732.145s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:42.454 (2734.171s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:42.671 (2734.388s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:42.931 (2734.648s) [        1FA322AF]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:43.172 (2734.889s) [        1FA322AF]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:51.295 (2743.012s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:51.299 (2743.016s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:50:51.303 (2743.020s) [        6CCCDBAA]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:50:51.516 (2743.233s) [        6CCCDBAA]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:51:18.094 (2769.811s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:51:18.098 (2769.815s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:51:18.103 (2769.820s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:51:18.316 (2770.033s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:51:18.596 (2770.313s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:51:18.822 (2770.539s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:51:19.128 (2770.845s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:51:19.349 (2771.066s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:51:19.561 (2771.278s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:51:19.776 (2771.493s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:51:19.929 (2771.646s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:51:20.245 (2771.962s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:51:20.618 (2772.335s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:51:20.824 (2772.541s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:51:21.573 (2773.290s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:51:21.770 (2773.487s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200
+2025-04-16 11:51:21.950 (2773.667s) [        B4720D02]     project_Tshark.cpp:39    INFO| Request received for /api/getPacketDetail
+2025-04-16 11:51:22.161 (2773.878s) [        B4720D02]     project_Tshark.cpp:58    INFO| Received response with status 200

@@ -61,6 +61,7 @@ public:
         obj.AddMember("protocol", rapidjson::Value(protocol.c_str(), allocator), allocator);
         obj.AddMember("info", rapidjson::Value(info.c_str(), allocator), allocator);
         obj.AddMember("file_offset", file_offset, allocator);
+        obj.AddMember("belong_session_id", belong_session_id, allocator);
     }
 };
 

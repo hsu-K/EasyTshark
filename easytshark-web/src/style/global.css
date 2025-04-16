@@ -64,10 +64,15 @@
   background: none;
 }
 
+
 .arco-table td {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.arco-table .selected-row {
+  background-color: #07aaf6 !important;/* 高亮背景色 */
 }
 
 .detail-pannel {

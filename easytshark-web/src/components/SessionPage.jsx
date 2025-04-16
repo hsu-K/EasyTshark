@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { Button } from '@arco-design/web-react';
 import { Table, TableColumnProps, Pagination } from '@arco-design/web-react';
 import { Typography, Tag, Link } from '@arco-design/web-react';
 import dayjs from 'dayjs';
@@ -67,7 +67,32 @@ const columns = [
     dataIndex: 'packet_count',
     width: 120
   },
+  {
+    className: 'custom-arco-table-row-action',
+    fixed: 'right',
+    title: '操作',
+    align: 'center',
+    width: 120,
+    dataIndex: 'operations',
+    // Table的渲染函數
+    render: (_, record) => {
+      return (
+        <div
+          onClick={(e) => {
+            const params = new URLSearchParams({ ...record }).toString();
+            e.stopPropagation();
+            localStorage.setItem(`row${record.session_id}`, JSON.stringify(record));
+            window.open(`/detail?sessionId=${record.session_id}`);
+          }}
+        >
+          <Button type='outline' size='mini'>Session詳情</Button>
+        </div>
+      )
+    }
+
+  }
 ];
+
 
 
 const SessionPage = () => {
@@ -84,18 +109,18 @@ const SessionPage = () => {
 
     let proto = '';
     if (type === 'tcp') {
-        proto = "TCP"
-      } else if (type === 'udp') {
-        proto = "UDP"
-      } else if (type === 'dns') {
-        proto = "DNS"
-      } else if (type === 'http') {
-        proto = "HTTP"
-      } else if (type === 'tls') {
-        proto = "TLS"
-      } else if (type === 'ssh') {
-        proto = "SSH"
-      }
+      proto = "TCP"
+    } else if (type === 'udp') {
+      proto = "UDP"
+    } else if (type === 'dns') {
+      proto = "DNS"
+    } else if (type === 'http') {
+      proto = "HTTP"
+    } else if (type === 'tls') {
+      proto = "TLS"
+    } else if (type === 'ssh') {
+      proto = "SSH"
+    }
 
     // 發送Post，後面是請求的參數
     const _data = await apiPost('/api/getSessionList', {
@@ -115,14 +140,14 @@ const SessionPage = () => {
 
   return (
     <div>
-      <Table 
+      <Table
         columns={columns}
         data={dataList}
         loading={loading}
         pagination={false}
-        scroll={{y: 600}}
-        />
-      <Pagination 
+        scroll={{ y: 600 }}
+      />
+      <Pagination
         current={currentPage}
         showTotal
         sizeCanChange
@@ -130,7 +155,7 @@ const SessionPage = () => {
         pageSize={pageSize}
         onChange={(page) => setCurrentPage(page)}
         onPageSizeChange={(size) => setPageSize(size)}
-        style={{ marginTop: 16, textAlign: 'right'}}
+        style={{ marginTop: 16, textAlign: 'right' }}
       />
     </div>
   )

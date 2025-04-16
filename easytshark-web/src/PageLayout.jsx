@@ -25,7 +25,7 @@ const Content = Layout.Content;
 const PageLayout = () => {
   return (
     <div className='layout-basic-demo'>
-      <Router>
+
         <Layout style={{ height: '95vh' }}>
           <Header>
             <Navbar />
@@ -47,10 +47,10 @@ const PageLayout = () => {
                       </>
                     }
                   >
-                    <MenuItem key='allPackets'><Link to="/dataPacket/all">全部數據包</Link></MenuItem>
-                    <MenuItem key='arpPackets'><Link to="/dataPacket/arp">ARP數據包</Link></MenuItem>
-                    <MenuItem key='icmpPackets'><Link to="/dataPacket/icmp">ICMP數據包</Link></MenuItem>
-                    <MenuItem key='icmpv6Packets'><Link to="/dataPacket/icmpv6">ICMPv6數據包</Link></MenuItem>
+                    <MenuItem key='allPackets'><Link to="/data/dataPacket/all">全部數據包</Link></MenuItem>
+                    <MenuItem key='arpPackets'><Link to="/data/dataPacket/arp">ARP數據包</Link></MenuItem>
+                    <MenuItem key='icmpPackets'><Link to="/data/dataPacket/icmp">ICMP數據包</Link></MenuItem>
+                    <MenuItem key='icmpv6Packets'><Link to="/data/dataPacket/icmpv6">ICMPv6數據包</Link></MenuItem>
                   </SubMenu>
                   <SubMenu
                     key='1'
@@ -60,12 +60,12 @@ const PageLayout = () => {
                       </>
                     }
                   >
-                    <MenuItem key='tcpSession'><Link to="/session/tcp">TCP活動</Link></MenuItem>
-                    <MenuItem key='udpSession'><Link to="/session/udp">UDP活動</Link></MenuItem>
-                    <MenuItem key='dnsSession'><Link to="/session/dns">DNS活動</Link></MenuItem>
-                    <MenuItem key='httpSession'><Link to="/session/http">HTTP活動</Link></MenuItem>
-                    <MenuItem key='tlsSession'><Link to="/session/tls">SSL/TLS活動</Link></MenuItem>
-                    <MenuItem key='sshSession'><Link to="/session/ssh">SSH活動</Link></MenuItem>
+                    <MenuItem key='tcpSession'><Link to="/data/session/tcp">TCP活動</Link></MenuItem>
+                    <MenuItem key='udpSession'><Link to="/data/session/udp">UDP活動</Link></MenuItem>
+                    <MenuItem key='dnsSession'><Link to="/data/session/dns">DNS活動</Link></MenuItem>
+                    <MenuItem key='httpSession'><Link to="/data/session/http">HTTP活動</Link></MenuItem>
+                    <MenuItem key='tlsSession'><Link to="/data/session/tls">SSL/TLS活動</Link></MenuItem>
+                    <MenuItem key='sshSession'><Link to="/data/session/ssh">SSH活動</Link></MenuItem>
                   </SubMenu>
                   <SubMenu
                     key='2'
@@ -75,25 +75,24 @@ const PageLayout = () => {
                       </>
                     }
                   >
-                    <MenuItem key='ipCount'><Link to="/ipStats">IP統計</Link></MenuItem>
-                    <MenuItem key='protoCount'><Link to="/protoStats">協議統計</Link></MenuItem>
+                    <MenuItem key='ipCount'><Link to="/data/ipStats">IP統計</Link></MenuItem>
+                    <MenuItem key='protoCount'><Link to="/data/protoStats">協議統計</Link></MenuItem>
                   </SubMenu>
                 </Menu>
               </div>
             </Sider>
             <Content>
               <Routes>
-                <Route path="/dataPacket/:type" element={<DataPacketPage />} />
-                <Route path="/session/:type" element={<SessionPage />} />
-                <Route path="/ipStats" element={<IPStatsPage />} />
-                <Route path="/protoStats" element={<ProtoStatsPage />} />
+                <Route path="dataPacket/:type" element={<DataPacketPage />} />
+                <Route path="session/:type" element={<SessionPage />} />
+                <Route path="ipStats" element={<IPStatsPage />} />
+                <Route path="protoStats" element={<ProtoStatsPage />} />
               </Routes>
 
             </Content>
 
           </Layout>
         </Layout>
-      </Router>
     </div>
   )
 };

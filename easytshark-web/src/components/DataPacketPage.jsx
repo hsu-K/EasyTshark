@@ -1,4 +1,4 @@
-import React, { useState, useEffect, forwardRef } from 'react';
+import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Table, TableColumnProps, Pagination } from '@arco-design/web-react';
@@ -6,6 +6,7 @@ import { Typography, Tag, Link, Tree, Switch } from '@arco-design/web-react';
 import dayjs from 'dayjs';
 import { Resizable } from 'react-resizable';
 import { apiPost } from '../Api.js';
+import '../style/global.css';
 
 const { Text, Ellipsis } = Typography;
 
@@ -99,8 +100,10 @@ const ResizableTitle = (props) => {
   );
 };
 
-const DataPacketPage = () => {
-  const { type } = useParams();
+const DataPacketPage = forwardRef((props, ref) => {
+  // 因為有使用match直接傳構建的參數，因此使用props.match.params來獲取參數，而不是useParams
+  // const { type } = useParams();
+  const type = props.match?.params?.type;
 
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -135,8 +138,11 @@ const DataPacketPage = () => {
 
   const loadData = async () => {
     setLoading(true);
+    setDataList([]);
+    setTotel(0);
 
     let proto = '';
+    let sessionId = 0;
     if (type === 'arp') {
       proto = 'arp';
     }
@@ -146,15 +152,20 @@ const DataPacketPage = () => {
     else if (type === 'icmpv6') {
       proto = 'icmpv6';
     }
+    else if(type === 'detail'){
+      console.log("this is detail")
+      sessionId = parseInt(props.match.params.sessionId);
+    }
     else {
       proto = '';
     }
-
+    console.log(sessionId);
     // 發送Post，後面是請求的參數
     const _data = await apiPost('/api/getPacketList', {
       "pageSize": pageSize,
       "pageNum": currentPage,
-      "proto": proto
+      "proto": proto,
+      "session_id": sessionId
     })
     console.log(_data.data);
     setDataList(_data.data);
@@ -171,7 +182,7 @@ const DataPacketPage = () => {
 
   const [treeData, setTreeData] = useState([]);
 
-  // 定義一個生成唯一ID的閉包
+  // 定義一個生成唯一ID的閉包，每次呼叫這個函數時idCounter會加1
   const makeIdGenerator = () => {
     let idCounter = 0;
     return () => ++idCounter;
@@ -180,8 +191,10 @@ const DataPacketPage = () => {
   // 創建一個ID生成器的實例
   const generateId = makeIdGenerator();
   const addUniqueID = (node) => {
+    // 為其加上唯一的ID
     const updateNode = { ...node, id: generateId().toString() };
     if (Array.isArray(updateNode.field) && updateNode.field.length > 0) {
+      // 如果node有子節點，則為其也加上ID，使用map函數來遍歷
       updateNode.field = updateNode.field.map(addUniqueID);
     }
     return updateNode;
@@ -189,6 +202,7 @@ const DataPacketPage = () => {
 
   const renderTitle = (node) => {
     const title = node.dataRef.showname || node.dataRef.name || node.dataRef.show;
+    // 如果該節點層級為0，即根節點，就渲染成有特定樣式的Span元素
     if (node._level === 0) {
       return <span style={{ color: 'rgb(var(--primary-5))' }}>{title}</span>;
     }
@@ -200,6 +214,7 @@ const DataPacketPage = () => {
     const _data = await apiPost('/api/getPacketDetail', {
       "frameNumber": currentRowId
     });
+    // 遍歷proto，並未其加上唯一的ID
     const tree = _data?.data.proto.map(addUniqueID);
     setTreeData(tree);
     transformHexData(_data?.data?.hexdata)
@@ -265,18 +280,20 @@ const DataPacketPage = () => {
     const hexData = [];
     const ascData = [];
 
+    // 先把16進制的數據轉換成字符串，其值存在label中，並給予key
     const params = hexCharCodeToStr(hex)
     for (let i = 0; i < params.length; i++) {
       const asc = { label: params[i], key: i, show: false }
 
       // Check if character is printable ASCII (codes 32-126)
       // Replace non-printable characters with '.'
-      if (params.charCodeAt(i) < 32 || params.charCodeAt(i) > 126) {
+      if (params.charCodeAt(i) <= 32 || params.charCodeAt(i) >= 126) {
         asc.label = '.'
         asc.show = true
       }
       ascData.push(asc)
     }
+    // 分割16進制數據，並給予key
     const arr = strTwoSplit(hex).split(',')
     arr.map((item, index) => {
       hexData.push({ label: item, key: index })
@@ -302,7 +319,10 @@ const DataPacketPage = () => {
   const [selectedKeys, setSelectedKeys] = useState();
 
   const handleNodeClick = (node, data) => {
+    // 設置選中的節點
     setSelectedKeys(node);
+
+    // 計算選中的範圍
     const pos = parseInt(data.node?.props.pos);
     const size = parseInt(data.node?.props.size) + pos;
     const leftArr = [];
@@ -311,6 +331,7 @@ const DataPacketPage = () => {
       leftArr.push(i);
     }
     setSelectedRightHex([...leftArr]);
+
     // 計算8位偏移量是否選中
     if (data.node && parseInt(data.node?.props.size) !== 0) {
       const posLeft = !Number.isInteger((pos + 1) / 16) ? ((pos + 1) / 16 >> 0) + 1 : (pos + 1) / 16
@@ -324,11 +345,14 @@ const DataPacketPage = () => {
     }
   }
 
+  useImperativeHandle(ref, () => ({
+    setCurrentRowId: setCurrentRowId,
+  }));
+
   return (
     <div>
       <Table
         className='table-demo-resizable-column'
-
         components={{
           header: {
             cell: ResizableTitle,
@@ -340,7 +364,7 @@ const DataPacketPage = () => {
         loading={loading}
         pagination={false}
         rowkey="frame_number"
-        // rowClassName={currentRowId}
+        rowClassName={(record) => record.frame_number === currentRowId ? 'selected-row' : ''}
 
         // 通過scroll來設置表格的高度和寬度
         scroll={{ y: '50vh', x: '100%' }}
@@ -402,6 +426,6 @@ const DataPacketPage = () => {
 
     </div>
   )
-};
+});
 
 export default DataPacketPage;

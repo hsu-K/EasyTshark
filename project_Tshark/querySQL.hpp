@@ -42,6 +42,13 @@ public:
 			conditionList.push_back(buf);
 		}
 
+		if (condition.session_id != 0) {
+			char buf[100] = { 0 };
+			snprintf(buf, sizeof(buf), "belong_session_id=%d", condition.session_id);
+			conditionList.push_back(buf);
+		}
+
+
 		// 拼接WHERE條件
 		if (!conditionList.empty()) {
 			ss << " WHERE ";

@@ -47,7 +47,8 @@ public:
                 dst_port INTEGER,
                 protocol TEXT,
                 info TEXT,
-                file_offset INTEGER
+                file_offset INTEGER,
+                belong_session_id INTEGER
 			);		
         )";
         if (sqlite3_exec(db, createTableSQL.c_str(), nullptr, nullptr, nullptr) != SQLITE_OK) {
@@ -63,8 +64,8 @@ public:
         std::string insertSQL = R"(
             INSERT INTO t_packets (
                 frame_number, time, cap_len, len, src_mac, dst_mac, src_ip, src_location, src_port,
-                dst_ip, dst_location, dst_port, protocol, info, file_offset
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+                dst_ip, dst_location, dst_port, protocol, info, file_offset, belong_session_id
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
         )";
 
         sqlite3_stmt* stmt;
@@ -90,6 +91,7 @@ public:
             sqlite3_bind_text(stmt, 13, packet->protocol.c_str(), -1, SQLITE_STATIC);
             sqlite3_bind_text(stmt, 14, packet->info.c_str(), -1, SQLITE_STATIC);
             sqlite3_bind_int(stmt, 15, packet->file_offset);
+            sqlite3_bind_int(stmt, 16, packet->belong_session_id);
 
             if (sqlite3_step(stmt) != SQLITE_DONE) {
                 LOG_F(ERROR, "Failed to execute insert statement");
@@ -145,6 +147,7 @@ public:
             packet->protocol = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 12));
             packet->info = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 13));
             packet->file_offset = sqlite3_column_int(stmt, 14);
+            packet->belong_session_id = sqlite3_column_int(stmt, 15);
             packetList.push_back(packet);
         }
         sqlite3_finalize(stmt);
