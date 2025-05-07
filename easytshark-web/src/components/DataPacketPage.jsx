@@ -1,11 +1,11 @@
-import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
+import React, { useState, useEffect, forwardRef, useImperativeHandle, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Table, TableColumnProps, Pagination } from '@arco-design/web-react';
 import { Typography, Tag, Link, Tree, Switch } from '@arco-design/web-react';
 import dayjs from 'dayjs';
 import { Resizable } from 'react-resizable';
-import { apiPost } from '../Api.js';
+import { apiPost, apiGet } from '../Api.js';
 import '../style/global.css';
 
 const { Text, Ellipsis } = Typography;
@@ -103,7 +103,8 @@ const ResizableTitle = (props) => {
 const DataPacketPage = forwardRef((props, ref) => {
   // 因為有使用match直接傳構建的參數，因此使用props.match.params來獲取參數，而不是useParams
   // const { type } = useParams();
-  const type = props.match?.params?.type;
+  const params = useParams();
+  const type = props.match?.params?.type || params?.type;
 
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -152,7 +153,7 @@ const DataPacketPage = forwardRef((props, ref) => {
     else if (type === 'icmpv6') {
       proto = 'icmpv6';
     }
-    else if(type === 'detail'){
+    else if (type === 'detail') {
       console.log("this is detail")
       sessionId = parseInt(props.match.params.sessionId);
     }
@@ -215,9 +216,28 @@ const DataPacketPage = forwardRef((props, ref) => {
       "frameNumber": currentRowId
     });
     // 遍歷proto，並未其加上唯一的ID
-    const tree = _data?.data.proto.map(addUniqueID);
-    setTreeData(tree);
-    transformHexData(_data?.data?.hexdata)
+    // const tree = _data?.data.proto.map(addUniqueID);
+    // setTreeData(tree);
+    // transformHexData(_data?.data?.hexdata)
+    // 增加對 proto 的檢查
+    if (_data?.data?.proto) {
+      // 遍歷proto，並為其加上唯一的ID
+      const tree = _data.data.proto.map(addUniqueID);
+      setTreeData(tree);
+    } else {
+      console.warn('收到的封包詳情中 proto 為空');
+      setTreeData([]); // 設置為空陣列避免渲染錯誤
+    }
+
+    // 增加對 hexdata 的檢查
+    if (_data?.data?.hexdata) {
+      transformHexData(_data.data.hexdata);
+    } else {
+      // 處理沒有 hexdata 的情況
+      setOffsetData([]);
+      setHexData([]);
+      setAscData([]);
+    }
   }
 
   useEffect(() => {
@@ -231,42 +251,42 @@ const DataPacketPage = forwardRef((props, ref) => {
 
   const hexCharCodeToStr = (hex) => {
     if (!hex) return '';
-  
+
     // 移除可能的空格
     const trimmedHex = hex.replace(/\s+/g, '');
-  
+
     // 確保字串長度是偶數，否則無法正確解析
     if (trimmedHex.length % 2 !== 0) {
       throw new Error('Invalid hex string');
     }
-  
+
     let str = '';
     for (let i = 0; i < trimmedHex.length; i += 2) {
       // 每兩個字符解析為一個字元
       const charCode = parseInt(trimmedHex.substr(i, 2), 16);
       str += String.fromCharCode(charCode);
     }
-  
+
     return str;
   };
 
   const strTwoSplit = (hex) => {
     if (!hex) return '';
-  
+
     // 移除可能的空格
     const trimmedHex = hex.replace(/\s+/g, '');
-  
+
     // 確保字串長度是偶數，否則無法正確分割
     if (trimmedHex.length % 2 !== 0) {
       throw new Error('Invalid hex string');
     }
-  
+
     // 按每兩個字符分割
     const result = [];
     for (let i = 0; i < trimmedHex.length; i += 2) {
       result.push(trimmedHex.substr(i, 2));
     }
-  
+
     return result.join(','); // 返回以逗號分隔的字串
   };
 
@@ -327,7 +347,7 @@ const DataPacketPage = forwardRef((props, ref) => {
     const size = parseInt(data.node?.props.size) + pos;
     const leftArr = [];
     const rightArr = [];
-    for(let i = pos ; i < size ; i++){
+    for (let i = pos; i < size; i++) {
       leftArr.push(i);
     }
     setSelectedRightHex([...leftArr]);
@@ -348,6 +368,36 @@ const DataPacketPage = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({
     setCurrentRowId: setCurrentRowId,
   }));
+
+
+  const timerRef = useRef(0);
+  useEffect(() => {
+    const checkStatus = async () => {
+      const _data = await apiGet('/api/getWorkStatus');
+      if(_data.data.workStatus === 2){
+        loadData();
+      }
+      else{
+        console.log("clearInterval: ", timerRef.current);
+        clearInterval(timerRef.current);
+        timerRef.current = 0;
+      }
+    };
+
+    // console.log("type: ", type);
+    if(type === 'detail'){
+      let id = setInterval(checkStatus, 2000);
+      timerRef.current = id;
+    }
+
+
+    return () => {
+      if (timerRef.current !== 0) {
+        clearInterval(timerRef.current);
+        timerRef.current = 0;
+      }
+    };
+  }, [])
 
   return (
     <div>

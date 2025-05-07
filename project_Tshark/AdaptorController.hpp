@@ -47,7 +47,7 @@ public:
             rapidjson::Document resDoc;
             rapidjson::Document::AllocatorType& allocator = resDoc.GetAllocator();
             resDoc.SetObject();
-            resDoc.AddMember("workState", workStatus, allocator);
+            resDoc.AddMember("workStatus", workStatus, allocator);
             sendJsonResponse(res, resDoc);
         }
         catch (const std::exception&) {

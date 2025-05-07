@@ -23,3 +23,17 @@ export const apiPost = async (url, data = {}, config = {}) => {
     throw error;
   }
 }
+
+export const apiGet = async (url, config = {}) => {
+  try{
+    // 發送GET請求
+    const response = await axios.get(baseUrl + url, config);
+    
+    // 返回響應的數據
+    return response.data;
+  
+  } catch (error){
+    console.error("API GET Error: ", error);
+    throw error;
+  }
+}

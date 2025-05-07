@@ -149,6 +149,8 @@ public:
 private:
 	bool parseline(string line, shared_ptr<Packet> packet);
 
+	void clearFlowTrendData();
+
 private:
 	string workDir;
 
