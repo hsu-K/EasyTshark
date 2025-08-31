@@ -27,6 +27,10 @@ public:
 			getPacketDetail(req, res);
 			});
 
+		__server.Post("/api/savePacket", [this](const httplib::Request& req, httplib::Response& res) {
+			savePacket(req, res);
+			});
+
 	}
 
 	// 獲取數據包列表
@@ -114,6 +118,39 @@ public:
 		}
 	}
 
+	void savePacket(const httplib::Request& req, httplib::Response& res) {
+		try {
+			if (req.body.empty()) {
+				return sendErrorResponse(res, ERROR_PARAMETER_WRONG);
+			}
+
+			// 使用RapidJSON解析JSON
+			rapidjson::Document doc;
+			if (doc.Parse(req.body.c_str()).HasParseError()) {
+				return sendErrorResponse(res, ERROR_PARAMETER_WRONG);
+			}
+
+			// 提取要保存的路徑和過濾器
+			std::string savePath;
+			if (doc.HasMember("savePath") && doc["savePath"].IsString()) {
+				savePath = doc["savePath"].GetString();
+			}
+			else {
+				return sendErrorResponse(res, ERROR_PARAMETER_WRONG);
+			}
+
+			if (__tsharkManager->savePacket(savePath)) {
+				sendSuccessResponse(res);
+			}
+			else {
+				sendErrorResponse(res, ERROR_FILE_SAVE_FAILED);
+			}
+		}
+		catch (const std::exception&) {
+			sendErrorResponse(res, ERROR_PARAMETER_WRONG);
+		}
+
+	}
 
 };
 

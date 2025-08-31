@@ -2,6 +2,8 @@
   "name": "easytshark-web",
   "version": "0.1.0",
   "private": true,
+  "main": "electron.js",
+  "homepage": ".",
   "dependencies": {
     "@arco-design/web-react": "^2.66.1",
     "@testing-library/dom": "^10.4.0",
@@ -21,6 +23,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "electron": "electron .",
+    "electron-dev": "electron . dev",
+    "electron-build": "npm run build && electron-builder",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -41,5 +46,37 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.17",
+    "autoprefixer": "^10.4.21",
+    "electron": "^35.1.2",
+    "electron-builder": "^26.0.12",
+    "less": "^4.2.2",
+    "less-loader": "^12.2.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.5"
+  },
+  "build": {
+    "asar": true,
+    "appId": "MyTshark",
+    "productName": "MyTshark",
+    "executableName": "MyTshark",
+    "directories": {
+      "output": "dist"
+    },
+    "extraMetadata": {
+      "main": "electron.js"
+    },
+    "files": [
+      "build/**/*",
+      "electron.js",
+      "preload.js"
+    ],
+
+    "win": {
+      "target": "nsis",
+      "icon": "public/logo.ico"
+    }
   }
 }

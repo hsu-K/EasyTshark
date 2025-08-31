@@ -146,6 +146,8 @@ public:
 
 	DataStreamCountInfo getSessionDataStream(uint32_t sessionId, std::vector<DataStreamItem>& dataStreamList);
 
+	bool savePacket(std::string savePath);
+
 private:
 	bool parseline(string line, shared_ptr<Packet> packet);
 

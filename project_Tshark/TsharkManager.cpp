@@ -1049,3 +1049,8 @@ DataStreamCountInfo TsharkManager::getSessionDataStream(uint32_t sessionId, std:
 
     return countInfo;
 }
+
+bool TsharkManager::savePacket(std::string savePath)
+{
+	return MiscUtil::copyFile(currentFilePath, savePath);
+}

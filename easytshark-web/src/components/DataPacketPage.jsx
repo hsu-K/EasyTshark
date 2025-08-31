@@ -112,6 +112,25 @@ const DataPacketPage = forwardRef((props, ref) => {
   const [pageSize, setPageSize] = useState(30);
   const [dataList, setDataList] = useState([]);
 
+  const [reloadCount, setReloadCount] = useState(0);
+
+  const reloadData = () => {
+    setDataList([])
+    setTreeData([])
+    setOffsetData([])
+    setHexData([])
+    setAscData([])
+    setCurrentPage(1)
+    setCurrentRowId(1)
+    setReloadCount(reloadCount + 1)
+  }
+
+  useImperativeHandle(ref, () => ({
+    setCurrentRowId: setCurrentRowId,
+    reloadData: reloadData,
+  }));
+
+
   function handleResize(index) {
     return (e, { size }) => {
       setColumns((prevColumns) => {
@@ -385,7 +404,7 @@ const DataPacketPage = forwardRef((props, ref) => {
     };
 
     // console.log("type: ", type);
-    if(type === 'detail'){
+    if(type !== 'detail'){
       let id = setInterval(checkStatus, 2000);
       timerRef.current = id;
     }
@@ -397,7 +416,7 @@ const DataPacketPage = forwardRef((props, ref) => {
         timerRef.current = 0;
       }
     };
-  }, [])
+  }, [reloadCount])
 
   return (
     <div>

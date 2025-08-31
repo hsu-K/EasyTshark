@@ -1,0 +1,145 @@
+.details {
+  position: relative;
+
+  :global {
+    .arco-tabs-card-gutter>.arco-tabs-content {
+      height: calc(100vh - 125px);
+    }
+  }
+
+  .details-col {
+    width: 100%;
+    height: calc(100vh - 155px);
+    overflow: auto;
+    padding-right: 0 !important;
+
+    .first-col {
+      padding: 8px 12px;
+      background: var(--color-fill-2);
+    }
+  }
+
+  .box {
+    margin-top: 2px;
+    padding: 12px 8px;
+    background: var(--color-fill-2);
+    border-bottom: var(--color-border-2);
+
+    &:hover,
+    &.selected {
+      background: var(--color-primary-light-2) !important;
+    }
+  }
+
+  .arrow {
+    width: 55px;
+    position: relative;
+    text-align: center;
+
+    .proto {
+      width: 55px;
+      position: absolute;
+      top: -5px;
+      left: 0px;
+      text-align: center;
+    }
+
+    .icon {
+      width: 55px;
+      height: 1px;
+      display: inline-block;
+      background: var(--color-border-4);
+      position: relative;
+      margin-top: 20px;
+
+      &::after,
+      &::before {
+        width: 0;
+        height: 0;
+        background: transparent;
+        position: absolute;
+        top: -4px;
+        left: 53px;
+        content: '';
+      }
+
+      &::after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 8px solid var(--color-border-4);
+      }
+
+      &::before {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-right: 8px solid var(--color-border-4);
+        left: -5px;
+      }
+    }
+
+    &.arrow-left {
+      .icon {
+        &::after {
+          display: none;
+          border-right-color: transparent;
+        }
+      }
+    }
+
+    &.arrow-right {
+      .icon {
+        &::before {
+          display: none;
+          border-left-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+.stream-main {
+  height: calc(100vh - 240px); 
+  overflow: auto;
+  font-family: Consolas, monospace;
+}
+.send {
+  color: #C04545;
+  margin-bottom: 15px;
+}
+.accept {
+  margin-bottom: 15px;
+  color: #319EFF;
+}
+.stream-offset {
+  display: flex;
+  overflow-y: auto;
+  .selected {
+    background: rgba(82, 101, 255, 0.3);
+  }
+  span {
+    display: inline-block;
+    line-height: 22px;
+    cursor: context-menu;
+  }
+  .left {
+    span {
+      display: block;
+      width: 100%;
+      text-align: center;
+      &:hover {
+        cursor: default;
+      }
+    }
+    .selected {
+      background: rgba(82, 101, 255, 0.3);
+    }
+  }
+  .center {
+    padding-left: 40px;
+    width: 500px;
+  }
+  .right {
+    width: 300px;
+    padding: 0 50px 0 20px;
+  }
+}

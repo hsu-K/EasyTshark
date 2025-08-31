@@ -1,13 +1,13 @@
 import React from 'react';
 import PageLayout from './PageLayout';
 import SessionDetailPage from './components/SessionTab/SessionDetailPage';
-import { BrowserRouter as Router, Route, Link, Switch, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, Routes, HashRouter } from 'react-router-dom';
 import HomePage from './components/HomePage';
 
 function App() {
 
   return (
-    <Router>
+    <HashRouter>
       <div class="App">
         <div id="page">
           <Routes>
@@ -17,7 +17,7 @@ function App() {
           </Routes>
         </div>
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 

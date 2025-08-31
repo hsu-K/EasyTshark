@@ -21,6 +21,28 @@ const HomePage = () => {
     navigate('/data/dataPacket/all');
   }
 
+  const handleSelectFile = async () => {
+    try {
+      const selectedFile = await window.electronAPI.openFileDialog();
+      if (selectedFile) {
+        setLoading(true);
+        try {
+          await apiGet('/api/stopMonitorAdaptersFlowTrend')
+          await apiPost('/api/analyzeFile', { filePath: selectedFile})
+          navigate('/data/dataPacket/all');
+          setLoading(false);
+        }
+        catch{
+          setLoading(false);
+          Message.error('文件分析失敗');
+        }
+      }
+    }
+    catch (error) {
+      console.error('Error selecting file:', error);
+    }
+  }
+
   return (
     <div>
       <Spin loading={loading} style={{ width: '100%' }} tip={`${cap ? '實時抓包' : '文件'}分析中...`}>
@@ -28,7 +50,7 @@ const HomePage = () => {
           <Typography.Title heading={6}>實時抓包分析</Typography.Title>
           <Capture onsubmit={onsubmit} />
           <Typography.Title heading={6}>離線分析文件</Typography.Title>
-          <div className='input-file' style={{ height: 80 }}>
+          <div className='input-file' onClick={() => handleSelectFile()} style={{ height: 80 }}>
             <p><IconPlus style={{ fontSize: 22 }} /></p>
             <p>點擊或拖曳文件到此處上傳</p>
           </div>
