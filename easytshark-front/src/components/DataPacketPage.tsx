@@ -3,7 +3,7 @@ import { useState, useEffect, forwardRef, useImperativeHandle, useRef } from 're
 import { Table, TableColumnProps, Pagination, Divider } from '@arco-design/web-react';
 import { Typography, Tag, Link, Switch } from '@arco-design/web-react';
 import dayjs from 'dayjs';
-import { apiPost } from '../Api.ts';
+import { apiPost, apiGet } from '../Api.ts';
 import { Tree } from '@arco-design/web-react';
 
 const { Text, Ellipsis } = Typography;
@@ -73,15 +73,16 @@ interface DataPacketPageHandle {
   setCurrentRowId: (id: number) => void;
 }
 
+
 const DataPacketPage = forwardRef((props: DataPacketPageProps, ref: DataPacketPageHandle) => {
-  const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(false);
   const [total, setTotal] = useState(0);
   const [pageSize, setPageSize] = useState(30);
   const [dataList, setDataList] = useState([])
 
 
-  const loadData = async () => {
+  const loadData = async (Cur_page: number) => {
     setLoading(true);
     let sessionId = 0;
     let proto = '';
@@ -96,10 +97,9 @@ const DataPacketPage = forwardRef((props: DataPacketPageProps, ref: DataPacketPa
     } else {
       proto = ""
     }
-
     const _data = await apiPost('/api/getPacketList', {
       "pageSize": pageSize,
-      "pageNum": currentPage,
+      "pageNum": Cur_page,
       "proto": proto,
       "session_id": sessionId
     })
@@ -109,7 +109,7 @@ const DataPacketPage = forwardRef((props: DataPacketPageProps, ref: DataPacketPa
   }
 
   useEffect(() => {
-    loadData();
+    loadData(currentPage);
   }, [currentPage, pageSize, props.match.params.type])
 
   // ID 生成器
@@ -139,7 +139,7 @@ const DataPacketPage = forwardRef((props: DataPacketPageProps, ref: DataPacketPa
     const _data = await apiPost('/api/getPacketDetail', {
       "frameNumber": currentRowId
     });
-    const tree = _data?.data.proto.map(addUniqueID);
+    const tree = _data?.data?.proto.map(addUniqueID);
     setTreeData(tree);
     if (_data?.data?.hexdata) {
       transformHexData(_data.data.hexdata);
@@ -288,6 +288,45 @@ const DataPacketPage = forwardRef((props: DataPacketPageProps, ref: DataPacketPa
     }
   }
 
+  const currentPageRef = useRef(1);
+
+  // 當 currentPage 改變時更新 ref
+  useEffect(() => {
+    currentPageRef.current = currentPage;
+  }, [currentPage]);
+
+
+  const timerRef = useRef(0);
+  useEffect(() => {
+    const checkStatus = async () => {
+
+      const _data = await apiGet('/api/getWorkStatus');
+      // 2 為抓包中
+      // console.log('Status: ', _data.data.workStatus);
+      if (_data.data.workStatus === 2) {
+        const currentPageNum = currentPageRef.current;
+        // console.log("使用頁碼:", currentPageNum);
+        loadData(currentPageNum);
+      }
+      else {
+        console.log("clearInterval: ", timerRef.current);
+        clearInterval(timerRef.current);
+        timerRef.current = 0;
+      }
+    };
+
+    if (props.match.params.type !== 'detail') {
+      let id = setInterval(checkStatus, 2000);
+      timerRef.current = id;
+    }
+
+    return () => {
+      if (timerRef.current !== 0) {
+        clearInterval(timerRef.current);
+        timerRef.current = 0;
+      }
+    }
+  }, []);
 
 
 
