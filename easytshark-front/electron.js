@@ -1,21 +1,29 @@
 const { app, BrowserWindow, electron, Menu } = require('electron');
 const path = require('path');
 
+
+const windows = {
+  windowIndex: 0,
+  mainWindow: null,
+  subWindow: null,
+}
+
 function createWindow() {
-  const window = new BrowserWindow({
-    width: 1200,
-    height: 900,
+  windows.mainWindow = new BrowserWindow({
+    width: 1600,
+    height: 1100,
     title: 'MyTshark',
   });
 
+  // 隱藏electron菜單欄
   Menu.setApplicationMenu(null);
 
   const mode = process.argv[2];
   if (mode === 'dev') {
-    window.loadURL('http://localhost:3000/#/data/dataPacket/all');
-    window.webContents.openDevTools();
+    windows.mainWindow.loadURL('http://localhost:3000/#/data/dataPacket/all');
+    windows.mainWindow.webContents.openDevTools();
   } else {
-    window.loadURL(`file://${path.join(__dirname, 'build/index.html')}#/home`);
+    windows.mainWindow.loadURL(`file://${path.join(__dirname, 'build/index.html')}#/home`);
   }
 }
 
@@ -24,3 +32,42 @@ app.whenReady().then(createWindow);
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
+
+app.on('web-contents-created', (event, webContents) => {
+  webContents.setWindowOpenHandler((details) => {
+    const { url } = details;
+
+    const params = url.split('?')[1];
+    const browserWindow = new BrowserWindow({
+      width: 1300,
+      height: 900,
+      title: 'MyTshark'
+    });
+
+    if(windows.windowIndex === 0){
+      windows.subWindow = browserWindow;
+    }
+    else{
+      windows[`subWindow${windows.windowIndex}`] = browserWindow;
+    }
+
+    Menu.setApplicationMenu(null);
+        const mode = process.argv[2];
+    if (mode === 'dev') {
+      browserWindow.loadURL(`http://localhost:3000/#/detail?${params}`);
+      browserWindow.webContents.openDevTools();
+    } else {
+      browserWindow.loadURL(`file://${path.join(__dirname, 'build/index.html')}#/detail?${params}`, );
+      // browserWindow.webContents.openDevTools();
+    }
+
+    windows.windowIndex += 1;
+
+    return {action: 'deny' };
+
+  });
+
+  // webContents.on('did-create-window', (childWindow) => {
+  //   childWindow.webContents.openDevTools({ mode: 'detach' });
+  // });
+})

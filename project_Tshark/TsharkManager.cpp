@@ -214,6 +214,11 @@ bool TsharkManager::getPacketHexData(uint32_t frameNumber, std::vector<unsigned 
         return false;
     }
 
+    if(allPackets.find(frameNumber) == allPackets.end()){
+        cerr << "無此封包" << endl;
+        return false;
+	}
+
     std::shared_ptr<Packet> p = allPackets[frameNumber];
     file.seekg(p->file_offset, ios::beg);
     data.resize(p->cap_len);

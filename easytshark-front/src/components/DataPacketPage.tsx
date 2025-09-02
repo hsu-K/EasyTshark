@@ -131,7 +131,7 @@ const DataPacketPage = forwardRef((props: DataPacketPageProps, ref: DataPacketPa
 
   // Tree
   const [treeData, setTreeData] = useState([]);
-  const [currentRowId, setCurrentRowId] = useState(1);
+  const [currentRowId, setCurrentRowId] = useState(0);
 
   useImperativeHandle(ref, () => ({
     setCurrentRowId: setCurrentRowId,
