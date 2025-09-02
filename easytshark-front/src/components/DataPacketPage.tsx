@@ -97,6 +97,8 @@ const DataPacketPage = forwardRef((props: DataPacketPageProps, ref: DataPacketPa
     } else {
       proto = ""
     }
+    // console.log("Proto: ", proto, " Session ID: ", sessionId);
+
     const _data = await apiPost('/api/getPacketList', {
       "pageSize": pageSize,
       "pageNum": Cur_page,

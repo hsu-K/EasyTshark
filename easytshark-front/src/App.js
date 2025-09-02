@@ -2,13 +2,13 @@ import React from 'react';
 import { Button, Message } from '@arco-design/web-react';
 import PageLayout from './PageLayout.tsx';
 import SessionDetailPage from './components/SessionTab/SessionDetailPage.tsx';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, HashRouter } from 'react-router-dom';
 import HomePage from './components/HomePage.tsx';
 // import Capture from './components/Capture.tsx';
 
 const App = () => {
   return (
-    <Router>
+    <HashRouter>
       <div class="App">
         <div id="page">
           <Route path="/data" component={PageLayout} />
@@ -16,7 +16,7 @@ const App = () => {
           <Route path="/home" component={HomePage} />
         </div>
       </div>
-    </Router>
+    </HashRouter>
   );
 };
 
