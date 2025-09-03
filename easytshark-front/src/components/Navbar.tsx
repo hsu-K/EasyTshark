@@ -3,7 +3,7 @@ import { Button, Message, Popover } from '@arco-design/web-react';
 import "../style/global.css"
 import { IconPlayCircle, IconHome, IconRecordStop, IconFile, IconSave } from '@arco-design/web-react/icon';
 import Capture from './Capture.tsx';
-import { apiGet } from '../Api.ts';
+import { apiGet, apiPost } from '../Api.ts';
 
 const Navbar = () => {
   const STATUS_IDLE = 0
@@ -28,8 +28,10 @@ const Navbar = () => {
     Message.info('開始抓包!');
   };
 
-  const stopCapture = () => {
+  const stopCapture = async () => {
     Message.info('停止抓包!');
+    const _data = await apiPost('/api/stopCapture');
+    checkStatus();
   };
 
   const analysisFile = () => {

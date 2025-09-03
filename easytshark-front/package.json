@@ -69,6 +69,7 @@
     },
     "files": [
       "build/**/*",
+      "preload.js",
       "electron.js"
     ],
     "win": {
