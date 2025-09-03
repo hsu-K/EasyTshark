@@ -2,6 +2,7 @@ import { Layout } from '@arco-design/web-react';
 import "./style/global.css"
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Menu } from '@arco-design/web-react';
+import { useState, useEffect, useRef } from 'react';
 
 import Navbar from './components/Navbar.tsx';
 import DataPacketPage from './components/DataPacketPage.tsx';
@@ -27,12 +28,18 @@ const Content = Layout.Content;
 
 function PageLayout() {
 
+  const DataPacketPageRef = useRef(null);
+
+  const updateData = () => {
+    DataPacketPageRef.current.reloadData();
+  }
+
   return (
     <div className='layout-basic-demo'>
       <Router>
         <Layout style={{ height: '1000px' }}>
           <Header>
-            <Navbar></Navbar>
+            <Navbar onUpdateData={updateData}></Navbar>
           </Header>
           <Layout>
             <Sider>
@@ -86,11 +93,20 @@ function PageLayout() {
               </div>
             </Sider>
 
-            <Content>
-              <Route path="/data/dataPacket/:type" component={DataPacketPage} />
+            <Content style={{
+              flex: 1,
+              overflow: 'auto',
+              padding: '16px',
+            }}>
+              <Route
+                path="/data/dataPacket/:type"
+                render={(props) => (
+                  <DataPacketPage {...props} ref={DataPacketPageRef} />
+                )}
+              />
               <Route path="/data/session/:type" component={SessionPage} />
-							<Route path="/data/statistics/ip" component={IPStatsPage} />
-							<Route path="/data/statistics/proto" component={ProtoStatsPage} />
+              <Route path="/data/statistics/ip" component={IPStatsPage} />
+              <Route path="/data/statistics/proto" component={ProtoStatsPage} />
             </Content>
           </Layout>
         </Layout>

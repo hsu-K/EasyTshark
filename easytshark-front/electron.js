@@ -32,7 +32,7 @@ function createWindow() {
     windows.mainWindow.webContents.openDevTools();
   } else {
     windows.mainWindow.loadURL(`file://${path.join(__dirname, 'build/index.html')}#/home`);
-    // windows.mainWindow.webContents.openDevTools();
+    windows.mainWindow.webContents.openDevTools();
   }
 }
 

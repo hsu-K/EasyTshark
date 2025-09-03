@@ -26,7 +26,7 @@ const HomePage = () => {
   }
 
   const handleSelectFile = async () => {
-    Message.info("選擇封包文件進行分析");
+    // Message.info("選擇封包文件進行分析");
     try {
       const selectedFilePath = await window.electronAPI.openFileDialog();
       if (selectedFilePath) {

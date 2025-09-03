@@ -71,6 +71,7 @@ interface DataPacketPageProps {
 
 interface DataPacketPageHandle {
   setCurrentRowId: (id: number) => void;
+  reloadData: () => void;
 }
 
 
@@ -133,9 +134,8 @@ const DataPacketPage = forwardRef((props: DataPacketPageProps, ref: DataPacketPa
   const [treeData, setTreeData] = useState([]);
   const [currentRowId, setCurrentRowId] = useState(0);
 
-  useImperativeHandle(ref, () => ({
-    setCurrentRowId: setCurrentRowId,
-  }), []);
+
+
   // const [selectedKeys, setSelectedKeys] = useState([]);
   const loadPacketDetail = async () => {
     const _data = await apiPost('/api/getPacketDetail', {
@@ -330,6 +330,24 @@ const DataPacketPage = forwardRef((props: DataPacketPageProps, ref: DataPacketPa
     }
   }, []);
 
+  const [reloadCount, setReloadCount] = useState(0);
+
+  const reloadData = () => {
+    setDataList([]);
+    setTreeData([]);
+    setOffsetData([]);
+    setHexData([]);
+    setAscData([]);
+    setCurrentPage(1);
+    setCurrentRowId(0);
+    setReloadCount(reloadCount + 1); // 觸發重新加載
+  }
+
+    // 將setCurrentRowId 外放給父組件使用
+  useImperativeHandle(ref, () => ({
+    setCurrentRowId: setCurrentRowId,
+    reloadData: reloadData,
+  }));
 
 
   return (

@@ -20,7 +20,7 @@ public:
             startCapture(req, res);
             });
 
-        __server.Post("/api/stopCapture", [this](const httplib::Request& req, httplib::Response& res) {
+        __server.Get("/api/stopCapture", [this](const httplib::Request& req, httplib::Response& res) {
             stopCapture(req, res);
             });
 
